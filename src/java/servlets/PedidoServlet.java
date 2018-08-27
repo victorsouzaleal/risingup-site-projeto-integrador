@@ -21,16 +21,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Cliente;
-import model.Item;
 import model.Item_Pedido;
-import model.PedidoModel;
+import model.Pedido;
 
 /**
  *
  * @author Aluno
  */
 @WebServlet(name = "Pedido", urlPatterns = {"/Pedido"})
-public class Pedido extends HttpServlet {
+public class PedidoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,10 +44,14 @@ public class Pedido extends HttpServlet {
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession msgs = request.getSession();
+        List<Item_Pedido> car = (List<Item_Pedido>) request.getSession().getAttribute("carrinho");
         String pagina;
         if (request.getSession().getAttribute("cliente") == null) {
             msgs.setAttribute("alertas", "Entre na sua conta para continuar a compra");
             response.sendRedirect("index.jsp?acao=login_usuario");
+        } else if (car.size() < 1 || car == null) {
+            msgs.setAttribute("erros", "Você não tem nenhum item para finalizar o pedido");
+            response.sendRedirect("index.jsp");
         } else {
             if (request.getParameter("action").equals("confirmar")) {
                 request.setAttribute("frete_pedido", request.getSession().getAttribute("frete"));
@@ -58,12 +61,11 @@ public class Pedido extends HttpServlet {
                 pagina = "index.jsp?acao=finalizarPedido";
                 request.getRequestDispatcher(pagina).forward(request, response);
             }
-            
+
             if (request.getParameter("action").equals("finalizar")) {
-                List<Item> car = (List<Item>) request.getSession().getAttribute("carrinho");
                 CtrlPedido ctrl = new CtrlPedido();
-                PedidoModel ped = new PedidoModel();
-                
+                Pedido ped = new Pedido();
+
                 // CADASTRANDO PEDIDO     
                 ped.setCliente((Cliente) request.getSession().getAttribute("cliente"));
                 Calendar dt = new GregorianCalendar(Locale.ROOT);
@@ -73,33 +75,29 @@ public class Pedido extends HttpServlet {
                 ped.setPago(false);
                 ped.setValor((Double) request.getSession().getAttribute("total"));
                 double total = (Double) request.getSession().getAttribute("frete") + (Double) request.getSession().getAttribute("total");
-                ped.setTotal(total); 
+                ped.setTotal(total);
                 ctrl.criarPedido(ped);
                 // FIM CADASTRO PEDIDO
-                
+
                 // CADASTRANDO ITENS
-                for (Item item : car){
-                    Item_Pedido item_p = new Item_Pedido();
-                    item_p.setQuant(item.getQuantidade());
-                    item_p.setValorItens(item.getTotal());
-                    item_p.setPedido(ped);
-                    item_p.setProduto(item.getProduto());
-                    ctrl.criarItemPedido(item_p);
+                for (Item_Pedido item : car) {
+                    item.setPedido(ped);
+                    ctrl.criarItemPedido(item);
                 }
                 // FIM CADASTRO DE ITENS
-                
+
                 //ZERANDO CARRINHO
-                request.getSession().removeAttribute("carrinho");
+                CarrinhoServlet car_servlet = new CarrinhoServlet();
+                car_servlet.apagarCarrinho(car);
                 request.getSession().removeAttribute("frete");
                 request.getSession().removeAttribute("total");
                 SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
                 String data = formatoData.format(dt.getTime());
-                msgs.setAttribute("avisos", "Pedido realizado com sucesso no dia "+data+" no valor de "+total );
+                msgs.setAttribute("avisos", "Pedido realizado com sucesso no dia " + data + " no valor de " + total);
                 pagina = "index.jsp";
                 response.sendRedirect(pagina);
             }
 
-            
         }
     }
 
@@ -118,7 +116,7 @@ public class Pedido extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(Pedido.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PedidoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -136,7 +134,7 @@ public class Pedido extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(Pedido.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PedidoServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -149,5 +147,28 @@ public class Pedido extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+    
+        private Double total(List<Item_Pedido> carrinho) {
+        Double total = 0.0;
+        if (carrinho == null) {
+            return total;
+        } else {
+            for (Item_Pedido i : carrinho) {
+                total += i.getValorItens();
+            }
+        }
+        return total;
+    }
+    
+    private void atualizarCarrinho(HttpSession carrinho,List<Item_Pedido> car) {
+        carrinho.setAttribute("total", total(car));
+        carrinho.setAttribute("frete", 50.00);
+        carrinho.setAttribute("carrinho", car);
+    }
+    
+    private void apagarCarrinho(List<Item_Pedido> car) {
+        for (int i = 0 ; i < car.size() ; i++){    
+                    car.remove(car.get(i));
+        }
+    }
 }

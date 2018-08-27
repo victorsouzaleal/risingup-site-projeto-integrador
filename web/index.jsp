@@ -62,6 +62,9 @@
                         </c:if>
                         <c:if test="${not empty cliente.nome}">    
                             <li class="nav-item active">
+                                <a class="nav-link" href="#">Meus Pedidos</a>
+                            </li>
+                            <li class="nav-item active">
                                 <a class="nav-link" href="Cliente?action=off">Sair</a>
                             </li>
                         </c:if>

@@ -9,14 +9,14 @@ import dao.PedidoDAO;
 import java.util.List;
 
 import model.Item_Pedido;
-import model.PedidoModel;
+import model.Pedido;
 
 public class CtrlPedido {
 
     PedidoDAO dao = null;
 
     //PEDIDO
-    public void criarPedido(PedidoModel dados) throws Exception {
+    public void criarPedido(Pedido dados) throws Exception {
         dao = new PedidoDAO();
         dao.criarPedido(dados);
     }

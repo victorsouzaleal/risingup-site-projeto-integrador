@@ -51,7 +51,7 @@ public class CliServlet extends HttpServlet {
                 cli.setNome(request.getParameter("nome"));
 
                 if (!request.getParameter("data").equals("")) {
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     Calendar cal = Calendar.getInstance();
                     cal.setTime(sdf.parse(request.getParameter("data")));
                     cli.setDataNasc(cal);

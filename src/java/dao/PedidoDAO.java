@@ -8,7 +8,7 @@ package dao;
 import java.util.List;
 import javax.persistence.Query;
 import model.Item_Pedido;
-import model.PedidoModel;
+import model.Pedido;
 
 /**
  *
@@ -18,7 +18,7 @@ public class PedidoDAO extends ConectaJPA {
 
     //PEDIDO
     //Salvar 
-    public void criarPedido(PedidoModel dados) throws Exception {
+    public void criarPedido(Pedido dados) throws Exception {
         et = em.getTransaction();
         try {
             et.begin();
@@ -62,7 +62,7 @@ public class PedidoDAO extends ConectaJPA {
     //Buscar itens de acordo com o ID do PEDIDO
     public List<Item_Pedido> buscarItensPedido(Long id) throws Exception {
         try {
-            Query query = em.createQuery("select i from Item_Pedido as i , PedidoModel ped WHERE i.pedido.id = ped.id and ped.id = :dados");
+            Query query = em.createQuery("select i from Item_Pedido as i , Pedido ped WHERE i.pedido.id = ped.id and ped.id = :dados");
             query.setParameter("dados", id);
             List<Item_Pedido> dadoss = query.getResultList();
             return dadoss;

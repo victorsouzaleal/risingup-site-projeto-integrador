@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
  * @author Aluno
  */
 @Entity
-public class PedidoModel implements Serializable {
+public class Pedido implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -120,10 +120,10 @@ public class PedidoModel implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PedidoModel)) {
+        if (!(object instanceof Pedido)) {
             return false;
         }
-        PedidoModel other = (PedidoModel) object;
+        Pedido other = (Pedido) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

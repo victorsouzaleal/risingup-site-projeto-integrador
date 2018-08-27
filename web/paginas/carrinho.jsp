@@ -32,10 +32,10 @@
                             <form name="alterar${item.produto.id}" action="Carrinho">
                                 <input type="hidden" name="action" value="alterar_qtd"/>
                                 <input type="hidden" name="id" value="${item.produto.id}"/>
-                                <input type="number" name="qtd" value="${item.quantidade}" onchange="document.alterar${item.produto.id}.submit();">
+                                <input type="number" name="qtd" value="${item.quant}" onchange="document.alterar${item.produto.id}.submit();">
                             </form>                             
                         </td>
-                        <td>R$<f:formatNumber minFractionDigits="2" currencySymbol="R$">${item.total}</f:formatNumber></td>
+                        <td>R$<f:formatNumber minFractionDigits="2" currencySymbol="R$">${item.valorItens}</f:formatNumber></td>
                         <td><a href="Carrinho?action=remover&iditem=${item.produto.id}">Remover</a></td>
                         </tr>
                 </c:forEach>   

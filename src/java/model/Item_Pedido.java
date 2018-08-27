@@ -30,7 +30,7 @@ public class Item_Pedido implements Serializable {
     private Produto produto;
     
     @OneToOne
-    private PedidoModel pedido;
+    private Pedido pedido;
 
     
     public Long getId() {
@@ -65,11 +65,11 @@ public class Item_Pedido implements Serializable {
         this.produto = produto;
     }
 
-    public PedidoModel getPedido() {
+    public Pedido getPedido() {
         return pedido;
     }
 
-    public void setPedido(PedidoModel pedido) {
+    public void setPedido(Pedido pedido) {
         this.pedido = pedido;
     }
     
