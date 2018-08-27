@@ -4,13 +4,12 @@ Loja feita com JAVA EE usando JPA
 
 
 # Requisitos para uso
-
-Criar banco de dados com os seguintes dados
-**Nome do Banco :** java-loja
-**Usuario:** root
-**Senha :**  ""(Em branco)
-**Host :** localhost
-**Porta MySQL :** 3306
+Criar banco de dados com as seguintes informações :
++ **Nome do Banco :** java-loja 
++ **Usuario:** root
++ **Senha :**  ""(Em branco)
++ **Host :** localhost
++ **Porta MySQL :** 3306
 
 ## Andamento do Projeto
 
