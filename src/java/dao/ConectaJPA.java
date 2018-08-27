@@ -12,7 +12,7 @@ import javax.persistence.Persistence;
 
 public class ConectaJPA {
 
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("TaBalatoPU");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("LojaPU");
     EntityManager em = emf.createEntityManager();
     EntityTransaction et = null;
 }
