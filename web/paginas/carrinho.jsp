@@ -6,10 +6,6 @@
             <input type="hidden" name="action" value="confirmar"/>
             <button class="btn btn-success">Finalizar Pedido</button>
         </form>
-        <form action="Carrinho" style="display: inline-block">
-            <input type="hidden" name="action" value="apagar"/>
-            <button class="btn btn-danger">Apagar Carrinho</button>
-        </form>
         <table class="table table-light">
             <thead>
             <h1 class="text-center">Carrinho</h1>

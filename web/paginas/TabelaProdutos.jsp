@@ -1,8 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:useBean id="isAutorizado" class="controller.CtrlCliente" />
-<jsp:useBean id="prod" class="controller.CtrlProduto" />
 
-<c:if test="${isAutorizado.isAutorizado(cliente) == true}">
     <div class="row mt-5" style="margin-bottom: 20%">
         <div class="col-8 offset-2">
             <h1 class="text-center">Lista de Produtos</h1> 
@@ -51,6 +48,4 @@
             <c:remove var="b_resultado" scope="session"></c:remove>
             </div>
         </div>
-</c:if>
 
-<c:if test="${isAutorizado.isAutorizado(cliente) == false}"><script>window.location.href = "index.jsp";</script></c:if>

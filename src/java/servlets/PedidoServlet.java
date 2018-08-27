@@ -49,7 +49,7 @@ public class PedidoServlet extends HttpServlet {
         if (request.getSession().getAttribute("cliente") == null) {
             msgs.setAttribute("alertas", "Entre na sua conta para continuar a compra");
             response.sendRedirect("index.jsp?acao=login_usuario");
-        } else if (car.size() < 1 || car == null) {
+        } else if (car.size() < 1) {
             msgs.setAttribute("erros", "Você não tem nenhum item para finalizar o pedido");
             response.sendRedirect("index.jsp");
         } else {
@@ -65,7 +65,6 @@ public class PedidoServlet extends HttpServlet {
             if (request.getParameter("action").equals("finalizar")) {
                 CtrlPedido ctrl = new CtrlPedido();
                 Pedido ped = new Pedido();
-
                 // CADASTRANDO PEDIDO     
                 ped.setCliente((Cliente) request.getSession().getAttribute("cliente"));
                 Calendar dt = new GregorianCalendar(Locale.ROOT);
@@ -100,7 +99,6 @@ public class PedidoServlet extends HttpServlet {
 
         }
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -147,28 +145,4 @@ public class PedidoServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
-        private Double total(List<Item_Pedido> carrinho) {
-        Double total = 0.0;
-        if (carrinho == null) {
-            return total;
-        } else {
-            for (Item_Pedido i : carrinho) {
-                total += i.getValorItens();
-            }
-        }
-        return total;
-    }
-    
-    private void atualizarCarrinho(HttpSession carrinho,List<Item_Pedido> car) {
-        carrinho.setAttribute("total", total(car));
-        carrinho.setAttribute("frete", 50.00);
-        carrinho.setAttribute("carrinho", car);
-    }
-    
-    private void apagarCarrinho(List<Item_Pedido> car) {
-        for (int i = 0 ; i < car.size() ; i++){    
-                    car.remove(car.get(i));
-        }
-    }
 }

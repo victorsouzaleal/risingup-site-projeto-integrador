@@ -27,5 +27,10 @@ public class CtrlCliente {
         Cliente cli = dao.isAutorizado(cliente);
         return cli.isAdmin();
     }
+    
+    public void ativarAdmin(Cliente cli){
+        dao = new ClienteDAO();
+        dao.ativarAdmin(cli);
+    }
 
 }

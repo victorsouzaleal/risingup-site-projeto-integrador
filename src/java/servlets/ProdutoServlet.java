@@ -5,6 +5,7 @@
  */
 package servlets;
 
+import controller.CtrlCliente;
 import controller.CtrlProduto;
 import java.io.IOException;
 import java.util.List;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Cliente;
 import model.Produto;
 import util.Arquivo;
 
@@ -101,15 +103,16 @@ public class ProdutoServlet extends HttpServlet {
         }
 
         if (acao.equals("buscar")) {
-            String nome_produto = request.getParameter("b_nome");
-            CtrlProduto ctrl = new CtrlProduto();
-            if (nome_produto.equals("")) {
-                listas.setAttribute("b_resultado", ctrl.listarProdutos());
-            } else {
-                listas.setAttribute("b_resultado", ctrl.buscaPorNome(nome_produto));
-            }
-            pagina = "index.jsp?acao=lista_prod";
+                String nome_produto = request.getParameter("b_nome");
+                CtrlProduto ctrl = new CtrlProduto();
+                if (nome_produto.equals("")) {
+                    listas.setAttribute("b_resultado", ctrl.listarProdutos());
+                } else {
+                    listas.setAttribute("b_resultado", ctrl.buscaPorNome(nome_produto));
+                }
+                pagina = "index.jsp?acao=lista_prod";
         }
+
         response.sendRedirect(pagina);
     }
 

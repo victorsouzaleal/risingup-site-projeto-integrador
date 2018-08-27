@@ -9,7 +9,7 @@ import java.io.OutputStream;
 import java.util.UUID;
 
 public class Arquivo {
-    private String path_foto_produto = "G:/SENAC/Loja_JavaEE/web/img/produtos";
+    private String path_foto_produto = "I:/SENAC/Loja_JavaEE/web/img/produtos";
 
     public String getPath_foto_produto() {
         return path_foto_produto;

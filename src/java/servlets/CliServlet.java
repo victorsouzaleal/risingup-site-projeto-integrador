@@ -7,12 +7,8 @@ package servlets;
 
 import controller.CtrlCliente;
 import java.io.IOException;
-import java.io.PrintWriter;
-import static java.lang.System.out;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.UUID;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Cliente;
-import util.Arquivo;
+
 
 @MultipartConfig
 @WebServlet(name = "CliServlet", urlPatterns = {"/Cliente"})
@@ -51,7 +47,7 @@ public class CliServlet extends HttpServlet {
                 cli.setNome(request.getParameter("nome"));
 
                 if (!request.getParameter("data").equals("")) {
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
                     Calendar cal = Calendar.getInstance();
                     cal.setTime(sdf.parse(request.getParameter("data")));
                     cli.setDataNasc(cal);
@@ -66,7 +62,7 @@ public class CliServlet extends HttpServlet {
                 cli.getEndereco().setBairro(request.getParameter("bairro"));
                 cli.getEndereco().setCidade(request.getParameter("cidade"));
                 cli.getEndereco().setUf(request.getParameter("uf"));
-
+                
                 cli.validar(request.getParameter("confpws"));
                 ctrlcli.cadastrar(cli);
                 msgs.setAttribute("avisos", "Cadastrado com sucesso");

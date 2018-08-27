@@ -83,12 +83,6 @@ public class CarrinhoServlet extends HttpServlet {
             response.sendRedirect("index.jsp?acao=carrinho");
         }
         
-        // APAGAR CARRINHO
-        if (acao.equals("apagar")) {
-            apagarCarrinho(car);
-            atualizarCarrinho(carrinho, car);
-            response.sendRedirect("index.jsp?acao=carrinho");
-        }
         
         if(acao.equals("remover")){          
             for (int i = 0 ; i < car.size() ; i++){
