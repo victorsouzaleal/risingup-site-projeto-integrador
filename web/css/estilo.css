@@ -1,0 +1,80 @@
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+}
+html {position: relative;min-height: 100%;}
+.fundobranco {background-color: #fff;}
+body { background-image: url(../img/dark-wood.png);margin-bottom: 100px;}
+.flex-container {display: flex; flex-direction: row;}
+.fundoverm { background-color: rgb(185, 62, 62);}
+.vermtransp {background-color:  rgba(36, 30, 30,0.85);}
+section {margin-bottom:10px;}
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: row;
+}
+/* ###################################### */
+
+/* TOPO/CABEÇALHO */
+.headerlogo {flex:3;}
+.pesquisa {flex:8;}
+.logo {width: 150px!important;}
+.pesquisa form .form-control{width:80%;}
+/* ###################################### */
+
+/* BARRA DE NAVEGAÇÃO */
+nav ul li a {color:#fff!important;font-weight: 500;}
+nav ul li a :visited {color:#fff!important;}
+nav ul li a:hover {color:#fcc735!important;}
+nav ul li { margin-left:20px;margin-right: 20px;}
+.navbar-brand {display: none!important;width: 50px;}
+.dropdown-item {color:#000!important;}
+/* ##################################### */
+
+/* CAROUSEL */
+#carousel img {width: 100%;max-height: 70vh;}
+section .jcarousel-ofertas .jcarousel .card img {height: 19em;}
+/* ######################## */
+
+/* OFERTAS */
+#ofertas h1 , section {border-radius: 5px;}
+.card-img-top{
+    width: 100%;
+    min-height: 300px;
+    max-height: 300px;
+}
+/* ############################### */
+
+
+/* MEDIA QUERIES */
+@media screen and (max-width:576px) {
+    .pesquisa form input {width: 50%!important;}
+}
+@media screen and (max-width:576px){
+    .headerlogo {flex:6}
+}
+
+/* STICKY FOOTER */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 100px;
+}
+.footer {
+  
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 100px;
+  line-height: 60px; /* Vertically center the text there */
+}
