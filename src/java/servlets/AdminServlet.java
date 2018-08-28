@@ -7,10 +7,8 @@ package servlets;
 
 import controller.CtrlCliente;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,10 +16,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Cliente;
 
-
-@MultipartConfig
-@WebServlet(name = "CliServlet", urlPatterns = {"/Cliente"})
-public class CliServlet extends HttpServlet {
+/**
+ *
+ * @author Casa
+ */
+@WebServlet(name = "AdminServlet", urlPatterns = {"/Admin"})
+public class AdminServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,70 +35,43 @@ public class CliServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        CtrlCliente ctrlcli = new CtrlCliente();
         String acao = request.getParameter("action");
-        HttpSession msgs = request.getSession();
-        String pagina = "index.jsp";
+        HttpSession user = request.getSession();
+        String pagina = "";
 
-        if (acao.equals("cad")) {
-            // CADASTRO
-            try {
-                Cliente cli = new Cliente();
-                CtrlCliente ctrlcli = new CtrlCliente();
-                cli.setNome(request.getParameter("nome"));
-
-                if (!request.getParameter("data").equals("")) {
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-                    Calendar cal = Calendar.getInstance();
-                    cal.setTime(sdf.parse(request.getParameter("data")));
-                    cli.setDataNasc(cal);
-                }
-
-                cli.setEmail(request.getParameter("email"));
-                cli.setPws(request.getParameter("pws"));
-                cli.setComplemento(request.getParameter("comp"));
-                cli.setNumero(request.getParameter("num"));
-                cli.getEndereco().setCep(request.getParameter("cep"));
-                cli.getEndereco().setLogradouro(request.getParameter("rua"));
-                cli.getEndereco().setBairro(request.getParameter("bairro"));
-                cli.getEndereco().setCidade(request.getParameter("cidade"));
-                cli.getEndereco().setUf(request.getParameter("uf"));
-                
-                cli.validar(request.getParameter("confpws"));
-                ctrlcli.cadastrar(cli);
-                msgs.setAttribute("avisos", "Cadastrado com sucesso");
-                pagina = "index.jsp";
-            } catch (Exception ex) {
-                msgs.setAttribute("erros", ex.getMessage().replace("\n","<br>"));
-                pagina = "index.jsp?acao=cad_usuario";
+        if (acao == null) {
+            if (user.getAttribute("cliente") != null && ctrlcli.isAutorizado((Cliente) user.getAttribute("cliente")) == true) {
+                response.sendRedirect("admin.jsp");
             }
         }
 
         if (acao.equals("login")) {
-            //LOGIN
             try {
-                CtrlCliente ctrlcli = new CtrlCliente();
                 Cliente cli = ctrlcli.login(request.getParameter("email"), request.getParameter("pws"));
-                HttpSession user = request.getSession();
                 cli.setPws("");
-                user.setAttribute("cliente", cli);
-                msgs.setAttribute("avisos", "Olá " + cli.getEmail() + "");
+                if (ctrlcli.isAutorizado(cli) == true) {
+                    user.setAttribute("cliente", cli);
+                    user.setAttribute("avisos", "Bem-vindo a pagina de administrador");
+                    response.sendRedirect("admin/admin.jsp");
+                } else {
+                    user.setAttribute("erros", "Sem permissão");
+                    response.sendRedirect("admin/index.jsp");
+                }
             } catch (Exception ex) {
-                msgs.setAttribute("erros", "Usuario ou senha invalido");
-                pagina = "index.jsp?acao=login_usuario";
+                user.setAttribute("erros", "Usuario ou senha invalido");
+                response.sendRedirect("admin/index.jsp");
             }
         }
 
         if (acao.equals("off")) {
-            HttpSession user = request.getSession();
+            user = request.getSession();
             //Remove um item da session
             //user.removeAttribute("cliente");
             //Apaga a session user
             user.invalidate();
+            response.sendRedirect("admin/index.jsp");
         }
-        
-
-
-        response.sendRedirect(pagina);
 
     }
 

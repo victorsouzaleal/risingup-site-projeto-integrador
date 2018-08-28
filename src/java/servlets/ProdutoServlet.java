@@ -95,24 +95,24 @@ public class ProdutoServlet extends HttpServlet {
 
                 ctrl.cadastrar(prod); // CADASTRO
                 msgs.setAttribute("avisos", "Produto cadastrado com sucesso");
-                pagina = "index.jsp?acao=cad_produto";
+                pagina = "admin/admin.jsp?acao=cad_produto";
             } catch (Exception ex) {
                 msgs.setAttribute("erros", ex.getMessage());
-                pagina = "index.jsp?acao=cad_produto";
+                pagina = "admin/admin.jsp?acao=cad_produto";
             }
         }
 
         if (acao.equals("buscar")) {
-                String nome_produto = request.getParameter("b_nome");
-                CtrlProduto ctrl = new CtrlProduto();
-                if (nome_produto.equals("")) {
-                    listas.setAttribute("b_resultado", ctrl.listarProdutos());
-                } else {
-                    listas.setAttribute("b_resultado", ctrl.buscaPorNome(nome_produto));
-                }
-                pagina = "index.jsp?acao=lista_prod";
+            String nome_produto = request.getParameter("b_nome");
+            CtrlProduto ctrl = new CtrlProduto();
+            List<Produto> lista;
+            lista = ctrl.buscaPorNome(nome_produto);
+            listas.setAttribute("b_resultado", lista);
+            if (lista.size() < 1) {
+                msgs.setAttribute("erros", "Dados não encontrados");
+            }
+            pagina = "admin/admin.jsp?acao=lista_prod";
         }
-
         response.sendRedirect(pagina);
     }
 

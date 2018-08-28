@@ -49,10 +49,10 @@ public class ProdutoDAO extends ConectaJPA {
     }
 
     //Buscar todos por nomes
-    public List<Produto> findProdutos(String dados) {
+    public List<Produto> findProdutos(String dados){
         try {
             Query query = em.createQuery("select p from Produto as p where p.nome like :dados");
-            query.setParameter("dados", dados + "%");
+            query.setParameter("dados", dados.trim() + "%");
             List<Produto> produtos = query.getResultList();
             return produtos;
         } finally {

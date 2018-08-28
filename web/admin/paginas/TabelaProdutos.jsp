@@ -1,18 +1,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
     <div class="row mt-5" style="margin-bottom: 20%">
         <div class="col-8 offset-2">
             <h1 class="text-center">Lista de Produtos</h1> 
             <div class="text-center">
-                <form id="busca" class="d-inline-block mb-2 mt-1" action="Produto?action=buscar" method="POST">
+                <form id="busca" class="d-inline-block mb-2 mt-1" action="../Produto?action=buscar" method="POST">
                     <div class="form-group">
                         <input name="b_nome" class="form-control d-inline-block" type="text" style="width: 200px"/>
                         <button name="b_botao" class="btn btn-info d-inline-block mb-2 mt-1">Buscar</button>
                     </div>
                 </form>
-                <button class="btn btn-success mb-2 mt-1"><a href="index.jsp?acao=cad_produto" style="text-decoration: none; color: #fff;">Adicionar Produto</a></button>
+                <button class="btn btn-success mb-2 mt-1"><a href="admin.jsp?acao=cad_produto" style="text-decoration: none; color: #fff;">Adicionar Produto</a></button>
             </div>
-            <c:if test="${b_resultado != null}">
                 <table class="table table-light">
                     <thead>
                         <tr>
@@ -38,13 +36,12 @@
                                     <c:if test="${prod.ativo == true}">Ativo</c:if>
                                     <c:if test="${prod.ativo != true}">Desativado</c:if>       
                                     </td>
-                                    <td><img style="width: 200; height: 120px;"src='<c:url value='img/produtos/${prod.foto1}'/>'/></td>
+                                    <td><img style="width: 200; height: 120px;"src='<c:url value='../img/produtos/${prod.foto1}'/>'/></td>
                                 <td><a href="#">Editar</a> <a href="#">Remover</a></td>
                             </tr>
                         </c:forEach>   
                     </tbody>
                 </table>
-            </c:if>
             <c:remove var="b_resultado" scope="session"></c:remove>
             </div>
         </div>

@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<jsp:useBean id="isAutorizado" class="controller.CtrlCliente" />
 
 <!doctype html>
 <html lang="en">
@@ -38,17 +37,10 @@
                                     <c:out value="${cont}"></c:out>
                                     </span></a>
                             </li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Gerenciar
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="index.jsp?acao=lista_prod">Produtos</a>
-                                    <a class="dropdown-item" href="#">Usuarios</a>
-                                    <a class="dropdown-item" href="#">Pedidos</a>
-                                </div>
-                            </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="admin">Admin</a>
+                        </li>    
+                           
 
                     </ul>
                     <ul class="navbar-nav ml-auto">
