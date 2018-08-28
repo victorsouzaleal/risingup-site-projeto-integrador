@@ -46,14 +46,16 @@ public class PedidoServlet extends HttpServlet {
         HttpSession msgs = request.getSession();
         List<Item_Pedido> car = (List<Item_Pedido>) request.getSession().getAttribute("carrinho");
         String pagina;
-        if (request.getSession().getAttribute("cliente") == null) {
+        
+        if (request.getSession().getAttribute("cliente") == null) { // SE NÃO HOUVER CLIENTE LOGADO
             msgs.setAttribute("alertas", "Entre na sua conta para continuar a compra");
             response.sendRedirect("index.jsp?acao=login_usuario");
-        } else if (car.size() < 1) {
+        } else if (car == null || car.size() < 1) { // SE O CARRINHO NÃO EXISTIR OU ESTIVER VAZIO
             msgs.setAttribute("erros", "Você não tem nenhum item para finalizar o pedido");
             response.sendRedirect("index.jsp");
-        } else {
-            if (request.getParameter("action").equals("confirmar")) {
+        } else { // SE TUDO ESTIVER CORRETO
+            
+            if (request.getParameter("action").equals("confirmar")) { // CONFIRMAÇÃO DO PEDIDO
                 request.setAttribute("frete_pedido", request.getSession().getAttribute("frete"));
                 request.setAttribute("total_pedido", request.getSession().getAttribute("total"));
                 double total = (Double) request.getSession().getAttribute("frete") + (Double) request.getSession().getAttribute("total");
@@ -62,7 +64,7 @@ public class PedidoServlet extends HttpServlet {
                 request.getRequestDispatcher(pagina).forward(request, response);
             }
 
-            if (request.getParameter("action").equals("finalizar")) {
+            if (request.getParameter("action").equals("finalizar")) { // FINALIZAÇÃO DO PEDIDO
                 CtrlPedido ctrl = new CtrlPedido();
                 Pedido ped = new Pedido();
                 // CADASTRANDO PEDIDO     
