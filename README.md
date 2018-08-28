@@ -18,7 +18,7 @@ Criar banco de dados com as seguintes informações :
  - Cadastro de Produtos (Feito)
  - Carrinho de compras (Feito)
  - Finalização do Pedido (Feito)
- - Listagem/Busca de Usuários (Não iniciado)
+ - Listagem/Busca de Usuários (Em andamento)
  - Listagem/Busca de Produtos (Em andamento)
  - Listagem/Busca de Pedidos (Não iniciado)
  - Edição de Produto (Não iniciado)
