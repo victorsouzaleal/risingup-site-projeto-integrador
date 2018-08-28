@@ -104,9 +104,10 @@ public class ProdutoServlet extends HttpServlet {
 
         if (acao.equals("buscar")) {
             String nome_produto = request.getParameter("b_nome");
+            int tipo = Integer.parseInt(request.getParameter("tipo"));
             CtrlProduto ctrl = new CtrlProduto();
             List<Produto> lista;
-            lista = ctrl.buscaPorNome(nome_produto);
+            lista = ctrl.busca(nome_produto , tipo);
             listas.setAttribute("b_resultado", lista);
             if (lista.size() < 1) {
                 msgs.setAttribute("erros", "Dados não encontrados");

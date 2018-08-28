@@ -34,9 +34,9 @@ public class CtrlProduto {
         return dao.findProduto(id);
     }
     
-    public List<Produto> buscaPorNome(String nome){
+    public List<Produto> busca(String nome , int tipo){
         dao = new ProdutoDAO();
-        return dao.findProdutos(nome);
+        return dao.findProdutos(nome,tipo);
     }
     
 

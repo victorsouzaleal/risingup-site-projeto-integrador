@@ -44,10 +44,12 @@ public class CliServlet extends HttpServlet {
             try {
                 Cliente cli = new Cliente();
                 CtrlCliente ctrlcli = new CtrlCliente();
+                if(ctrlcli.isPrimeiro()){
+                    cli.setAdmin(true);
+                }
                 cli.setNome(request.getParameter("nome"));
-
                 if (!request.getParameter("data").equals("")) {
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                     Calendar cal = Calendar.getInstance();
                     cal.setTime(sdf.parse(request.getParameter("data")));
                     cli.setDataNasc(cal);

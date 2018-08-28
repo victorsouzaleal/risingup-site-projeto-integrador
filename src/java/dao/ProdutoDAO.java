@@ -49,10 +49,22 @@ public class ProdutoDAO extends ConectaJPA {
     }
 
     //Buscar todos por nomes
-    public List<Produto> findProdutos(String dados){
+    public List<Produto> findProdutos(String dados, int tipo){
         try {
             Query query = em.createQuery("select p from Produto as p where p.nome like :dados");
-            query.setParameter("dados", dados.trim() + "%");
+            switch (tipo) {
+                case 1:
+                    query = em.createQuery("select p from Produto as p where p.nome like :dados");
+                    query.setParameter("dados", dados.trim() + "%");
+                    break;
+                case 2:
+                    query = em.createQuery("select p from Produto as p where p.descricao like :dados");
+                    query.setParameter("dados", dados.trim() + "%");
+                    break;
+                case 3:
+                    query = em.createQuery("select p from Produto as p ORDER BY p.id DESC");
+                    break;
+            }         
             List<Produto> produtos = query.getResultList();
             return produtos;
         } finally {

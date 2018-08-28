@@ -45,7 +45,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="admin.jsp?acao=lista_prod">Produtos</a>
-                                <a class="dropdown-item" href="#">Usuarios</a>
+                                <a class="dropdown-item" href="admin.jsp?acao=lista_cli">Usuarios</a>
                                 <a class="dropdown-item" href="#">Pedidos</a>
                             </div>
                         </li>
@@ -70,8 +70,11 @@
                 <c:when test="${param.acao == 'lista_prod'}">
                     <c:import url="paginas/TabelaProdutos.jsp"></c:import>
                 </c:when>
+                <c:when test="${param.acao == 'lista_cli'}">
+                    <c:import url="paginas/TabelaClientes.jsp"></c:import>
+                </c:when>
                 <c:otherwise>
-                    <h1>Bem-vindo</h1>
+                    <h1 class="text-center"> Bem-vindo</h1>
                 </c:otherwise>
             </c:choose>
         </section>

@@ -99,15 +99,42 @@ public class ClienteDAO extends ConectaJPA {
     }
 
     //Buscar todos por nomes
-    public List<Cliente> findClientes(String dado) {
+    public List<Cliente> findClientes(String dado, int tipo) {
         try {
-            Query query = em.createQuery("select p from Cliente as p where p.nome like :dados and p.ativo = 1");
+            Query query = em.createQuery("select p from Cliente as p where p.nome like :dados");
+            switch (tipo) {
+                case 1:
+                    query = em.createQuery("select p from Cliente as p where p.nome like :dados");
+                    break;
+                case 2:
+                    query = em.createQuery("select p from Cliente as p where p.email like :dados");
+                    break;
+                case 3:
+                    query = em.createQuery("select p from Cliente as p where p.endereco.cep like :dados");
+                    break;
+            }
             query.setParameter("dados", dado + "%");
             List<Cliente> dadoss = query.getResultList();
             return dadoss;
         } finally {
             em.close();
         }
+    }
+    
+    //Buscar todos por nomes
+    public boolean isPrimeiro() {
+        boolean result;
+        try {
+            Query query = em.createQuery("select p from Cliente as p");
+            Cliente cli = (Cliente) query.getSingleResult();
+            result = false;
+        } catch (Exception ex) {
+            ex.getSuppressed();
+            result = true;         
+        } finally {
+            em.close();
+        }
+        return result;
     }
 
     //Busca dados pela email e senha

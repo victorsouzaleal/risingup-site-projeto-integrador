@@ -37,11 +37,6 @@
                                     <c:out value="${cont}"></c:out>
                                     </span></a>
                             </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="admin">Admin</a>
-                        </li>    
-                           
-
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <c:if test="${empty cliente.nome}">

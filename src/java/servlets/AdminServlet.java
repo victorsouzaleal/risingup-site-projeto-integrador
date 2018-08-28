@@ -8,6 +8,7 @@ package servlets;
 import controller.CtrlCliente;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,11 +41,6 @@ public class AdminServlet extends HttpServlet {
         HttpSession user = request.getSession();
         String pagina = "";
 
-        if (acao == null) {
-            if (user.getAttribute("cliente") != null && ctrlcli.isAutorizado((Cliente) user.getAttribute("cliente")) == true) {
-                response.sendRedirect("admin.jsp");
-            }
-        }
 
         if (acao.equals("login")) {
             try {
@@ -71,6 +67,20 @@ public class AdminServlet extends HttpServlet {
             //Apaga a session user
             user.invalidate();
             response.sendRedirect("admin/index.jsp");
+        }
+
+        if (acao.equals("buscar_cli")) {
+            String dado_cli = request.getParameter("b_nome");
+            int tipo = Integer.parseInt(request.getParameter("tipo"));
+            CtrlCliente ctrl = new CtrlCliente();
+            List<Cliente> lista;
+            lista = ctrl.buscaCliente(dado_cli, tipo);
+            user.setAttribute("b_resultado", lista);
+            if (lista.size() < 1) {
+                user.setAttribute("erros", "Dados não encontrados");
+            }
+            pagina = "admin/admin.jsp?acao=lista_prod";
+            response.sendRedirect("admin/admin.jsp?acao=lista_cli");
         }
 
     }

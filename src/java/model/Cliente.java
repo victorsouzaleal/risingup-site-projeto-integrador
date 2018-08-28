@@ -39,7 +39,7 @@ public class Cliente implements Serializable {
     private Endereco endereco = new Endereco();
 
     private boolean ativo = true;
-    private boolean admin = true;
+    private boolean admin = false;
 
     public String getNome() {
         return nome;

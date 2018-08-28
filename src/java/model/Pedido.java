@@ -7,6 +7,7 @@ package model;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,7 +41,7 @@ public class Pedido implements Serializable {
     @Column(nullable = false)
     private boolean pago;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Cliente cliente;
 
     public Long getId() {
