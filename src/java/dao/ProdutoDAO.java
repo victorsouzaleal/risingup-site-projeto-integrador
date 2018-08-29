@@ -7,7 +7,6 @@ package dao;
 
 import java.util.List;
 import javax.persistence.Query;
-import model.Item_Pedido;
 import model.Produto;
 
 /**

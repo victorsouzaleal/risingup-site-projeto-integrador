@@ -7,6 +7,7 @@ package dao;
 
 import java.util.List;
 import javax.persistence.Query;
+import model.Cliente;
 import model.Item_Pedido;
 import model.Pedido;
 
@@ -35,6 +36,18 @@ public class PedidoDAO extends ConectaJPA {
             if (em != null) {
                 em.close();
             }
+        }
+    }
+    
+    //Listar pedidos de um cliente
+        public List<Pedido> buscarPedidoCliente(Cliente cli) throws Exception {
+        try {
+            Query query = em.createQuery("select p from Pedido as p , Cliente c WHERE p.cliente.id = c.id and c.id = :dados");
+            query.setParameter("dados", cli.getId());
+            List<Pedido> dadoss = query.getResultList();
+            return dadoss;
+        } finally {
+            em.close();
         }
     }
 

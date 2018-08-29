@@ -49,7 +49,7 @@
                         </c:if>
                         <c:if test="${not empty cliente.nome}">    
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Meus Pedidos</a>
+                                <a class="nav-link" href="index.jsp?acao=meus_pedidos">Meus Pedidos</a>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link" href="Cliente?action=off">Sair</a>
@@ -79,6 +79,9 @@
                 </c:when>
                 <c:when test="${param.acao == 'finalizarPedido'}">
                     <c:import url="paginas/finalizarPedido.jsp"></c:import>
+                </c:when>
+                <c:when test="${param.acao == 'meus_pedidos'}">
+                    <c:import url="paginas/listaPedidos.jsp"></c:import>
                 </c:when>
                 <c:otherwise>
                     <c:import url="paginas/inicio.jsp"></c:import>
