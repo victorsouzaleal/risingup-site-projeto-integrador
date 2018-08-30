@@ -83,8 +83,11 @@
                 <c:when test="${param.acao == 'meus_pedidos'}">
                     <c:import url="paginas/listaPedidos.jsp"></c:import>
                 </c:when>
+                <c:when test="${param.acao == 'detalhes'}">
+                    <c:import url="paginas/detalhesProdutos.jsp"></c:import>
+                </c:when>
                 <c:otherwise>
-                    <c:import url="paginas/inicio.jsp"></c:import>
+                    <c:import url="paginas/inicio.jsp"></c:import>    
                 </c:otherwise>
             </c:choose>
         </section>
@@ -99,6 +102,7 @@
         <link rel="stylesheet" href="js/jquery-ui.structure.min.css">
         <link rel="stylesheet" href="js/jquery-ui.theme.min.css">
         <script src="js/datepicker.js"></script>
+        <script src="js/spinner.js"></script>
         
     </body>
 </html>

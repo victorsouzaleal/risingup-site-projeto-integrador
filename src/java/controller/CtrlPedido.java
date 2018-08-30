@@ -7,7 +7,7 @@ package controller;
 
 import dao.PedidoDAO;
 import java.util.List;
-import model.Cliente;
+import model.Usuario;
 
 import model.Item_Pedido;
 import model.Pedido;
@@ -22,7 +22,7 @@ public class CtrlPedido {
         dao.criarPedido(dados);
     }
     
-    public List<Pedido> buscarPedidoCliente(Cliente cli ) throws Exception{
+    public List<Pedido> buscarPedidoCliente(Usuario cli ) throws Exception{
         dao = new PedidoDAO();
         return dao.buscarPedidoCliente(cli);
     }

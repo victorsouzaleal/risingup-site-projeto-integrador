@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Cliente;
+import model.Usuario;
 import model.Produto;
 import util.Arquivo;
 
@@ -114,6 +114,7 @@ public class ProdutoServlet extends HttpServlet {
             }
             pagina = "admin/admin.jsp?acao=lista_prod";
         }
+        
         response.sendRedirect(pagina);
     }
 

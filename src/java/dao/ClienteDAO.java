@@ -8,12 +8,12 @@ import javax.persistence.EntityNotFoundException;
 //import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.servlet.http.HttpSession;
-import model.Cliente;
+import model.Usuario;
 
 public class ClienteDAO extends ConectaJPA {
 
     //Salvar 
-    public void create(Cliente dados) throws Exception {
+    public void create(Usuario dados) throws Exception {
         et = em.getTransaction();
         try {
             et.begin();
@@ -34,7 +34,7 @@ public class ClienteDAO extends ConectaJPA {
     }
 
     //Alterar 
-    public void edit(Cliente dados) throws Exception {
+    public void edit(Usuario dados) throws Exception {
         et = em.getTransaction();
         try {
             et.begin();
@@ -66,9 +66,9 @@ public class ClienteDAO extends ConectaJPA {
         et = em.getTransaction();
         try {
             et.begin();
-            Cliente dados = null;
+            Usuario dados = null;
             try {
-                dados = em.getReference(Cliente.class, id);
+                dados = em.getReference(Usuario.class, id);
                 dados.getId();
             } catch (EntityNotFoundException enfe) {
 
@@ -90,31 +90,31 @@ public class ClienteDAO extends ConectaJPA {
     }
 
     //Busca pelo ID
-    public Cliente findCliente(Long id) {
+    public Usuario findCliente(Long id) {
         try {
-            return em.find(Cliente.class, id);
+            return em.find(Usuario.class, id);
         } finally {
             em.close();
         }
     }
 
     //Buscar todos por nomes
-    public List<Cliente> findClientes(String dado, int tipo) {
+    public List<Usuario> findClientes(String dado, int tipo) {
         try {
-            Query query = em.createQuery("select p from Cliente as p where p.nome like :dados");
+            Query query = em.createQuery("select p from Usuario as p where p.nome like :dados");
             switch (tipo) {
                 case 1:
-                    query = em.createQuery("select p from Cliente as p where p.nome like :dados");
+                    query = em.createQuery("select p from Usuario as p where p.nome like :dados");
                     break;
                 case 2:
-                    query = em.createQuery("select p from Cliente as p where p.email like :dados");
+                    query = em.createQuery("select p from Usuario as p where p.email like :dados");
                     break;
                 case 3:
-                    query = em.createQuery("select p from Cliente as p where p.endereco.cep like :dados");
+                    query = em.createQuery("select p from Usuario as p where p.endereco.cep like :dados");
                     break;
             }
             query.setParameter("dados", dado + "%");
-            List<Cliente> dadoss = query.getResultList();
+            List<Usuario> dadoss = query.getResultList();
             return dadoss;
         } finally {
             em.close();
@@ -125,8 +125,8 @@ public class ClienteDAO extends ConectaJPA {
     public boolean isPrimeiro() {
         boolean result;
         try {
-            Query query = em.createQuery("select p from Cliente as p");
-            Cliente cli = (Cliente) query.getSingleResult();
+            Query query = em.createQuery("select p from Usuario as p");
+            Usuario cli = (Usuario) query.getSingleResult();
             result = false;
         } catch (Exception ex) {
             ex.getSuppressed();
@@ -138,33 +138,33 @@ public class ClienteDAO extends ConectaJPA {
     }
 
     //Busca dados pela email e senha
-    public Cliente findCliente(String email, String pws) {
+    public Usuario findCliente(String email, String pws) {
         try {
             Query query = em.createQuery(""
-                    + "select p from Cliente as p "
+                    + "select p from Usuario as p "
                     + "where p.email = :email and p.pws = :pws");
             query.setParameter("email", email);
             query.setParameter("pws", pws);
-            return (Cliente) query.getSingleResult();
+            return (Usuario) query.getSingleResult();
         } finally {
             em.close();
         }
     }
 
     //Ver se o usuario é autorizado
-    public Cliente isAutorizado(Cliente cliente) {
+    public Usuario isAutorizado(Usuario cliente) {
         Long id = cliente.getId();
         try {
-            return em.find(Cliente.class, id);
+            return em.find(Usuario.class, id);
         } finally {
             em.close();
         }
     }
 
-    public void ativarAdmin(Cliente cli) {
+    public void ativarAdmin(Usuario cli) {
         Long id = cli.getId();
         try {
-            Query query = em.createQuery("UPDATE Cliente as c SET c.ativo = true where c.id = :id");
+            Query query = em.createQuery("UPDATE Usuario as c SET c.ativo = true where c.id = :id");
             query.setParameter("dados", id);
         } finally {
             em.close();

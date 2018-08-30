@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Cliente;
+import model.Usuario;
 import model.Item_Pedido;
 import model.Pedido;
 
@@ -68,7 +68,7 @@ public class PedidoServlet extends HttpServlet {
                 CtrlPedido ctrl = new CtrlPedido();
                 Pedido ped = new Pedido();
                 // CADASTRANDO PEDIDO     
-                ped.setCliente((Cliente) request.getSession().getAttribute("cliente"));
+                ped.setCliente((Usuario) request.getSession().getAttribute("cliente"));
                 Calendar dt = new GregorianCalendar(Locale.ROOT);
                 ped.setDataPedido(dt);
                 ped.setFechado(true);
@@ -88,8 +88,7 @@ public class PedidoServlet extends HttpServlet {
                 // FIM CADASTRO DE ITENS
 
                 //ZERANDO CARRINHO
-                CarrinhoServlet car_servlet = new CarrinhoServlet();
-                car_servlet.apagarCarrinho(car);
+                request.getSession().removeAttribute("carrinho");
                 request.getSession().removeAttribute("frete");
                 request.getSession().removeAttribute("total");
                 SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");

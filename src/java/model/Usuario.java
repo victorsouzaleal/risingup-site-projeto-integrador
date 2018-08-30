@@ -21,7 +21,7 @@ import javax.persistence.Temporal;
  * @author Casa
  */
 @Entity
-public class Cliente implements Serializable {
+public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -131,10 +131,10 @@ public class Cliente implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Cliente)) {
+        if (!(object instanceof Usuario)) {
             return false;
         }
-        Cliente other = (Cliente) object;
+        Usuario other = (Usuario) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

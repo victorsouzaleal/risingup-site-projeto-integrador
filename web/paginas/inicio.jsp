@@ -14,15 +14,21 @@
                         <h4 class="card-title">${prod.nome}</h4>
                         <p class="card-text">${prod.descricao}</p>
                         <p class="card-text">Preço: <f:formatNumber minFractionDigits="2" currencySymbol="R$">${prod.preco}</f:formatNumber></p>
+                        
+                        <!-- VER DETALHES DO PRODUTO -->    
+                        <form style="display: inline-block;" method="GET">
+                            <input type="hidden" name="id" value="${prod.id}"/>                       
+                            <input  type="hidden" name="acao" value="detalhes"/>                       
+                            <button class="btn btn-info">Detalhes</button>
+                        </form>
+                            
                         <!-- Adicionando o produto no carrinho de compras -->
-                        <form style="display: inline-block;"action="Carrinho" method="POST">
+                        <form style="display: inline-block;" action="Carrinho" method="POST">
                             <input type="hidden" name="prod_id" value="${prod.id}"/>                       
                             <input  type="hidden" name="action" value="adicionar"/>                       
                             <input type="hidden" class="qtde" name="prod_qtd" value="1"/>
-                            <button class="btn btn-danger">Adicionar ao Carrinho</button>
+                            <button class="btn btn-success">Adicionar ao Carrinho</button>
                         </form>
-
-                        <button class="btn btn-info" type="button" data-toggle="modal" data-target="#exampleModal">Detalhes</button>
                     </div>
                 </div>
             </div>

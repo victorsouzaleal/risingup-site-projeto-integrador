@@ -41,7 +41,7 @@ public class Pedido implements Serializable {
     private boolean pago;
 
     @OneToOne
-    private Cliente cliente;
+    private Usuario cliente;
 
     public Long getId() {
         return id;
@@ -99,11 +99,11 @@ public class Pedido implements Serializable {
         this.pago = pago;
     }
 
-    public Cliente getCliente() {
+    public Usuario getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(Usuario cliente) {
         this.cliente = cliente;
     }
 

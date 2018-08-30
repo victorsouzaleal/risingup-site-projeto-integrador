@@ -62,7 +62,7 @@
             </div>
         </nav>
         <c:import url="../paginas/alertas.jsp"></c:import>
-        <section id="conteudo">
+            <section id="conteudo">
             <c:choose>
                 <c:when test="${param.acao == 'cad_produto'}">
                     <c:import url="paginas/formCadastroProd.html"></c:import>
@@ -74,12 +74,16 @@
                     <c:import url="paginas/TabelaClientes.jsp"></c:import>
                 </c:when>
                 <c:otherwise>
-                    <h1 class="text-center"> Bem-vindo</h1>
+                    <div class="container text-center mt-5">
+                        <button class="btn btn-success"><a href="admin.jsp?acao=cad_produto" style="text-decoration: none; color: #fff;">Cadastro de Produtos</a></button>
+                        <button class="btn btn-success"><a href="admin.jsp?acao=lista_prod" style="text-decoration: none; color: #fff;">Relatório de Produtos</a></button>
+                        <button class="btn btn-success"><a href="admin.jsp?acao=lista_cli" style="text-decoration: none; color: #fff;">Relatório de Clientes</a></button>
+                    </div>
                 </c:otherwise>
             </c:choose>
         </section>
 
-       
+
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

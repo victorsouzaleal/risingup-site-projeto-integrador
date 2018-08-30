@@ -47,13 +47,13 @@ public class CarrinhoServlet extends HttpServlet {
             CtrlProduto ctrl = new CtrlProduto();
             Produto prod = ctrl.buscarProduto(Long.parseLong(request.getParameter("prod_id")));
             Item_Pedido item = new Item_Pedido();
-            item.setProduto(prod);
+            item.setProduto(prod);        
             item.setQuant(Integer.parseInt(request.getParameter("prod_qtd")));
             item.setValorItens(item.getProduto().getPreco() * item.getQuant());
 
             for (Item_Pedido i : car) {
                 if (i.getProduto().equals(item.getProduto())) {
-                    i.setQuant(i.getQuant() + 1);
+                    i.setQuant(i.getQuant() + Integer.parseInt(request.getParameter("prod_qtd")) );
                     i.setValorItens(i.getProduto().getPreco() * i.getQuant());
                     igual = true;
                 }

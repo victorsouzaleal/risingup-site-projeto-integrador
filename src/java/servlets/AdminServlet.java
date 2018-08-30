@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Cliente;
+import model.Usuario;
 
 /**
  *
@@ -44,7 +44,7 @@ public class AdminServlet extends HttpServlet {
 
         if (acao.equals("login")) {
             try {
-                Cliente cli = ctrlcli.login(request.getParameter("email"), request.getParameter("pws"));
+                Usuario cli = ctrlcli.login(request.getParameter("email"), request.getParameter("pws"));
                 cli.setPws("");
                 if (ctrlcli.isAutorizado(cli) == true) {
                     user.setAttribute("cliente", cli);
@@ -73,7 +73,7 @@ public class AdminServlet extends HttpServlet {
             String dado_cli = request.getParameter("b_nome");
             int tipo = Integer.parseInt(request.getParameter("tipo"));
             CtrlCliente ctrl = new CtrlCliente();
-            List<Cliente> lista;
+            List<Usuario> lista;
             lista = ctrl.buscaCliente(dado_cli, tipo);
             user.setAttribute("b_resultado", lista);
             if (lista.size() < 1) {

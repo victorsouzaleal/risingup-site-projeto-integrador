@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Cliente;
+import model.Usuario;
 
 
 @MultipartConfig
@@ -42,7 +42,7 @@ public class CliServlet extends HttpServlet {
         if (acao.equals("cad")) {
             // CADASTRO
             try {
-                Cliente cli = new Cliente();
+                Usuario cli = new Usuario();
                 CtrlCliente ctrlcli = new CtrlCliente();
                 if(ctrlcli.isPrimeiro()){
                     cli.setAdmin(true);
@@ -79,7 +79,7 @@ public class CliServlet extends HttpServlet {
             //LOGIN
             try {
                 CtrlCliente ctrlcli = new CtrlCliente();
-                Cliente cli = ctrlcli.login(request.getParameter("email"), request.getParameter("pws"));
+                Usuario cli = ctrlcli.login(request.getParameter("email"), request.getParameter("pws"));
                 HttpSession user = request.getSession();
                 cli.setPws("");
                 user.setAttribute("cliente", cli);
