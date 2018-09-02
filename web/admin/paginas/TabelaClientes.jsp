@@ -46,7 +46,7 @@
                             <c:if test="${cli.admin == true}">Admin</c:if>
                             <c:if test="${cli.admin != true}">Membro</c:if>       
                             </td>
-                            <td><a href="#">Editar</a> </td>
+                            <td><a href="admin.jsp?acao=edit_user&iduser=${cli.id}">Editar</a> </td>
                         </tr>
                 </c:forEach>   
             </tbody>

@@ -89,6 +89,52 @@ public class CliServlet extends HttpServlet {
                 pagina = "index.jsp?acao=login_usuario";
             }
         }
+        
+        
+        if (acao.equals("edit")) {
+            // CADASTRO
+            try {
+                Usuario cli = new Usuario();
+                CtrlCliente ctrlcli = new CtrlCliente();
+                cli.setId(Long.parseLong(request.getParameter("iduser")));
+                cli.setNome(request.getParameter("nome"));
+                if (!request.getParameter("data").equals("")) {
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(sdf.parse(request.getParameter("data")));
+                    cli.setDataNasc(cal);
+                }
+
+                cli.setEmail(request.getParameter("email"));
+                cli.setPws(request.getParameter("pws"));
+                if(request.getParameter("tipo").equals("1")){
+                    cli.setAdmin(true);
+                } else {
+                    cli.setAdmin(false);
+                }
+                
+                if(request.getParameter("ativo").equals("1")){
+                    cli.setAtivo(true);
+                } else {
+                    cli.setAtivo(false);
+                }
+                cli.setComplemento(request.getParameter("comp"));
+                cli.setNumero(request.getParameter("num"));
+                cli.getEndereco().setCep(request.getParameter("cep"));
+                cli.getEndereco().setLogradouro(request.getParameter("rua"));
+                cli.getEndereco().setBairro(request.getParameter("bairro"));
+                cli.getEndereco().setCidade(request.getParameter("cidade"));
+                cli.getEndereco().setUf(request.getParameter("uf"));
+                
+                cli.validar(request.getParameter("confpws"));
+                ctrlcli.editar(cli);
+                msgs.setAttribute("avisos", "Editado com sucesso");
+                pagina = "admin/admin.jsp?acao=lista_cli";
+            } catch (Exception ex) {
+                msgs.setAttribute("erros", ex.getMessage().replace("\n","<br>"));
+                pagina = "admin/admin.jsp?acao=edit_user&iduser="+request.getParameter("iduser");
+            }
+        }
 
         if (acao.equals("off")) {
             HttpSession user = request.getSession();
@@ -97,6 +143,7 @@ public class CliServlet extends HttpServlet {
             //Apaga a session user
             user.invalidate();
         }
+        
         
 
 

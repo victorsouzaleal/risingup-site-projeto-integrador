@@ -98,6 +98,8 @@ public class ProdutoServlet extends HttpServlet {
                 pagina = "admin/admin.jsp?acao=cad_produto";
             } catch (Exception ex) {
                 msgs.setAttribute("erros", ex.getMessage());
+                Arquivo arq = new Arquivo();
+                msgs.setAttribute("avisos", arq.getPath_foto_produto());
                 pagina = "admin/admin.jsp?acao=cad_produto";
             }
         }

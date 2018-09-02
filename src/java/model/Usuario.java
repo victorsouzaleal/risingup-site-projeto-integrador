@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
@@ -25,7 +26,7 @@ public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String nome;
     @Column(unique = true)
@@ -35,7 +36,7 @@ public class Usuario implements Serializable {
     private String complemento;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar dataNasc;
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Endereco endereco = new Endereco();
 
     private boolean ativo = true;

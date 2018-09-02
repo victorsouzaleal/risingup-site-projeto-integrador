@@ -13,6 +13,11 @@ public class CtrlCliente {
         dao = new ClienteDAO();
         dao.create(cliente);
     }
+    
+    public void editar(Usuario cliente) throws Exception {
+        dao = new ClienteDAO();
+        dao.edit(cliente);
+    }
 
     public Usuario login(String email, String pws) throws Exception {
         dao = new ClienteDAO();
@@ -37,6 +42,11 @@ public class CtrlCliente {
     public  List<Usuario> buscaCliente(String dados , int tipo){
         dao = new ClienteDAO();
         return dao.findClientes(dados,tipo);
+    }
+    
+    public Usuario buscaCliente(Long id){
+        dao = new ClienteDAO();
+        return dao.findCliente(id);
     }
     
     public  boolean isPrimeiro(){

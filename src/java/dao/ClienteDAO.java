@@ -120,21 +120,12 @@ public class ClienteDAO extends ConectaJPA {
             em.close();
         }
     }
-    
-    //Buscar todos por nomes
+
+    //Verificar se é o primeiro usuario cadastrado
     public boolean isPrimeiro() {
-        boolean result;
-        try {
-            Query query = em.createQuery("select p from Usuario as p");
-            Usuario cli = (Usuario) query.getSingleResult();
-            result = false;
-        } catch (Exception ex) {
-            ex.getSuppressed();
-            result = true;         
-        } finally {
-            em.close();
-        }
-        return result;
+        Query query = em.createQuery("select p from Usuario as p");
+        List<Usuario> cli = query.getResultList();
+        return cli.isEmpty();
     }
 
     //Busca dados pela email e senha
