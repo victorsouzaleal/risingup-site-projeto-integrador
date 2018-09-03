@@ -30,9 +30,10 @@
             <c:import url="../paginas/alertas.jsp"></c:import>
             <div class="row mt-5">
                 <div class="col-lg-4 col-8 offset-2 offset-lg-4 p-4 fundoverm" style="border-radius: 10px;">
-                    <form id="formcadastro" method="post" role="form" action="../Admin" autocomplete="off">
+                    <form id="formcadastro" method="post" role="form" action="../sys" autocomplete="off">
                         <h1 class="text-center">Login</h5>
                             <input type="hidden" name="action" value="login">
+                            <input type="hidden" name="logica" value="Admin">
                             <div class="form-group">
                                 <label for="">Email</label>
                                 <input class="form-control" type="text" name="email">

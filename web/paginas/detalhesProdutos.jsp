@@ -32,8 +32,9 @@
             <h1 class="mb-3">${prod.nome}</h1>
             <h4 class="mb-5">${prod.descricao}</h4>
             <h3 class="mb-5">Preço: R$<fmt:formatNumber minFractionDigits="2" currencySymbol="R$">${prod.preco}</fmt:formatNumber></h3>
-            <form action="Carrinho">
+            <form action="sys">
                 <input type="hidden" name="prod_id" value="${id_produto}">
+                <input type="hidden" name="logica" value="Carrinho">
                 <input type="hidden" name="action" value="adicionar">
                 <label>Quantidade :</label>
                 <input  name="prod_qtd" value="1" id="spinner"/>

@@ -52,7 +52,7 @@
                                 <a class="nav-link" href="index.jsp?acao=meus_pedidos">Meus Pedidos</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="Cliente?action=off">Sair</a>
+                                <a class="nav-link" href="sys?logica=User&action=off">Sair</a>
                             </li>
                         </c:if>
                     </ul>

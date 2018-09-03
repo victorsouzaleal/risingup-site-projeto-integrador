@@ -23,9 +23,10 @@
                         </form>
                             
                         <!-- Adicionando o produto no carrinho de compras -->
-                        <form style="display: inline-block;" action="Carrinho" method="POST">
+                        <form style="display: inline-block;" action="sys" method="POST">
                             <input type="hidden" name="prod_id" value="${prod.id}"/>                       
                             <input  type="hidden" name="action" value="adicionar"/>                       
+                            <input  type="hidden" name="logica" value="Carrinho"/>                       
                             <input type="hidden" class="qtde" name="prod_qtd" value="1"/>
                             <button class="btn btn-success">Adicionar ao Carrinho</button>
                         </form>

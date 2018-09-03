@@ -10,10 +10,15 @@
         <h3>Valor Pedido : R$ <f:formatNumber minFractionDigits="2" currencySymbol="R$">${total_pedido}</f:formatNumber></h3>
         <h3>Valor Frete : R$ <f:formatNumber minFractionDigits="2" currencySymbol="R$">${frete_pedido}</f:formatNumber></h3>
         <h3>Valor Total : R$ <f:formatNumber minFractionDigits="2" currencySymbol="R$">${total_geral}</f:formatNumber></h3>
-        <h3>Está tudo de acordo?</h3>
-        <form action="Pedido">
-            <input type="hidden" name="action" value="finalizar" />
-            <button class="btn btn-success w-100">Finalizar Pedido</button>
-        </form>
+            <h3>Está tudo de acordo?</h3>
+            <form action="sys">
+                <input type="hidden" name="action" value="finalizar" />
+                <input type="hidden" name="logica" value="Pedido_Log" />
+                <button class="btn btn-success w-100">Finalizar Pedido</button>
+            </form>
+        </div>
     </div>
-</div>
+
+<c:remove var="frete_pedido" scope="session" />
+<c:remove var="total_pedido" scope="session" />
+<c:remove var="total_geral" scope="session" />

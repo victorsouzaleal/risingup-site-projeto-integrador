@@ -3,7 +3,9 @@
     <div class="col-8 offset-2">
         <h1 class="text-center">Lista de Produtos</h1> 
         <div class="text-center">
-            <form id="busca" class=" mb-2 mt-1" action="../Produto?action=buscar" method="POST">
+            <form id="busca" class=" mb-2 mt-1" action="../sys">
+                <input type="hidden" name="logica" value="Produto_Log">
+                <input type="hidden" name="action" value="buscar">
                 <div class="form-group">
                     <input name="b_nome" class="form-control d-inline-block" type="text" style="width: 200px"/>
                     <button name="b_botao" class="btn btn-info d-inline-block mb-2 mt-1">Buscar</button>

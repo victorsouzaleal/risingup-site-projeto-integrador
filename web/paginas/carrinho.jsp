@@ -2,8 +2,9 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <div class="row mt-5" style="margin-bottom: 20%">
     <div class="col-8 offset-2">
-        <form action="Pedido" style="display: inline-block">
+        <form action="sys" style="display: inline-block">
             <input type="hidden" name="action" value="confirmar"/>
+            <input type="hidden" name="logica" value="Pedido_Log"/>
             <button class="btn btn-success">Finalizar Pedido</button>
         </form>
         <table class="table table-light">
@@ -25,14 +26,15 @@
                         <td>${item.produto.nome}</td>
                         <td>${item.produto.descricao}</td>
                         <td>
-                            <form name="alterar${item.produto.id}" action="Carrinho">
+                            <form name="alterar${item.produto.id}" action="sys">
                                 <input type="hidden" name="action" value="alterar_qtd"/>
+                                <input type="hidden" name="logica" value="Carrinho"/>
                                 <input type="hidden" name="id" value="${item.produto.id}"/>
                                 <input type="number" name="qtd" value="${item.quant}" onchange="document.alterar${item.produto.id}.submit();">
                             </form>                             
                         </td>
                         <td>R$<f:formatNumber minFractionDigits="2" currencySymbol="R$">${item.valorItens}</f:formatNumber></td>
-                        <td><a href="Carrinho?action=remover&iditem=${item.produto.id}">Remover</a></td>
+                        <td><a href="sys?logica=Carrinho&action=remover&iditem=${item.produto.id}">Remover</a></td>
                         </tr>
                 </c:forEach>   
             </tbody>

@@ -5,11 +5,12 @@
 <c:set var="usuario" value="${user.buscaCliente(param.iduser)}"></c:set>
 
 <div class="container">
-    <form id="formcadastro" method="POST" role="form"  enctype="multipart/form-data" action="../Cliente?action=edit"  autocomplete="off">
+    <form id="formcadastro" method="POST" role="form"  enctype="multipart/form-data" action="../sys"  autocomplete="off">
         <div class="row mt-5" style="margin-bottom: 100px;">
             <div class="col-md-6">
                 <h1 class="text-center">Dados Pessoais</h1>
                 <input type="hidden" name="iduser" value="${param.iduser}">
+                <input type="hidden" name="logica" value="User">
                 <div class="form-group">
                     <label for="">Nome</label>
                     <input class="form-control" type="text" name="nome" placeholder="Digite seu nome" value="${usuario.nome}">

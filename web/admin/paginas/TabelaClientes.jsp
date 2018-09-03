@@ -4,7 +4,9 @@
     <div class="col-8 offset-2">
         <h1 class="text-center">Lista de Clientes</h1> 
         <div class="text-center">
-            <form id="busca" class="d-inline-block mb-2 mt-1" action="../Admin?action=buscar_cli" method="POST">
+            <form id="busca" class="d-inline-block mb-2 mt-1" action="../sys">
+                <input type="hidden" name="logica" value="Admin">
+                <input type="hidden" name="action" value="buscar_cli">
                 <div class="form-group">
                     <input name="b_nome" class="form-control d-inline-block" type="text" style="width: 200px"/>
                     <button name="b_botao" class="btn btn-info d-inline-block mb-2 mt-1">Buscar</button>

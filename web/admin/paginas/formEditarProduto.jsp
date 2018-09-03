@@ -1,7 +1,8 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="row mt-5" style="margin-bottom: 100px;">
     <div class="col-md-6 offset-md-3 p-4 fundoverm px-3 py-3" style="border-radius: 10px;">
         <form id="formcadastro_prod" method="post" role="form" enctype="multipart/form-data" action="../sys" autocomplete="off">
-            <h1 class="text-center">Cadastro de Produtos</h1>
+            <h1 class="text-center">Edição de Produtos</h1>
             <input type="hidden" name="action" value="cad_prod">
             <input type="hidden" name="logica" value="Produto_Log">
             <div class="form-group">
@@ -41,7 +42,7 @@
                 <input class="form-control" type="file" name="foto3">
             </div>
 
-            <input type="submit" class="btn btn-dark w-100" name="cad_prod" value="Cadastrar">
+            <input type="submit" class="btn btn-dark w-100" name="cad_prod" value="Editar">
         </form>
     </div>
 </div>
