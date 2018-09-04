@@ -24,6 +24,11 @@ public class CtrlProduto {
         dao.create(prod);
     }
     
+    public void editar(Produto prod) throws Exception{
+        dao = new ProdutoDAO();
+        dao.edit(prod);
+    }
+    
     public List<Produto> listarProdutos() throws Exception{
         dao = new ProdutoDAO();
         return dao.findProdutos();

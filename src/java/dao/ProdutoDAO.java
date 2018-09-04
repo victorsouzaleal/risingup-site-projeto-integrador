@@ -35,6 +35,34 @@ public class ProdutoDAO extends ConectaJPA {
             }
         }
     }
+    
+        //Alterar 
+    public void edit(Produto dados) throws Exception {
+        et = em.getTransaction();
+        try {
+            et.begin();
+            dados = em.merge(dados);
+            et.commit();
+        } catch (Exception ex) {
+            try {
+                et.rollback();
+            } catch (Exception re) {
+
+            }
+            String msg = ex.getLocalizedMessage();
+            if (msg == null || msg.length() == 0) {
+                Long id = dados.getId();
+                if (findProduto(id) == null) {
+
+                }
+            }
+            throw ex;
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
 
     //Buscar todos
     public List<Produto> findProdutos() {

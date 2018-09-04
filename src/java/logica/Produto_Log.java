@@ -82,6 +82,57 @@ public class Produto_Log implements Logica {
             }
         }
 
+        if (acao.equals("edit")) {
+            try {
+                Arquivo arq = new Arquivo();
+                CtrlProduto ctrl_prod = new CtrlProduto();
+                Produto dados_atuais = ctrl_prod.buscarProduto(Long.parseLong(request.getParameter("idprod")));
+                Produto novos_dados = new Produto();
+                novos_dados.setId(Long.parseLong(request.getParameter("idprod")));
+                novos_dados.setNome(request.getParameter("nome"));
+                novos_dados.setDescricao(request.getParameter("descricao"));
+                novos_dados.setFoto1(request.getPart("foto1").getSubmittedFileName());
+                novos_dados.setFoto2(request.getPart("foto2").getSubmittedFileName());
+                novos_dados.setFoto3(request.getPart("foto3").getSubmittedFileName());
+
+                if (request.getParameter("ativo").equals("v")) {
+                    novos_dados.setAtivo(true);
+                } else {
+                    novos_dados.setAtivo(false);
+                }
+                
+                novos_dados.validarEdit(request.getParameter("preco"), request.getParameter("qtd"));
+                novos_dados.setPreco(Float.parseFloat(request.getParameter("preco")));
+                novos_dados.setQuant(Integer.parseInt(request.getParameter("qtd")));
+
+                if (novos_dados.getFoto1().equals("")) {
+                    novos_dados.setFoto1(dados_atuais.getFoto1());
+                } else {
+                    arq.upload(arq.getPath_foto_produto(), novos_dados.getFoto1(), request.getPart("foto1").getInputStream());
+                }
+                
+                if (novos_dados.getFoto2().equals("")) {
+                    novos_dados.setFoto2(dados_atuais.getFoto2());
+                } else {
+                    arq.upload(arq.getPath_foto_produto(), novos_dados.getFoto2(), request.getPart("foto2").getInputStream());
+                }
+                
+                if (novos_dados.getFoto3().equals("")) {
+                    novos_dados.setFoto3(dados_atuais.getFoto3());
+                } else {
+                    arq.upload(arq.getPath_foto_produto(), novos_dados.getFoto3(), request.getPart("foto3").getInputStream());
+                }
+                
+                ctrl_prod.editar(novos_dados);
+                msgs.setAttribute("avisos", "Produto editado com sucesso");
+                pagina = "admin/admin.jsp?acao=lista_prod";
+            } catch (Exception ex){
+                msgs.setAttribute("erros", ex.getMessage());
+                System.out.print(ex.getMessage());
+                pagina = "admin/admin.jsp?acao=edit_prod&id="+request.getParameter("idprod");
+            }
+        }
+
         if (acao.equals("buscar")) {
             String nome_produto = request.getParameter("b_nome");
             int tipo = Integer.parseInt(request.getParameter("tipo"));

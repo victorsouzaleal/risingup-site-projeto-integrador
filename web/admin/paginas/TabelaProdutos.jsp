@@ -44,7 +44,7 @@
                             <c:if test="${prod.ativo != true}">Desativado</c:if>       
                             </td>
                             <td><img style="width: 200; height: 120px;"src='<c:url value='../img/produtos/${prod.foto1}'/>'/></td>
-                        <td><a href="#">Editar</a> <a href="#">Remover</a></td>
+                        <td><a href="admin.jsp?acao=edit_prod&id=${prod.id}">Editar</a> <a href="#">Remover</a></td>
                     </tr>
                 </c:forEach>   
             </tbody>

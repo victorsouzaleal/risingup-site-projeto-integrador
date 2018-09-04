@@ -2,6 +2,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<!-- SE O USUARIO TENTAR ACESSAR DIRETAMENTE SEM TER NADA NO CARRINHO -->
+<c:if test="${empty total_geral || empty carrinho}">
+        <script>window.location.href = "index.jsp";</script>    
+</c:if>
+<!-- ############################ -->        
+
+<!-- CARREGAR AS INFORMAÇÕES DO PEDIDO AO RECARREGAR PAGINA -->
+<form action="sys" name="confirmar">
+    <input type="hidden" name="logica" value="Pedido_Log" />
+    <input type="hidden" name="action" value="confirmar" />
+</form>
+
+<script>document.finalizar.submit()</script>        
+
+<!-- ####################################################### -->
+
+
 <div class="row">
     <div class="col-8 offset-2 text-center">
         <h1>Finalizando Pedido</h1>
@@ -19,6 +36,3 @@
         </div>
     </div>
 
-<c:remove var="frete_pedido" scope="session" />
-<c:remove var="total_pedido" scope="session" />
-<c:remove var="total_geral" scope="session" />

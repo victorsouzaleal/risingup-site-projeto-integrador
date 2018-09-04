@@ -66,10 +66,6 @@ public class Produto implements Serializable {
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
     }
-    
-    
-    
-    
 
     public void setPreco(float preco) {
         this.preco = preco;
@@ -98,9 +94,6 @@ public class Produto implements Serializable {
     public void setFoto3(String foto3) {
         this.foto3 = foto3;
     }
-
-
-    
 
     public Long getId() {
         return id;
@@ -135,7 +128,7 @@ public class Produto implements Serializable {
         return "model.Produto[ id=" + id + " ]";
     }
 
-    private String validarProduto(String preco_prod , String quant) {
+    private String validarProduto(String preco_prod, String quant) {
         String erros = "";
 
         if (nome.equals("")) {
@@ -153,7 +146,7 @@ public class Produto implements Serializable {
                 erros += "Campo PREÇO tem valor inválido.<br>";
             }
         }
-        
+
         if (quant.equals("")) {
             erros += "Campo QUANTIDADE está em branco.<br>";
         } else {
@@ -163,7 +156,7 @@ public class Produto implements Serializable {
                 erros += "Campo QUANTIDADE tem valor inválido.<br>";
             }
         }
-        
+
         if (foto1.equals("")) {
             erros += "FOTO 1 é obrigatória";
         }
@@ -171,9 +164,49 @@ public class Produto implements Serializable {
         return erros;
     }
 
+    private String validarEdicao(String preco_prod, String quant) {
+        String erros = "";
+
+        if (nome.equals("")) {
+            erros += "Campo NOME está em branco.<br>";
+        }
+        if (descricao.equals("")) {
+            erros += "Campo DESCRIÇÃO está em branco.<br>";
+        }
+        if (preco_prod.equals("")) {
+            erros += "Campo PREÇO está em branco.<br>";
+        } else {
+            try {
+                Float.parseFloat(preco_prod);
+            } catch (NumberFormatException ex) {
+                erros += "Campo PREÇO tem valor inválido.<br>";
+            }
+        }
+
+        if (quant.equals("")) {
+            erros += "Campo QUANTIDADE está em branco.<br>";
+        } else {
+            try {
+                Integer.parseInt(quant);
+            } catch (NumberFormatException ex) {
+                erros += "Campo QUANTIDADE tem valor inválido.<br>";
+            }
+        }
+
+        return erros;
+    }
+
     public void validar(String preco, String quant) throws Exception {
         String erros = "";
-        erros = validarProduto(preco,quant);
+        erros = validarProduto(preco, quant);
+        if (!erros.equals("")) {
+            throw new Exception(erros);
+        }
+    }
+    
+    public void validarEdit(String preco, String quant) throws Exception {
+        String erros = "";
+        erros = validarEdicao(preco, quant);
         if (!erros.equals("")) {
             throw new Exception(erros);
         }

@@ -76,6 +76,9 @@
                 <c:when test="${param.acao == 'edit_user'}">
                     <c:import url="paginas/formEditarUsuario.jsp"></c:import>
                 </c:when>
+                <c:when test="${param.acao == 'edit_prod'}">
+                    <c:import url="paginas/formEditarProduto.jsp"></c:import>
+                </c:when>
                 <c:otherwise>
                     <div class="container text-center mt-5">
                         <button class="btn btn-success"><a href="admin.jsp?acao=cad_produto" style="text-decoration: none; color: #fff;">Cadastro de Produtos</a></button>
