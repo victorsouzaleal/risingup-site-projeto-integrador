@@ -10,10 +10,17 @@ import java.util.UUID;
 
 public class Arquivo {
     private String path_foto_produto = "I:/SENAC/Loja_JavaEE/web/img/produtos";
+    private String path_icone_cat = "I:/SENAC/Loja_JavaEE/web/img/icones_cat";
 
     public String getPath_foto_produto() {
         return path_foto_produto;
     }
+
+    public String getPath_icone_cat() {
+        return path_icone_cat;
+    }
+    
+    
 
     public void upload(String pasta, String nomeDoArquivo,
             InputStream arquivoCarregado) throws FileNotFoundException {
