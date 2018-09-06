@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -30,6 +31,9 @@ public class Produto implements Serializable {
     private String foto2;
     private String foto3;
     private boolean ativo;
+    
+    @ManyToOne
+    private Categoria categoria;
 
     public String getNome() {
         return nome;
@@ -102,6 +106,16 @@ public class Produto implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+    
+    
 
     @Override
     public int hashCode() {

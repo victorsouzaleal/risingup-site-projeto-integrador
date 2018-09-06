@@ -5,6 +5,7 @@
  */
 package logica;
 
+import controller.CtrlCategoria;
 import controller.CtrlProduto;
 import java.util.List;
 import javax.servlet.annotation.MultipartConfig;
@@ -32,6 +33,8 @@ public class Produto_Log implements Logica {
                 CtrlProduto ctrl = new CtrlProduto();
                 String path_foto = arq.getPath_foto_produto();
                 prod.setNome(request.getParameter("nome"));
+                CtrlCategoria ctrl_cat = new CtrlCategoria();           
+                prod.setCategoria(ctrl_cat.buscarCategoria(Long.parseLong(request.getParameter("cat"))));
                 prod.setDescricao(request.getParameter("descricao"));
                 prod.setFoto1(request.getPart("foto1").getSubmittedFileName());
                 prod.setFoto2(request.getPart("foto2").getSubmittedFileName());
@@ -90,6 +93,8 @@ public class Produto_Log implements Logica {
                 Produto novos_dados = new Produto();
                 novos_dados.setId(Long.parseLong(request.getParameter("idprod")));
                 novos_dados.setNome(request.getParameter("nome"));
+                CtrlCategoria ctrl_cat = new CtrlCategoria();           
+                novos_dados.setCategoria(ctrl_cat.buscarCategoria(Long.parseLong(request.getParameter("cat"))));
                 novos_dados.setDescricao(request.getParameter("descricao"));
                 novos_dados.setFoto1(request.getPart("foto1").getSubmittedFileName());
                 novos_dados.setFoto2(request.getPart("foto2").getSubmittedFileName());

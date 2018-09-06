@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="ctrl_cat" class="controller.CtrlCategoria"/>
 <div class="row mt-5" style="margin-bottom: 100px;">
     <div class="col-md-6 offset-md-3 p-4 fundoverm px-3 py-3" style="border-radius: 10px;">
         <form id="formcadastro_prod" method="post" role="form" enctype="multipart/form-data" action="../sys" autocomplete="off">
@@ -19,6 +21,15 @@
             <div class="form-group">
                 <label for="">Preco</label>
                 <input class="form-control" type="text" name="preco" placeholder="Preco do Produto">
+            </div>
+            
+            <div class="form-group">
+                <label for="">Categoria</label>
+                <select name="cat">
+                    <c:forEach items="${ctrl_cat.buscarCategorias()}" var="cats">
+                        <option value="${cats.id}">${cats.nome}</option>
+                    </c:forEach>
+                </select>
             </div>
             
             <div class="form-group">

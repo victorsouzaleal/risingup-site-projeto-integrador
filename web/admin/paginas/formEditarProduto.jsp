@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt"uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="ctrl_prod" class="controller.CtrlProduto"/>
+<jsp:useBean id="ctrl_cat" class="controller.CtrlCategoria"/>
 <c:set var="prod" value="${ctrl_prod.buscarProduto(param.id)}"></c:set>
     <div class="row mt-5" style="margin-bottom: 100px;">
         <div class="col-md-6 offset-md-3 p-4 fundoverm px-3 py-3" style="border-radius: 10px;">
@@ -25,6 +26,20 @@
             <div class="form-group">
                 <label for="">Preco</label>
                 <input class="form-control" type="text" name="preco" placeholder="Preco do Produto" value="${prod.preco}">
+            </div>
+            
+            <div class="form-group">
+                <label for="">Categoria</label>
+                <select name="cat">
+                    <c:forEach items="${ctrl_cat.buscarCategorias()}" var="cats">
+                        <c:if test="${prod.categoria.id == cats.id}">
+                            <option value="${cats.id}" selected="true">${cats.nome}</option>
+                        </c:if>
+                        <c:if test="${prod.categoria.id != cats.id}">
+                            <option value="${cats.id}">${cats.nome}</option>
+                        </c:if>
+                    </c:forEach>
+                </select>
             </div>
 
             <div class="form-group">

@@ -5,6 +5,8 @@
  */
 package dao;
 
+import java.util.List;
+import javax.persistence.Query;
 import model.Categoria;
 
 /**
@@ -61,11 +63,34 @@ public class CategoriaDAO extends ConectaJPA {
             }
         }
     }
+    
+        //Buscar todos
+    public List<Categoria> findCategorias() {
+        try {
+            Query query = em.createQuery("select c from Categoria as c");
+            List<Categoria> dadoss = query.getResultList();
+            return dadoss;
+        } finally {
+            em.close();
+        }
+    }
 
     //Busca pelo ID
     public Categoria findCategoria(Long id) {
         try {
             return em.find(Categoria.class, id);
+        } finally {
+            em.close();
+        }
+    }
+    
+    //Buscar todos por nomes
+    public List<Categoria> findCategorias(String dados){
+        try {
+            Query query = em.createQuery("select c from Categoria as c where c.nome like :dados");
+            query.setParameter("dados", dados + "%");
+            List<Categoria> categorias = query.getResultList();
+            return categorias;
         } finally {
             em.close();
         }

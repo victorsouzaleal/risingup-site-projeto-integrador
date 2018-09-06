@@ -9,8 +9,8 @@ import java.io.OutputStream;
 import java.util.UUID;
 
 public class Arquivo {
-    private String path_foto_produto = "I:/SENAC/Loja_JavaEE/web/img/produtos";
-    private String path_icone_cat = "I:/SENAC/Loja_JavaEE/web/img/icones_cat";
+    private String path_foto_produto = "G:/SENAC/Loja_JavaEE/web/img/produtos";
+    private String path_icone_cat = "G:/SENAC/Loja_JavaEE/web/img/icones_cat";
 
     public String getPath_foto_produto() {
         return path_foto_produto;

@@ -6,6 +6,7 @@
 package controller;
 
 import dao.CategoriaDAO;
+import java.util.List;
 import model.Categoria;
 
 /**
@@ -30,4 +31,15 @@ public class CtrlCategoria {
         dao = new CategoriaDAO();
         return dao.findCategoria(id);
     }
+    
+    public List<Categoria> buscarCategorias(String nome) throws Exception {
+        dao = new CategoriaDAO();
+        return dao.findCategorias(nome);
+    }
+    
+    public List<Categoria> buscarCategorias() throws Exception {
+        dao = new CategoriaDAO();
+        return dao.findCategorias();
+    }
+    
 }

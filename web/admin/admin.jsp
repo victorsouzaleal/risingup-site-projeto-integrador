@@ -65,7 +65,7 @@
             <section id="conteudo">
             <c:choose>
                 <c:when test="${param.acao == 'cad_produto'}">
-                    <c:import url="paginas/formCadastroProd.html"></c:import>
+                    <c:import url="paginas/formCadastroProd.jsp"></c:import>
                 </c:when>
                 <c:when test="${param.acao == 'lista_prod'}">
                     <c:import url="paginas/TabelaProdutos.jsp"></c:import>
@@ -79,9 +79,16 @@
                 <c:when test="${param.acao == 'edit_prod'}">
                     <c:import url="paginas/formEditarProduto.jsp"></c:import>
                 </c:when>
+                <c:when test="${param.acao == 'edit_cat' || param.acao == 'cad_cat'}">
+                    <c:import url="paginas/formCategoria.jsp"></c:import>
+                </c:when>
+                <c:when test="${param.acao == 'lista_cat'}">
+                    <c:import url="paginas/tabelaCategorias.jsp"></c:import>
+                </c:when>
                 <c:otherwise>
                     <div class="container text-center mt-5">
                         <button class="btn btn-success"><a href="admin.jsp?acao=cad_produto" style="text-decoration: none; color: #fff;">Cadastro de Produtos</a></button>
+                        <button class="btn btn-success"><a href="admin.jsp?acao=lista_cat" style="text-decoration: none; color: #fff;">Categorias</a></button>
                         <button class="btn btn-success"><a href="admin.jsp?acao=lista_prod" style="text-decoration: none; color: #fff;">Relatório de Produtos</a></button>
                         <button class="btn btn-success"><a href="admin.jsp?acao=lista_cli" style="text-decoration: none; color: #fff;">Relatório de Clientes</a></button>
                     </div>
