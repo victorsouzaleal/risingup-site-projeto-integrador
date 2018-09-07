@@ -70,6 +70,9 @@
                 <c:when test="${param.acao == 'lista_prod'}">
                     <c:import url="paginas/TabelaProdutos.jsp"></c:import>
                 </c:when>
+                <c:when test="${param.acao == 'lista_ped'}">
+                    <c:import url="paginas/TabelaPedidos.jsp"></c:import>
+                </c:when>
                 <c:when test="${param.acao == 'lista_cli'}">
                     <c:import url="paginas/TabelaClientes.jsp"></c:import>
                 </c:when>

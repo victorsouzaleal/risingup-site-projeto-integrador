@@ -37,5 +37,8 @@ public class CtrlPedido {
         dao = new PedidoDAO();
         return dao.buscarItensPedido(id);
     }
-
+   public List<Pedido> pesquisar() throws Exception {
+        dao = new PedidoDAO();
+        return dao.findPedidos();
+    }
 }

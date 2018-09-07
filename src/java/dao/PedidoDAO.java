@@ -83,4 +83,14 @@ public class PedidoDAO extends ConectaJPA {
             em.close();
         }
     }
+    //Buscar todos por nomes
+    public List<Pedido> findPedidos() {
+        try {
+            Query query = em.createQuery("select x from Pedido as x");
+            List<Pedido> lista = query.getResultList();
+            return lista;
+        } finally {
+            em.close();
+        }
+    }
 }
