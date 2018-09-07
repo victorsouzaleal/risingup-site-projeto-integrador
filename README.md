@@ -20,7 +20,7 @@ Criar banco de dados com as seguintes informações :
  - Finalização do Pedido (Feito)
  - Listagem/Busca de Usuários (Feito)
  - Listagem/Busca de Produtos (Feito)
- - Listagem/Busca de Pedidos (Não iniciado)
+ - Listagem/Busca de Pedidos (Feito)
  - Listagem de Categorias (Em andamento)
  - Edição de Produto (Feito)
  - Edição de Usuário (Feito)
