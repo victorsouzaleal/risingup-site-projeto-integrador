@@ -8,6 +8,7 @@ import javax.persistence.EntityNotFoundException;
 //import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.servlet.http.HttpSession;
+import model.Endereco;
 import model.Usuario;
 
 public class ClienteDAO extends ConectaJPA {
@@ -162,4 +163,33 @@ public class ClienteDAO extends ConectaJPA {
         }
     }
 
+    // ENDERECO
+    public void create(Endereco dados) throws Exception {
+        et = em.getTransaction();
+        try {
+            et.begin();
+            em.persist(dados);
+            et.commit();
+        } catch (Exception ex) {
+            try {
+                et.rollback();
+            } catch (Exception re) {
+                re.toString();
+            }
+            throw ex;
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
+    //Busca Endereco pelo ID
+    public Endereco findEndereco(String cep) {
+        try {
+            return em.find(Endereco.class, cep);
+        } finally {
+            em.close();
+        }
+    }
 }

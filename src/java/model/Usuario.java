@@ -36,7 +36,7 @@ public class Usuario implements Serializable {
     private String complemento;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar dataNasc;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Endereco endereco = new Endereco();
 
     private boolean ativo = true;
