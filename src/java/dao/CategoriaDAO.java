@@ -64,7 +64,7 @@ public class CategoriaDAO extends ConectaJPA {
         }
     }
     
-        //Buscar todos
+    //Buscar todos
     public List<Categoria> findCategorias() {
         try {
             Query query = em.createQuery("select c from Categoria as c");

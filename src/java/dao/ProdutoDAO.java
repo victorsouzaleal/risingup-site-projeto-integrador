@@ -98,6 +98,40 @@ public class ProdutoDAO extends ConectaJPA {
             em.close();
         }
     }
+    
+    //Buscar produtos de acordo com a categoria
+    public List<Produto> findProdutos(int tipo_categoria , int limite){
+        try {
+            String cat = "Computador";
+            Query query = em.createQuery("select p from Produto as p where p.categoria.nome = :cat");
+            switch (tipo_categoria) {
+                case 1:
+                    cat = "Computador";
+                    query = em.createQuery("select p from Produto as p where p.categoria.nome = :cat");
+                    query.setParameter("cat", cat);
+                    break;
+                case 2:
+                    cat = "Notebook";
+                    query = em.createQuery("select p from Produto as p where p.categoria.nome = :cat");
+                    query.setParameter("cat", cat);
+                    break;
+                case 3:
+                    cat = "Teclado";
+                    query = em.createQuery("select p from Produto as p where p.categoria.nome = :cat");
+                    query.setParameter("cat", cat);
+                    break;
+                case 4:
+                    cat = "Mouse";
+                    query = em.createQuery("select p from Produto as p where p.categoria.nome = :cat");
+                    query.setParameter("cat", cat);
+                    break;
+            }         
+            List<Produto> produtos = query.setMaxResults(limite).getResultList();
+            return produtos;
+        } finally {
+            em.close();
+        }
+    }
 
     //Busca pelo ID
     public Produto findProduto(Long id) {

@@ -34,6 +34,11 @@ public class CtrlProduto {
         return dao.findProdutos();
     }
     
+    public List<Produto> listarProdutos(int tipo_cat, int limite) throws Exception{
+        dao = new ProdutoDAO();
+        return dao.findProdutos(tipo_cat, limite);
+    }
+    
     public Produto buscarProduto(Long id) throws Exception{
         dao = new ProdutoDAO();
         return dao.findProduto(id);

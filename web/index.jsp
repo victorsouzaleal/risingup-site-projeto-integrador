@@ -8,10 +8,8 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
         <title>Loja JAVA</title>
     </head>
     <body>
@@ -21,9 +19,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
                             <a class="nav-link" href="index.jsp">Inicio</a>
@@ -59,35 +55,29 @@
                 </div>
             </div>
         </nav>
-        <c:import url="paginas/alertas.jsp"></c:import>
+        <c:import url="paginasteste/alertas.jsp"></c:import>
             <section id="conteudo">
             <c:choose>
                 <c:when test="${param.acao == 'cad_usuario'}">
-                    <c:import url="paginas/formCadastroCli.html"></c:import>
+                    <c:import url="paginasteste/formCadastroCli.html"></c:import>
                 </c:when>
                 <c:when test="${param.acao == 'login_usuario'}">
-                    <c:import url="paginas/formLoginCli.html"></c:import>
-                </c:when>
-                <c:when test="${param.acao == 'cad_produto'}">
-                    <c:import url="paginas/formCadastroProd.html"></c:import>
-                </c:when>
-                <c:when test="${param.acao == 'lista_prod'}">
-                    <c:import url="paginas/TabelaProdutos.jsp"></c:import>
+                    <c:import url="paginasteste/formLoginCli.html"></c:import>
                 </c:when>
                 <c:when test="${param.acao == 'carrinho'}">
-                    <c:import url="paginas/carrinho.jsp"></c:import>
+                    <c:import url="paginasteste/carrinho.jsp"></c:import>
                 </c:when>
                 <c:when test="${param.acao == 'finalizarPedido'}">
-                    <c:import url="paginas/finalizarPedido.jsp"></c:import>
+                    <c:import url="paginasteste/finalizarPedido.jsp"></c:import>
                 </c:when>
                 <c:when test="${param.acao == 'meus_pedidos'}">
-                    <c:import url="paginas/listaPedidos.jsp"></c:import>
+                    <c:import url="paginasteste/listaPedidos.jsp"></c:import>
                 </c:when>
                 <c:when test="${param.acao == 'detalhes'}">
-                    <c:import url="paginas/detalhesProdutos.jsp"></c:import>
+                    <c:import url="paginasteste/detalhesProdutos.jsp"></c:import>
                 </c:when>
                 <c:otherwise>
-                    <c:import url="paginas/inicio.jsp"></c:import>    
+                    <c:import url="paginasteste/inicio.jsp"></c:import>    
                 </c:otherwise>
             </c:choose>
         </section>
