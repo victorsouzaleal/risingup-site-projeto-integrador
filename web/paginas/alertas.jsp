@@ -21,6 +21,14 @@
         <c:remove var="alertas" scope="session" />
     </div>
 </c:if>
+<c:if test="${not empty testes}">
+    <div class="alert alert-warning">
+        <c:forEach items="${testes}" var="t">
+            <strong><p class="text-center">${t}</p></strong>
+        </c:forEach>
+        <c:remove var="testes" scope="session" />
+    </div>
+</c:if>
 
 
 

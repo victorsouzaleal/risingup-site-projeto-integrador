@@ -7,6 +7,8 @@ package logica;
 
 import controller.CtrlCategoria;
 import controller.CtrlProduto;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +27,7 @@ public class Produto_Log implements Logica {
         String acao = request.getParameter("action");
         HttpSession msgs = request.getSession();
         HttpSession listas = request.getSession();
+        VerificarImagens verificar = new VerificarImagens();
         String pagina = "index.jsp";
 
         if (acao.equals("cad_prod")) {
@@ -35,7 +38,7 @@ public class Produto_Log implements Logica {
                 String path_foto = arq.getPath_foto_produto();
                 prod.setNome(request.getParameter("nome"));
                 prod.setNome_detalhado(request.getParameter("nomedet"));
-                CtrlCategoria ctrl_cat = new CtrlCategoria();           
+                CtrlCategoria ctrl_cat = new CtrlCategoria();
                 prod.setCategoria(ctrl_cat.buscarCategoria(Long.parseLong(request.getParameter("cat"))));
                 prod.setDescricao(request.getParameter("descricao"));
                 prod.setEspecificacao(request.getParameter("espec"));
@@ -80,9 +83,8 @@ public class Produto_Log implements Logica {
                 }
 
                 ctrl.cadastrar(prod); // CADASTRO
-                VerificarImagens verificar = new VerificarImagens();
                 verificar.deletarImagensProduto();
-                msgs.setAttribute("avisos", "Produto cadastrado com sucesso");
+                msgs.setAttribute("avisos", "Produto cadastrado com sucesso , caminho :" + arq.getPath_foto_produto());
                 pagina = "admin/admin.jsp?acao=cad_produto";
             } catch (Exception ex) {
                 msgs.setAttribute("erros", ex.getMessage());
@@ -99,7 +101,7 @@ public class Produto_Log implements Logica {
                 novos_dados.setId(Long.parseLong(request.getParameter("idprod")));
                 novos_dados.setNome(request.getParameter("nome"));
                 novos_dados.setNome_detalhado(request.getParameter("nomedet"));
-                CtrlCategoria ctrl_cat = new CtrlCategoria();           
+                CtrlCategoria ctrl_cat = new CtrlCategoria();
                 novos_dados.setCategoria(ctrl_cat.buscarCategoria(Long.parseLong(request.getParameter("cat"))));
                 novos_dados.setDescricao(request.getParameter("descricao"));
                 novos_dados.setEspecificacao(request.getParameter("espec"));
@@ -112,7 +114,7 @@ public class Produto_Log implements Logica {
                 } else {
                     novos_dados.setAtivo(false);
                 }
-                
+
                 novos_dados.validarEdit(request.getParameter("preco"), request.getParameter("qtd"));
                 novos_dados.setPreco(Float.parseFloat(request.getParameter("preco")));
                 novos_dados.setQuant(Integer.parseInt(request.getParameter("qtd")));
@@ -120,28 +122,39 @@ public class Produto_Log implements Logica {
                 if (novos_dados.getFoto1().equals("")) {
                     novos_dados.setFoto1(dados_atuais.getFoto1());
                 } else {
+                    novos_dados.setFoto1(arq.gerarNome(novos_dados.getFoto1()));
                     arq.upload(arq.getPath_foto_produto(), novos_dados.getFoto1(), request.getPart("foto1").getInputStream());
                 }
-                
+
                 if (novos_dados.getFoto2().equals("")) {
                     novos_dados.setFoto2(dados_atuais.getFoto2());
                 } else {
+                    novos_dados.setFoto2(arq.gerarNome(novos_dados.getFoto2()));
                     arq.upload(arq.getPath_foto_produto(), novos_dados.getFoto2(), request.getPart("foto2").getInputStream());
                 }
-                
+
                 if (novos_dados.getFoto3().equals("")) {
                     novos_dados.setFoto3(dados_atuais.getFoto3());
                 } else {
+                    novos_dados.setFoto3(arq.gerarNome(novos_dados.getFoto3()));
                     arq.upload(arq.getPath_foto_produto(), novos_dados.getFoto3(), request.getPart("foto3").getInputStream());
                 }
-                
+
                 ctrl_prod.editar(novos_dados);
+                File file = new File(arq.getPath_foto_produto());
+                File[] arquivos = file.listFiles();
+                List<String> nomes = new ArrayList();
+                for (File arqu : arquivos){
+                    nomes.add(arqu.getName());
+                }
+                verificar.deletarImagensProduto();
+                msgs.setAttribute("testes", nomes);
                 msgs.setAttribute("avisos", "Produto editado com sucesso");
                 pagina = "admin/admin.jsp?acao=lista_prod";
-            } catch (Exception ex){
+            } catch (Exception ex) {
                 msgs.setAttribute("erros", ex.getMessage());
                 System.out.print(ex.getMessage());
-                pagina = "admin/admin.jsp?acao=edit_prod&id="+request.getParameter("idprod");
+                pagina = "admin/admin.jsp?acao=edit_prod&id=" + request.getParameter("idprod");
             }
         }
 
