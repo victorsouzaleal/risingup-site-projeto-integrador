@@ -27,11 +27,6 @@
                 <input class="form-control" type="file" name="icone1">
             </div>
 
-            <div class="form-group">
-                <label for="">Icone 2 (Maior)</label>
-                <input class="form-control" type="file" name="icone2">
-            </div>
-
             <input type="submit" class="btn btn-dark w-100" name="cad_prod" value="Cadastrar">
         </form>
     </div>

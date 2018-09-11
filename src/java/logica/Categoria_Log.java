@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Categoria;
 import util.Arquivo;
+import util.VerificarImagens;
 
 /**
  *
@@ -25,6 +26,7 @@ public class Categoria_Log implements Logica {
         HttpSession msgs = request.getSession();
         String pagina = "admin/admin.jsp";
         String acao = request.getParameter("action");
+        VerificarImagens verificar = new VerificarImagens();
 
         if (acao.equals("cad")) {
             Arquivo arq = new Arquivo();
@@ -32,11 +34,10 @@ public class Categoria_Log implements Logica {
             CtrlCategoria ctrl_cat = new CtrlCategoria();
             cat.setNome(request.getParameter("nome"));
             cat.setIcone1(request.getPart("icone1").getSubmittedFileName());
-            cat.setIcone2(request.getPart("icone2").getSubmittedFileName());
             cat.validar();
             arq.upload(arq.getPath_icone_cat(), cat.getIcone1(), request.getPart("icone1").getInputStream());
-            arq.upload(arq.getPath_icone_cat(), cat.getIcone2(), request.getPart("icone2").getInputStream());
             ctrl_cat.cadastrar(cat);
+            verificar.deletarIconesCategoria();
             pagina = "admin/admin.jsp?acao=lista_cat";
         }
 
@@ -49,7 +50,6 @@ public class Categoria_Log implements Logica {
                 cat.setId(Long.parseLong(request.getParameter("idcat")));
                 cat.setNome(request.getParameter("nome"));
                 cat.setIcone1(request.getPart("icone1").getSubmittedFileName());
-                cat.setIcone2(request.getPart("icone2").getSubmittedFileName());
                 cat.validarEdit();
 
                 if (cat.getIcone1().equals("")) {
@@ -58,13 +58,8 @@ public class Categoria_Log implements Logica {
                     arq.upload(arq.getPath_icone_cat(), cat.getIcone1(), request.getPart("icone1").getInputStream());
                 }
 
-                if (cat.getIcone2().equals("")) {
-                    cat.setIcone2(cat_atual.getIcone2());
-                } else {
-                    arq.upload(arq.getPath_icone_cat(), cat.getIcone2(), request.getPart("icone2").getInputStream());
-                }
-
                 ctrl_cat.editar(cat);
+                verificar.deletarIconesCategoria();
                 pagina = "admin/admin.jsp?acao=lista_cat";
                 msgs.setAttribute("avisos", "Categoria " + cat_atual.getNome() + " editada com sucesso.");
             } catch (Exception ex) {

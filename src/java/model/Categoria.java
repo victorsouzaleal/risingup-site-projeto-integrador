@@ -24,7 +24,7 @@ public class Categoria implements Serializable {
     private Long id;
     private String nome;
     private String icone1;
-    private String icone2;
+
 
     public Long getId() {
         return id;
@@ -50,14 +50,6 @@ public class Categoria implements Serializable {
         this.icone1 = icone1;
     }
 
-    public String getIcone2() {
-        return icone2;
-    }
-
-    public void setIcone2(String icone2) {
-        this.icone2 = icone2;
-    }
-
     private String validarCategoria() {
         String erros = "";
 
@@ -67,9 +59,6 @@ public class Categoria implements Serializable {
         if (icone1.equals("")) {
             erros += "ICONE 1 não selecionado<br>";
         }
-        if (icone2.equals("")) {
-            erros += "ICONE 2 não selecionado<br>";
-        } 
 
         return erros;
     }

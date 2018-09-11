@@ -29,7 +29,6 @@ public class Produto_Log implements Logica {
         HttpSession listas = request.getSession();
         VerificarImagens verificar = new VerificarImagens();
         String pagina = "index.jsp";
-
         if (acao.equals("cad_prod")) {
             try {
                 Produto prod = new Produto();

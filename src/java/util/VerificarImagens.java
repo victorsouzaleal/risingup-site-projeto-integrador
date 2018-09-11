@@ -5,10 +5,12 @@
  */
 package util;
 
+import controller.CtrlCategoria;
 import controller.CtrlProduto;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import model.Categoria;
 import model.Produto;
 
 /**
@@ -35,6 +37,32 @@ public class VerificarImagens {
         boolean igual;
         Arquivo arq = new Arquivo();
         File file = new File(arq.getPath_foto_produto());
+        File[] arquivos = file.listFiles();
+        for (File arqu : arquivos) {
+            igual = false;
+            for (String foto : fotos) {
+                if (arqu.getName().equals(foto)) {
+                    igual = true;
+                }
+            }
+            if (!igual) {
+                arqu.delete();
+            }
+        }
+    }
+
+    public void deletarIconesCategoria() throws Exception {
+        CtrlCategoria ctrlcat = new CtrlCategoria();
+        List<Categoria> categorias = ctrlcat.buscarCategorias();
+        List<String> fotos = new ArrayList();
+
+        for (Categoria cat : categorias) {
+            fotos.add(cat.getIcone1());
+        }
+
+        boolean igual;
+        Arquivo arq = new Arquivo();
+        File file = new File(arq.getPath_icone_cat());
         File[] arquivos = file.listFiles();
         for (File arqu : arquivos) {
             igual = false;
