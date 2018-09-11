@@ -9,8 +9,12 @@ import java.io.OutputStream;
 import java.util.UUID;
 
 public class Arquivo {
-    private String path_foto_produto = "I:/SENAC/Loja_JavaEE/web/img/produtos";
-    private String path_icone_cat = "I:/SENAC/Loja_JavaEE/web/img/icones_cat";
+    String path_foto_produto = System.getProperty("user.home") + ""
+                + "/Documents/NetBeansProjects/lomoj/web/img/produtos";//windows
+        //+ "/NetBeansProjects/lomoj/web/img/clientes/";//linux
+    String path_icone_cat = System.getProperty("user.home") + ""
+                + "/Documents/NetBeansProjects/lomoj/web/img/icones_cat";//windows
+        //+ "/NetBeansProjects/lomoj/web/img/clientes/";//linux
 
     public String getPath_foto_produto() {
         return path_foto_produto;
@@ -21,7 +25,6 @@ public class Arquivo {
     }
     
     
-
     public void upload(String pasta, String nomeDoArquivo,
             InputStream arquivoCarregado) throws FileNotFoundException {
         String caminhoArquivo = pasta + File.separator + nomeDoArquivo;

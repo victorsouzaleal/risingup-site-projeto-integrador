@@ -11,6 +11,7 @@
                 <h1 class="text-center">Dados Pessoais</h1>
                 <input type="hidden" name="iduser" value="${param.iduser}">
                 <input type="hidden" name="logica" value="User">
+                <input type="hidden" name="action" value="edit">
                 <div class="form-group">
                     <label for="">Nome</label>
                     <input class="form-control" type="text" name="nome" placeholder="Digite seu nome" value="${usuario.nome}">

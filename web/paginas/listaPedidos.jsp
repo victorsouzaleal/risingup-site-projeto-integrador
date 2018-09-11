@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="ctrl_ped" class="controller.CtrlPedido"/>
 
-<div class="row mt-5" style="margin-bottom: 20%">
+<div class="row" style="margin-bottom: 20% ; margin-top: 10%">
     <div class="col-8 offset-2">
         <h1 class="text-center">Meus Pedidos</h1> 
         <div class="text-center">

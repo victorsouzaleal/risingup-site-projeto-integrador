@@ -1,3 +1,20 @@
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        height: 500,
+        menubar: false,
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor textcolor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table contextmenu paste code help wordcount'
+        ],
+        toolbar: 'insert | undo redo |  formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+        content_css: [
+            '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+            '//www.tinymce.com/css/codepen.min.css']
+    });
+</script>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt"uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -16,8 +33,16 @@
                 <input class="form-control" type="text" name="nome" placeholder="Nome do Produto" value="${prod.nome}">
             </div>
             <div class="form-group">
+                <label for="">Nome Detalhado</label>
+                <input class="form-control" type="text" name="nomedet" placeholder="Nome Detalhado" value="${prod.nome_detalhado}">
+            </div>
+            <div class="form-group">
                 <label for="">Descricao</label>
                 <input class="form-control" type="text" name="descricao" placeholder="Descricao do Produto" value="${prod.descricao}">
+            </div>
+            <div class="form-group">
+                <label for="">Especificacao</label>
+                <textarea name="espec">${prod.especificacao}</textarea>
             </div>
             <div class="form-group">
                 <label for="">Quantidade</label>

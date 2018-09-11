@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +25,11 @@ public class Produto implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String nome;
+    @Column(length=500)
+    private String nome_detalhado;
     private String descricao;
+    @Column(length=30000)
+    private String especificacao;
     private int quant;
     private float preco;
     private String foto1;
@@ -114,6 +119,24 @@ public class Produto implements Serializable {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
+    public String getNome_detalhado() {
+        return nome_detalhado;
+    }
+
+    public void setNome_detalhado(String nome_detalhado) {
+        this.nome_detalhado = nome_detalhado;
+    }
+
+    public String getEspecificacao() {
+        return especificacao;
+    }
+
+    public void setEspecificacao(String especificacao) {
+        this.especificacao = especificacao;
+    }
+    
+    
     
     
 
@@ -148,8 +171,14 @@ public class Produto implements Serializable {
         if (nome.equals("")) {
             erros += "Campo NOME está em branco.<br>";
         }
+        if (nome_detalhado.equals("")) {
+            erros += "Campo NOME DETALHADO está em branco.<br>";
+        }
         if (descricao.equals("")) {
             erros += "Campo DESCRIÇÃO está em branco.<br>";
+        }
+        if (especificacao.equals("")) {
+            erros += "Campo ESPECIFICAÇÃO está em branco.<br>";
         }
         if (preco_prod.equals("")) {
             erros += "Campo PREÇO está em branco.<br>";

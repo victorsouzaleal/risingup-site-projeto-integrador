@@ -44,12 +44,12 @@ public class User implements Logica {
                 cli.getEndereco().setBairro(request.getParameter("bairro"));
                 cli.getEndereco().setCidade(request.getParameter("cidade"));
                 cli.getEndereco().setUf(request.getParameter("uf"));
-                
+
                 cli.validar(request.getParameter("confpws"));
-                
+
                 if (!ctrlcli.enderecoExiste(cli.getEndereco().getCep())) {
                     ctrlcli.cadastrar(cli.getEndereco());
-                } 
+                }
 
                 ctrlcli.cadastrar(cli);
                 msgs.setAttribute("avisos", "Cadastrado com sucesso");
@@ -65,10 +65,14 @@ public class User implements Logica {
             try {
                 CtrlCliente ctrlcli = new CtrlCliente();
                 Usuario cli = ctrlcli.login(request.getParameter("email"), request.getParameter("pws"));
-                HttpSession user = request.getSession();
-                cli.setPws("");
-                user.setAttribute("cliente", cli);
-                msgs.setAttribute("avisos", "Olá " + cli.getEmail() + "");
+                if (cli.isAtivo()) {
+                    HttpSession user = request.getSession();
+                    cli.setPws("");
+                    user.setAttribute("cliente", cli);
+                    msgs.setAttribute("avisos", "Olá " + cli.getEmail() + "");
+                }else {
+                    msgs.setAttribute("erros", "Usuario ou senha invalido");
+                }
             } catch (Exception ex) {
                 msgs.setAttribute("erros", "Usuario ou senha invalido");
                 pagina = "index.jsp?acao=login_usuario";

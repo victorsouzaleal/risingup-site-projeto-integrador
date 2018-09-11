@@ -33,9 +33,11 @@ public class Produto_Log implements Logica {
                 CtrlProduto ctrl = new CtrlProduto();
                 String path_foto = arq.getPath_foto_produto();
                 prod.setNome(request.getParameter("nome"));
+                prod.setNome_detalhado(request.getParameter("nomedet"));
                 CtrlCategoria ctrl_cat = new CtrlCategoria();           
                 prod.setCategoria(ctrl_cat.buscarCategoria(Long.parseLong(request.getParameter("cat"))));
                 prod.setDescricao(request.getParameter("descricao"));
+                prod.setEspecificacao(request.getParameter("espec"));
                 prod.setFoto1(request.getPart("foto1").getSubmittedFileName());
                 prod.setFoto2(request.getPart("foto2").getSubmittedFileName());
                 prod.setFoto3(request.getPart("foto3").getSubmittedFileName());
@@ -93,9 +95,11 @@ public class Produto_Log implements Logica {
                 Produto novos_dados = new Produto();
                 novos_dados.setId(Long.parseLong(request.getParameter("idprod")));
                 novos_dados.setNome(request.getParameter("nome"));
+                novos_dados.setNome_detalhado(request.getParameter("nomedet"));
                 CtrlCategoria ctrl_cat = new CtrlCategoria();           
                 novos_dados.setCategoria(ctrl_cat.buscarCategoria(Long.parseLong(request.getParameter("cat"))));
                 novos_dados.setDescricao(request.getParameter("descricao"));
+                novos_dados.setEspecificacao(request.getParameter("espec"));
                 novos_dados.setFoto1(request.getPart("foto1").getSubmittedFileName());
                 novos_dados.setFoto2(request.getPart("foto2").getSubmittedFileName());
                 novos_dados.setFoto3(request.getPart("foto3").getSubmittedFileName());
