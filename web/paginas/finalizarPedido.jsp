@@ -19,7 +19,7 @@
 <!-- ####################################################### -->
 
 
-<div class="row">
+<div class="row" style="margin-top: 10%;margin-bottom: 20%">
     <div class="col-8 offset-2 text-center">
         <h1>Finalizando Pedido</h1>
         <p>Endereço de Entrega : ${cliente.endereco.logradouro} -  ${cliente.endereco.bairro} - ${cliente.endereco.cidade} - ${cliente.endereco.uf} </p>

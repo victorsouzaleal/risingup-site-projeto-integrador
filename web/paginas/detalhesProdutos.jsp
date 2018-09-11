@@ -11,7 +11,7 @@
 <c:set value="${param.id}" var="id_produto"></c:set>
 <c:set value="${ctrl_prod.buscarProduto(id_produto)}" var="prod"></c:set>
 
-    <section class="container mt-3 px-0 py-3" id="descricao"> <!-- ################ INICIO SECAO OFERTAS ############# -->
+<section class="container px-0 py-3" id="descricao" style="margin-top: 10%; margin-bottom: 50%;"> <!-- ################ INICIO SECAO OFERTAS ############# -->
         <div class="row">
             <div class="col-md-4">
                 <div class="col-md-12 mb-3">
@@ -36,9 +36,8 @@
                 <input type="hidden" name="prod_id" value="${id_produto}">
                 <input type="hidden" name="logica" value="Carrinho">
                 <input type="hidden" name="action" value="adicionar">
-                <label>Quantidade :</label>
-                <input  name="prod_qtd" value="1" id="spinner"/>
-                <button class="btn btn-success">Adicionar ao Carrinho</button>
+                <input  type="hidden" name="prod_qtd" value="1" />
+                <button class="btn btn-success w-100">Adicionar ao Carrinho</button>
             </form>       
         </div>
     </div>

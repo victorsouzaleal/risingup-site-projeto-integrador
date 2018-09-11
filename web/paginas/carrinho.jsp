@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<div class="row mt-5" style="margin-bottom: 20%">
+<div class="row" style="margin-top: 10%;margin-bottom: 20%">
     <div class="col-8 offset-2">
         <form action="sys" style="display: inline-block">
             <input type="hidden" name="action" value="confirmar"/>

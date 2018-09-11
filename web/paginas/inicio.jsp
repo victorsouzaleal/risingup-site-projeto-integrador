@@ -149,7 +149,7 @@
                                     <h4 class="my-0 font-weight-normal clrd-font">${prod.nome}</h4>
                                 </div> 
                                 <img src="img/produtos/${prod.foto1}" class="img-fluid pt-5" style="width: 180px; height: auto;"><p></p>
-                                <a href="#" class="btn btn-sm btn-outline-secondary" style="border-color: #04A3FF;">Saiba mais</a>
+                                <a href="index.jsp?acao=detalhes&id=${prod.id}" class="btn btn-sm btn-outline-secondary" style="border-color: #04A3FF;">Saiba mais</a>
                             </div>
                             <span class=" mt-3"></span>
                         </div>
@@ -185,7 +185,7 @@
                                     <h4 class="my-0 font-weight-normal clrd-font">${prod.nome}</h4>
                                 </div> 
                                 <img src="img/produtos/${prod.foto1}" class="img-fluid pt-5" style="width: 180px; height: auto;"><p></p>
-                                <a href="#" class="btn btn-sm btn-outline-secondary" style="border-color: #04A3FF;">Saiba mais</a>
+                                <a href="index.jsp?acao=detalhes&id=${prod.id}" class="btn btn-sm btn-outline-secondary" style="border-color: #04A3FF;">Saiba mais</a>
                             </div>
                             <span class=" mt-3"></span>
                         </div>
@@ -220,7 +220,7 @@
                                     <h4 class="my-0 font-weight-normal clrd-font">${prod.nome}</h4>
                                 </div> 
                                 <img src="img/produtos/${prod.foto1}" class="img-fluid pt-5" style="width: 180px; height: auto;"><p></p>
-                                <a href="#" class="btn btn-sm btn-outline-secondary" style="border-color: #04A3FF;">Saiba mais</a>
+                                <a href="index.jsp?acao=detalhes&id=${prod.id}" class="btn btn-sm btn-outline-secondary" style="border-color: #04A3FF;">Saiba mais</a>
                             </div>
                             <span class=" mt-3"></span>
                         </div>
@@ -257,7 +257,7 @@
                                     <h4 class="my-0 font-weight-normal clrd-font">${prod.nome}</h4>
                                 </div> 
                                 <img src="img/produtos/${prod.foto1}" class="img-fluid pt-5" style="width: 180px; height: auto;"><p></p>
-                                <a href="#" class="btn btn-sm btn-outline-secondary" style="border-color: #04A3FF;">Saiba mais</a>
+                                <a href="index.jsp?acao=detalhes&id=${prod.id}" class="btn btn-sm btn-outline-secondary" style="border-color: #04A3FF;">Saiba mais</a>
                             </div>
                             <span class=" mt-3"></span>
                         </div>
@@ -342,13 +342,7 @@
                     </div><p></p>
                     <button type="submit" name="cadastrar" class="btn btn-outline-secondary w-100">Cadastrar</button>
                 </form>
-
                 <p class="pt-2 text-center"><img src="img/logo/logotexpre.png"></p>
-
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>
@@ -382,9 +376,6 @@
                 <p class="pt-2 text-center"><img src="img/logo/logotexpre.png"></p>
             </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Fechar</button>
-            </div>
         </div>
     </div>
 </div>
