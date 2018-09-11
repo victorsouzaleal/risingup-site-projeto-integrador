@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Produto;
 import util.Arquivo;
+import util.VerificarImagens;
 
 @MultipartConfig
 public class Produto_Log implements Logica {
@@ -79,6 +80,8 @@ public class Produto_Log implements Logica {
                 }
 
                 ctrl.cadastrar(prod); // CADASTRO
+                VerificarImagens verificar = new VerificarImagens();
+                verificar.deletarImagensProduto();
                 msgs.setAttribute("avisos", "Produto cadastrado com sucesso");
                 pagina = "admin/admin.jsp?acao=cad_produto";
             } catch (Exception ex) {
