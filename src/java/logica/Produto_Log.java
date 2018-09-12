@@ -140,14 +140,7 @@ public class Produto_Log implements Logica {
                 }
 
                 ctrl_prod.editar(novos_dados);
-                File file = new File(arq.getPath_foto_produto());
-                File[] arquivos = file.listFiles();
-                List<String> nomes = new ArrayList();
-                for (File arqu : arquivos){
-                    nomes.add(arqu.getName());
-                }
                 verificar.deletarImagensProduto();
-                msgs.setAttribute("testes", nomes);
                 msgs.setAttribute("avisos", "Produto editado com sucesso");
                 pagina = "admin/admin.jsp?acao=lista_prod";
             } catch (Exception ex) {

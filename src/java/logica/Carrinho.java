@@ -28,7 +28,8 @@ public class Carrinho implements Logica {
 
         // ADICIONAR AO CARRINHO
         if (acao.equals("adicionar")) {
-            if (car == null) {
+            
+            if (car == null) { //SE NÃO HOUVER CARRINHO CRIAR UM NOVO
                 car = new ArrayList();
                 carrinho.setAttribute("carrinho", carrinho);
             }
@@ -41,17 +42,19 @@ public class Carrinho implements Logica {
             item.setValorItens(item.getProduto().getPreco() * item.getQuant());
 
             for (Item_Pedido i : car) {
+                // SE TIVER UM PRODUTO IGUAL NO CARRINHO
                 if (i.getProduto().equals(item.getProduto())) {
-                    i.setQuant(i.getQuant() + Integer.parseInt(request.getParameter("prod_qtd")));
-                    i.setValorItens(i.getProduto().getPreco() * i.getQuant());
+                    i.setQuant(i.getQuant() + Integer.parseInt(request.getParameter("prod_qtd"))); //SOMA QUANTIDADE
+                    i.setValorItens(i.getProduto().getPreco() * i.getQuant()); // MUDA VALOR DO ITEM
                     igual = true;
                 }
             }
 
+            //SE NÃO TIVER UM PRODUTO IGUAL NO CARRINHO
             if (!igual) {
                 item.setProduto(prod);
                 item.setQuant(Integer.parseInt(request.getParameter("prod_qtd")));
-                car.add(item);
+                car.add(item);// ADICIONA NOVO ITEM AO CARRINHO
             }
 
             atualizarCarrinho(carrinho, car);
@@ -61,6 +64,7 @@ public class Carrinho implements Logica {
         // ALTERAR QUANTIDADE DOS PRODUTOS
         if (acao.equals("alterar_qtd")) {
             for (Item_Pedido i : car) {
+                // SE O ITEM DO CARRINHO FOR IGUAL AO ITEM QUE A QUANTIDADE SERÁ ALTERADA
                 if (i.getProduto().getId() == Long.parseLong(request.getParameter("id"))) {
                     i.setQuant(Integer.parseInt(request.getParameter("qtd")));
                     i.setValorItens(i.getProduto().getPreco() * i.getQuant());
