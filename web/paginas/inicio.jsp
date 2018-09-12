@@ -38,7 +38,7 @@
         </div>
         <div class="carousel-item">
             <div class="view">
-                <img class="d-block w-100" src="imagens/carousel/carousel04.png" alt="Third slide">
+                <img class="d-block w-100" src="img/carousel/carousel04.png" alt="Third slide">
                 <div class="mask rgba-black-light"></div>
             </div>
         </div>
@@ -57,7 +57,7 @@
     <!-- ----------------- Linha -----------------  -->
     <hr>
     <!-- ---------- carousel de Marcas -----------  -->
-    <div class="container-fluid">
+    <div class="container-fluid d-none d-lg-block">
         <div id="multi-item-example" class="carousel slide carousel-multi-item carousel-multi-item-2 text-center" data-ride="carousel">
             <div class="controls-top">
                 <a class="black-text" href="#multi-item-example" data-slide="prev"><i class="fa fa-angle-left fa-3x pr-3"></i></a>

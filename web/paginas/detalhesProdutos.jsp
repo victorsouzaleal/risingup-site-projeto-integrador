@@ -15,9 +15,9 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">${prod.nome_detalhado}</h5>
-                    <h2>R$ <fmt:formatNumber minFractionDigits="2" currencySymbol="R$">${prod.preco}</fmt:formatNumber></h2>
+                    <h2>R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" currencySymbol="R$">${prod.preco}</fmt:formatNumber></h2>
                         <hr>
-                        <h2>12x de R$ <fmt:formatNumber minFractionDigits="2" currencySymbol="R$">${prod.preco/12}</fmt:formatNumber></h2>
+                        <h2>12x de R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" currencySymbol="R$">${prod.preco/12}</fmt:formatNumber></h2>
                     <p class="card-text">Total R$ <fmt:formatNumber minFractionDigits="2" currencySymbol="R$">${prod.preco}</fmt:formatNumber></p>
                         <p class="card-text">Parcelas sem juros nos cartoes de credito.</p>
                     </div>
