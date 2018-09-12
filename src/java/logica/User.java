@@ -56,7 +56,7 @@ public class User implements Logica {
                 pagina = "index.jsp";
             } catch (Exception ex) {
                 msgs.setAttribute("erros", ex.getMessage().replace("\n", "<br>"));
-                pagina = "index.jsp?acao=cad_usuario";
+                pagina = "index.jsp";
             }
         }
 
@@ -75,7 +75,7 @@ public class User implements Logica {
                 }
             } catch (Exception ex) {
                 msgs.setAttribute("erros", "Usuario ou senha invalido");
-                pagina = "index.jsp?acao=login_usuario";
+                pagina = "index.jsp";
             }
         }
 

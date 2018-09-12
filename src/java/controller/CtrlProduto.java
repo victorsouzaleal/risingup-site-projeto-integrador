@@ -49,7 +49,9 @@ public class CtrlProduto {
         return dao.findProdutos(nome,tipo);
     }
     
-
-    
-    
+    public List<Produto> produtosSemelhantes(Long id , int limite , Long id_prod){
+        dao = new ProdutoDAO();
+        return dao.produtosSemelhantes(id, limite, id_prod);
+    }
+      
 }

@@ -56,7 +56,6 @@
 <c:import url="paginas/alertas.jsp"></c:import>
     <!-- ----------------- Linha -----------------  -->
     <hr>
-
     <!-- ---------- carousel de Marcas -----------  -->
     <div class="container-fluid">
         <div id="multi-item-example" class="carousel slide carousel-multi-item carousel-multi-item-2 text-center" data-ride="carousel">
@@ -270,7 +269,7 @@
 <!-- ----------------- Linha -----------------  -->
 <hr style="margin-top: 120px;">
 <!-- ---------- Galeria -----------  -->
-<div class="container-fluid pt-5">
+<div class="container-fluid pt-5 d-none d-lg-block">
     <div class="row">
         <c:forEach items="${ctrl_prod.listarProdutos(1,4)}" var="prod">
             <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text">

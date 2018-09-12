@@ -78,7 +78,6 @@ public class Carrinho implements Logica {
             }
 
             atualizarCarrinho(carrinho, car);
-            msgs.setAttribute("avisos", "Item removido");
             pagina = "index.jsp?acao=carrinho";
         }
         return pagina;

@@ -35,6 +35,7 @@ public class Categoria_Log implements Logica {
             cat.setNome(request.getParameter("nome"));
             cat.setIcone1(request.getPart("icone1").getSubmittedFileName());
             cat.validar();
+            cat.setIcone1(arq.gerarNome(cat.getIcone1()));
             arq.upload(arq.getPath_icone_cat(), cat.getIcone1(), request.getPart("icone1").getInputStream());
             ctrl_cat.cadastrar(cat);
             verificar.deletarIconesCategoria();
@@ -55,6 +56,7 @@ public class Categoria_Log implements Logica {
                 if (cat.getIcone1().equals("")) {
                     cat.setIcone1(cat_atual.getIcone1());
                 } else {
+                    cat.setIcone1(arq.gerarNome(cat.getIcone1()));
                     arq.upload(arq.getPath_icone_cat(), cat.getIcone1(), request.getPart("icone1").getInputStream());
                 }
 

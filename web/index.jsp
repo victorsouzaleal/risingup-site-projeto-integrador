@@ -17,7 +17,7 @@
     <body>
         <!-- ---------- navbar -----------  -->    
         <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #000000;">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.jsp">
                 <img src="img/logo/logo.png" alt="logo" style="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -78,8 +78,8 @@
         </c:if>
             <ul class="nav justify-content-center text-center">
                 <li class="nav-item px-4">
-                    <img src="img/icones_cat/home.png" style="width: 30px; height: auto;">
-                    <a class="nav-link text-white" href="#">Home</a>
+                    <img src="img/icones_gerais/home.png" style="width: 30px; height: auto;">
+                    <a class="nav-link text-white" href="index.jsp">Home</a>
                 </li>
                 <c:forEach items="${ctrl_cat.buscarCategorias()}" var="cat">
                     <li class="nav-item px-4">
@@ -114,7 +114,7 @@
         <footer class="container-fluid py-5 text-white text-center" style="background-color: #000000">
             <div class="row">
                 <div class="col-12 col-md">
-                    <img src="img/logo/logo.png">
+                    <img class="p-2" src="img/logo/logo.png">
                 </div>
                 <div class="col-6 col-md">
                     <h5 class="clrd-font2">Features</h5>
