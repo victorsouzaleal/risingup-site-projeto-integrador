@@ -65,7 +65,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item clrd-font" href="index.jsp?acao=meus_pedidos" >Meus Pedidos</a>
-                                <a class="dropdown-item clrd-font" href="#">Alterar Dados</a>
+                                <a class="dropdown-item clrd-font" href="index.jsp?acao=alterar">Alterar Dados</a>
                                 <a class="nav-link clrd-font" href="sys?logica=User&action=off">&nbsp;&nbsp;&nbsp;Sair</a>
                             </div>
                         </li>
@@ -101,6 +101,9 @@
             <c:choose>
                 <c:when test="${param.acao == 'carrinho'}">
                     <c:import url="paginas/carrinho.jsp"></c:import>
+                </c:when>
+                <c:when test="${param.acao == 'alterar'}">
+                    <c:import url="paginas/tela_alterardados.jsp"></c:import>
                 </c:when>
                 <c:when test="${param.acao == 'categoria'}">
                     <c:import url="paginas/tela_categoria.jsp"></c:import>
