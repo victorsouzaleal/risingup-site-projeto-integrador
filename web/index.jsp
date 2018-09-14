@@ -32,7 +32,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <c:forEach items="${ctrl_cat.buscarCategorias()}" var="cat">
-                                <a class="nav-link clrd-font d-inline-block" href="#">${cat.nome}</a>
+                                <a class="nav-link clrd-font d-inline-block" href="index.jsp?acao=categoria&id=${cat.id}">${cat.nome}</a>
                             </c:forEach>
                         </div>
                     </li>
@@ -48,7 +48,7 @@
                         </a>
                     </li>  
                     <c:if test="${empty cliente.nome}">
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown mr-4">
                             <a class="nav-link dropdown-toggle clrd-font" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="img/icones_gerais/user.png" style="width: 30px; height: auto;">&nbsp;&nbsp;&nbsp;Login
                             </a>
@@ -92,7 +92,7 @@
                     <c:forEach items="${ctrl_cat.buscarCategorias()}" var="cat">
                         <li class="nav-item px-4">
                             <img src="img/icones_cat/${cat.icone1}" style="width: 30px; height: auto;">
-                            <a class="nav-link text-white" href="#">${cat.nome}</a>
+                            <a class="nav-link text-white" href="index.jsp?acao=categoria&id=${cat.id}">${cat.nome}</a>
                         </li>
                     </c:forEach>
                 </ul>
@@ -101,6 +101,9 @@
             <c:choose>
                 <c:when test="${param.acao == 'carrinho'}">
                     <c:import url="paginas/carrinho.jsp"></c:import>
+                </c:when>
+                <c:when test="${param.acao == 'categoria'}">
+                    <c:import url="paginas/tela_categoria.jsp"></c:import>
                 </c:when>
                 <c:when test="${param.acao == 'finalizarPedido'}">
                     <c:import url="paginas/finalizarPedido.jsp"></c:import>

@@ -4,7 +4,7 @@
 
 <!-- SE O USUARIO TENTAR ACESSAR DIRETAMENTE SEM TER NADA NO CARRINHO -->
 <c:if test="${empty total_geral || empty carrinho}">
-        <script>window.location.href = "index.jsp";</script>    
+    <script>window.location.href = "index.jsp";</script>    
 </c:if>
 <!-- ############################ -->        
 
@@ -18,21 +18,33 @@
 
 <!-- ####################################################### -->
 
-
-<div class="row" style="margin-top: 10%;margin-bottom: 20%">
-    <div class="col-8 offset-2 text-center">
-        <h1>Finalizando Pedido</h1>
-        <p>Endereço de Entrega : ${cliente.endereco.logradouro} -  ${cliente.endereco.bairro} - ${cliente.endereco.cidade} - ${cliente.endereco.uf} </p>
-        <p>Complemento : ${cliente.complemento} - Numero ${cliente.numero}</p>
-        <h3>Valor Pedido : R$ <f:formatNumber minFractionDigits="2" currencySymbol="R$">${total_pedido}</f:formatNumber></h3>
-        <h3>Valor Frete : R$ <f:formatNumber minFractionDigits="2" currencySymbol="R$">${frete_pedido}</f:formatNumber></h3>
-        <h3>Valor Total : R$ <f:formatNumber minFractionDigits="2" currencySymbol="R$">${total_geral}</f:formatNumber></h3>
-            <h3>Está tudo de acordo?</h3>
-            <form action="sys">
-                <input type="hidden" name="action" value="finalizar" />
-                <input type="hidden" name="logica" value="Pedido_Log" />
-                <button class="btn btn-success w-100">Finalizar Pedido</button>
-            </form>
+<div class="container" style="margin-top: 150px; margin-bottom: 20%">
+    <div class="row">
+        <div class="col-md-12 order-md-2 mb-4">          
+            <div class="card text-center">             
+                <div class="card-header">
+                    <big>Finalizar Pedido</big>
+                </div>
+                <div class="card-body">
+                    <strong>Endereço de entrega : <small> ${cliente.endereco.logradouro} - ${cliente.endereco.bairro} - ${cliente.endereco.cidade} - ${cliente.endereco.uf}</small></strong><p></p>
+                    <strong>Complemento : <small> ${cliente.complemento} - ${cliente.numero}</small></strong><p></p>
+                    <hr>
+                    <strong>Valor do pedido : <small> R$ <f:formatNumber minFractionDigits="2" currencySymbol="R$">${total_pedido}</f:formatNumber></small></strong><p></p>
+                    <strong>Frete : <small> R$ <f:formatNumber minFractionDigits="2" currencySymbol="R$">${frete_pedido}</f:formatNumber></small></strong><p></p>
+                    <strong>Total <small> R$ <f:formatNumber minFractionDigits="2" currencySymbol="R$">${total_geral}</f:formatNumber></small></strong>
+                    <hr>
+                    <small>Está tudo de acordo?</small><a class="text-muted" href="index.jsp?acao=carrinho"><small> Caso não esteja, clique aqui</small></a>
+                </div>
+                <div>
+                    <form action="sys">
+                        <input type="hidden" name="action" value="finalizar" />
+                        <input type="hidden" name="logica" value="Pedido_Log" />
+                        <button class="btn px-5 btn-outline-secondary">Finalizar Pedido</button>
+                    </form>
+                </div>
+                <span class="pt-4"></span>
+            </div>
         </div>
     </div>
+</div>
 

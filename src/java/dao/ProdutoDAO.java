@@ -132,6 +132,18 @@ public class ProdutoDAO extends ConectaJPA {
             em.close();
         }
     }
+    
+    //Buscar produtos de acordo com a categoria
+    public List<Produto> findProdutos(Long id_cat){
+        try {
+            Query query = em.createQuery("select p from Produto as p where p.categoria.id = :cat and p.ativo = true ORDER BY p.id DESC");
+            query.setParameter("cat", id_cat);   
+            List<Produto> produtos = query.getResultList();
+            return produtos;
+        } finally {
+            em.close();
+        }
+    }
 
     //Busca pelo ID
     public Produto findProduto(Long id) {

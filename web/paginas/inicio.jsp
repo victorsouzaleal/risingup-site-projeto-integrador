@@ -134,7 +134,6 @@
                                 <h4 class="my-0 font-weight-normal clrd-font">Computador</h4>
                             </div> 
                             <img src="img/iconesindex/computador.png" class="img-fluid pt-5" style="width: 180px; height: auto;"><p></p>
-                            <a href="#" class="btn btn-sm btn-outline-secondary" style="border-color: #04A3FF;">Todos os modelos</a>
                         </div>
                         <span class=" mt-3"></span>
                     </div>
@@ -170,7 +169,6 @@
                             <h4 class="my-0 font-weight-normal clrd-font">Notebook</h4>
                         </div> 
                         <img src="img/iconesindex/laptop.png" class="img-fluid pt-5" style="width: 180px; height: auto;"><p></p>
-                        <a href="#" class="btn btn-sm btn-outline-secondary"style="border-color: #04A3FF;">Todos os modelos</a>
                     </div>
                     <span class=" mt-3"></span>
                 </div>
@@ -205,7 +203,6 @@
                             <h4 class="my-0 font-weight-normal clrd-font">Teclado</h4>
                         </div> 
                         <img src="img/iconesindex/keyboard.png" class="img-fluid pt-5" style="width: 180px; height: auto;"><p></p>
-                        <a href="#" class="btn btn-sm btn-outline-secondary" style="border-color: #04A3FF;">Todos os modelos</a>
                     </div>
                     <span class=" mt-3"></span>
                 </div>
@@ -241,7 +238,6 @@
                             <h4 class="my-0 font-weight-normal clrd-font2">Mouse</h4>
                         </div> 
                         <img src="img/iconesindex/mouse.png" class="img-fluid pt-5" style="width: 180px; height: auto;"><p></p>
-                        <a href="#" class="btn btn-sm btn-outline-secondary" style="border-color: #04A3FF;">Todos os modelos</a>
                     </div>
                     <span class=" mt-3"></span>
                 </div>
