@@ -3,31 +3,29 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!-- AREA DE MENSAGENS -->
+
 <c:if test="${not empty avisos}">
-    <div class="alert alert-info">
-        <strong><p class="text-center">${avisos}</p></strong>
-        <c:remove var="avisos" scope="session" />
-    </div>
+    <script>
+        var message = "${avisos}";
+        alertify.alert("Aviso", message);
+    </script>
+    <c:remove var="avisos" scope="session" />
 </c:if>
+
 <c:if test="${not empty erros}">
-    <div class="alert alert-danger">
-        <strong><p class="text-center">${erros}</p></strong>
-        <c:remove var="erros" scope="session" />
-    </div>
+    <script>
+        var message = "${erros}";
+        alertify.alert("Erro", message);
+    </script>
+    <c:remove var="erros" scope="session" />
 </c:if>
+
 <c:if test="${not empty alertas}">
-    <div class="alert alert-warning">
-        <strong><p class="text-center">${alertas}</p></strong>
-        <c:remove var="alertas" scope="session" />
-    </div>
-</c:if>
-<c:if test="${not empty testes}">
-    <div class="alert alert-warning">
-        <c:forEach items="${testes}" var="t">
-            <strong><p class="text-center">${t}</p></strong>
-        </c:forEach>
-        <c:remove var="testes" scope="session" />
-    </div>
+    <script>
+        var message = "${alertas}";
+        alertify.alert("Alerta", message);
+    </script>
+    <c:remove var="alertas" scope="session" />
 </c:if>
 
 

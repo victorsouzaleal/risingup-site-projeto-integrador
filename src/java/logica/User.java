@@ -70,7 +70,7 @@ public class User implements Logica {
                     cli.setPws("");
                     user.setAttribute("cliente", cli);
                     msgs.setAttribute("avisos", "Olá " + cli.getEmail() + "");
-                }else {
+                } else {
                     msgs.setAttribute("erros", "Usuario ou senha invalido");
                 }
             } catch (Exception ex) {
@@ -130,6 +130,31 @@ public class User implements Logica {
             //user.removeAttribute("cliente");
             //Apaga a session user
             user.invalidate();
+        }
+
+        if (acao.equals("editar_perfil")) {
+            CtrlCliente ctrl = new CtrlCliente();
+            HttpSession user = request.getSession();
+            Usuario dados_user = (Usuario) user.getAttribute("cliente");
+            dados_user = ctrl.buscaCliente(dados_user.getId());
+
+            String tipo = request.getParameter("tipo");
+            if (tipo.equals("alt_dados")) {
+                try {
+                    String nome = request.getParameter("nome");
+                    if (nome.equals("")) {
+                        throw new Exception("Campo NOME está vazio");
+                    }
+                    dados_user.setNome(nome);
+                    ctrl.editar(dados_user);
+                    msgs.setAttribute("avisos", "Dados alterados com sucesso");
+                    request.getSession().setAttribute("cliente", dados_user);
+                    pagina = "index.jsp";
+                } catch (Exception ex) {
+                    msgs.setAttribute("erros", ex.getMessage());
+                    pagina = "index.jsp?acao=alterar";
+                }
+            }
         }
 
         return pagina;

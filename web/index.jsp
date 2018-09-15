@@ -12,6 +12,10 @@
         <link href="css/full-slider.css" rel="stylesheet"> <!-- carousel  -->
         <link rel="stylesheet" href="css/style.css">       <!-- Galeria  -->
         <link rel="shortcut icon" type="image/ico" href="img/logo/favicon.png"/>
+        <!-- CSS -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/alertify.min.css"/>
+        <!-- Bootstrap theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/bootstrap.min.css"/>
         <title>Rising UP!</title>
     </head>
     <body>
@@ -47,7 +51,7 @@
                             </span>
                         </a>
                     </li>  
-                    <c:if test="${empty cliente.nome}">
+                    <c:if test="${empty cliente.id}">
                         <li class="nav-item dropdown mr-4">
                             <a class="nav-link dropdown-toggle clrd-font" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="img/icones_gerais/user.png" style="width: 30px; height: auto;">&nbsp;&nbsp;&nbsp;Login
@@ -58,7 +62,7 @@
                             </div>
                         </li>
                     </c:if>
-                    <c:if test="${not empty cliente.nome}">  
+                    <c:if test="${not empty cliente.id}">  
                         <li class="nav-item dropdown mr-4">
                             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="img/icones_gerais/user.png" style="width: 30px; height: auto;">&nbsp;&nbsp;&nbsp;${cliente.nome}
@@ -97,6 +101,7 @@
                     </c:forEach>
                 </ul>
             </div>
+
             <!-- PAGINAS -->
             <c:choose>
                 <c:when test="${param.acao == 'carrinho'}">
@@ -162,6 +167,124 @@
                     </div>
                 </div>
             </footer>
+
+            <!-- MODAIS -->
+            <!-- Modal Usuario -->
+            <div class="modal fade" id="cadusuario" tabindex="-1" role="dialog" aria-labelledby="cadusuario" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title clrd-font" id="cadusuario">Cadastro de Usuario</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body text-center">
+                            <form class="container mt-4" method="post" action="sys">
+                                <input type="hidden" name="logica" value="User">
+                                <input type="hidden" name="action" value="cad">
+                                <h2 class="text-center clrd-font">Cadastre-se agora!</h2>
+                                <div class="form-group mt-4">
+                                    <input type="text" class="form-control text-center" id="nome_usu" aria-describedby="emailHelp" name="nome" placeholder="Nome">
+                                </div>         
+                                <div class="form-group">
+                                    <input class="form-control text-center" type="text" name="data" id="datepicker"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control text-center" id="email_usu" aria-describedby="emailHelp" name="email" placeholder="Email">
+                                </div>               
+                                <div class="form-group">
+                                    <input type="password" class="form-control text-center" id="senha_usu" name="pws" placeholder="Senha">
+                                </div>            
+                                <div class="form-group">
+                                    <input type="password" class="form-control text-center" id="senha_usu2" name="confpws" placeholder="Confirmar Senha">
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-7">
+                                        <input type="text" class="form-control text-center" onblur="pesquisacep(this.value)" name="cep" id="cep" placeholder="CEP">
+                                    </div>  
+                                    <div class="col">
+                                        <input type="text" class="form-control text-center" placeholder="Numero" name="num">
+                                    </div>
+                                    <div class="col-12 pt-3">
+                                        <input type="text" class="form-control text-center" placeholder="Complemento" name="comp">
+                                    </div>
+                                    <div class="col-7 pt-3">
+                                        <input type="text" class="form-control text-center" id="cidade" placeholder="Cidade" name="cidade" readonly="">
+                                    </div>
+                                    <div class="col pt-3">
+                                        <input type="text" class="form-control text-center" id="uf" placeholder="UF" name="uf" readonly="">
+                                    </div>
+                                    <div class="col-12 pt-3">
+                                        <input type="text" class="form-control text-center" id="rua" placeholder="Rua" name="rua" readonly="">
+                                    </div>
+                                    <div class="col-12 pt-3">
+                                        <input type="text" class="form-control text-center" id="bairro" placeholder="Bairro" name="bairro" readonly="">
+                                    </div>
+                                </div><p></p>
+                                <button type="submit" name="cadastrar" class="btn btn-outline-secondary w-100">Cadastrar</button>
+                            </form>
+                            <p class="pt-2 text-center"><img src="img/logo/logotexpre.png"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Login -->
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title clrd-font" id="login">Login de Usuario</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <form class="container pt-5" action="sys" method="post">
+                                <input type="hidden" name="logica" value="User">
+                                <input type="hidden" name="action" value="login">                
+                                <h2 class="text-center clrd-font">Faça seu login</h2>                   
+                                <div class="form-group pt-3">
+                                    <input type="email" class="form-control text-center" id="email_usu" aria-describedby="emailHelp" name="email" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control text-center" id="senha_usu" name="pws" placeholder="Senha">
+                                </div>           
+                                <small class="text-muted bb clrd-font">Não tem conta?<a href="#cadusuario" data-toggle="modal" data-target="#cadusuario">Cadastre-se!</a></small>
+                                <div class="pt-2">
+                                    <button type="submit" class="btn btn-outline-secondary w-100">Entrar</button>
+                                </div>
+                            </form>
+                            <p class="pt-2 text-center"><img src="img/logo/logotexpre.png"></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Quem somos -->
+            <div class="modal fade" id="quemsomos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title clrd-font" id="exampleModalCenterTitle">Quem somos</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center">    
+
+                            O site da Rising UP! Ã© um marketplace focado no pÃºblico gamer. NÃ³s contamos com um site dedicado Ã  missÃ£o de oferecer sempre os melhores computadores e acessÃ³rios para sua diversÃ£o.
+                            <p class="pt-2"> AtravÃ©s do web-site vocÃª vai encontrar produtos, serviÃ§os e um atendimento exclusivo que vÃ£o transformar os seus sonhos em realidade.</p>
+                            <p class="pt-2 text-center"><img src="imagens/logo/logotexpre.png"></p>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Optional JavaScript -->
             <!-- jQuery first, then Popper.js, then Bootstrap JS -->
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -171,5 +294,10 @@
             <script src="js/datepicker.js"></script>
             <script src="js/spinner.js"></script>
             <script src="js/ceps.js"></script>
+            <!-- JavaScript -->
+            <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/alertify.min.js"></script>
+
+            <!-- AVISOS E MENSAGENS -->
+            <c:import url="paginas/alertas.jsp"></c:import>
     </body>
 </html>

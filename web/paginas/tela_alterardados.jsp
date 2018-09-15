@@ -10,13 +10,18 @@
                     <div class="row">
                         <div class="col-md-10"> <div class="col-md-12">
                                 <h5 class="py-2">Dados pessoais</h5></div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="nome_usu" aria-describedby="emailHelp" name="nome_usu" value="${cliente.nome}" placeholder="Nome">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email_usu" aria-describedby="emailHelp" name="email_usu" value="${cliente.email}" readonly="true" placeholder="Email">
-                            </div>
-                            <a href="#" class="btn btn-outline-secondary">Alterar dados pessoais</a>
+                            <form action="sys">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="nome_usu" aria-describedby="emailHelp" name="nome" value="${cliente.nome}" placeholder="Nome">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email_usu" aria-describedby="emailHelp" name="email" value="${cliente.email}" readonly="true" placeholder="Email">
+                                </div>
+                                <input type="hidden" name="action" value="editar_perfil"/>
+                                <input type="hidden" name="tipo" value="alt_dados"/>
+                                <input type="hidden" name="logica" value="User"/>
+                                <button class="btn btn-outline-secondary">Alterar dados pessoais</button>
+                            </form>
                         </div> 
                         <div class="col-md-12 py-2">
                             <hr><h5 class= py-2">Alterar senha</h5>
@@ -72,7 +77,7 @@
                                 <input type="text" class="form-control" placeholder="Rua" value="${cliente.endereco.logradouro}">
                             </div>
                         </div>
-                            
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Bairro" value="${cliente.endereco.bairro}">
