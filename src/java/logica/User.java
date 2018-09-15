@@ -155,6 +155,42 @@ public class User implements Logica {
                     pagina = "index.jsp?acao=alterar";
                 }
             }
+
+            if (tipo.equals("alt_senha")) {
+                try {
+                    String antigapws = request.getParameter("ant_senha");
+                    String novapws = request.getParameter("nova_senha");
+                    String erros = "";
+                    //VALIDAÇÃO
+                    if (antigapws.equals("")) {
+                        erros += "Campo Senha Antiga está em branco.\n";
+                    } else if (!dados_user.getPws().equals(antigapws)) {
+                        erros += "Senha antiga inválida";
+                    }
+                    if (novapws.equals("")) {
+                        erros += "Campo Senha Nova está em branco.\n";
+                    } else if (novapws.length() < 8) {
+                        erros += "Nova senha deve ter no mínimo 8 caracteres.\n";
+                    }
+
+                    if (!erros.equals("")) {
+                        throw new Exception(erros);
+                    }
+                    
+                    dados_user.setPws(novapws);
+                    ctrl.editar(dados_user);
+                    msgs.setAttribute("avisos", "Sua senha foi alterada com sucesso.");
+                    pagina = "index.jsp";
+                } catch (Exception ex) {
+                    msgs.setAttribute("erros", ex.getMessage().replace("\n", "<br>"));
+                    pagina = "index.jsp?acao=alterar";
+                }
+
+            }
+
+            if (tipo.equals("alt_endereco")) {
+
+            }
         }
 
         return pagina;

@@ -8,39 +8,43 @@
                 </div>           
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-10"> <div class="col-md-12">
-                                <h5 class="py-2">Dados pessoais</h5></div>
+                        <div class="col-md-10"> 
+                            <h5 class="py-2">Dados pessoais</h5>
                             <form action="sys">
-                                <div class="form-group">
+                                <div class="form-group ml-1">
                                     <input type="text" class="form-control" id="nome_usu" aria-describedby="emailHelp" name="nome" value="${cliente.nome}" placeholder="Nome">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group ml-1">
                                     <input type="email" class="form-control" id="email_usu" aria-describedby="emailHelp" name="email" value="${cliente.email}" readonly="true" placeholder="Email">
                                 </div>
                                 <input type="hidden" name="action" value="editar_perfil"/>
                                 <input type="hidden" name="tipo" value="alt_dados"/>
                                 <input type="hidden" name="logica" value="User"/>
-                                <button class="btn btn-outline-secondary">Alterar dados pessoais</button>
+                                <button class="btn btn-outline-secondary ml-1">Alterar dados pessoais</button>
                             </form>
                         </div> 
-                        <div class="col-md-12 py-2">
+                        <div class="col-md-12 py-2 ml-1">
                             <hr><h5 class= py-2">Alterar senha</h5>
                         </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="senha_usu" name="senha_usu" placeholder="Senha antiga">
+                        <form class="row ml-1" action="sys">
+                            <input type="hidden" name="action" value="editar_perfil"/>
+                            <input type="hidden" name="tipo" value="alt_senha"/>
+                            <input type="hidden" name="logica" value="User"/>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="senha_usu" name="ant_senha" placeholder="Senha antiga">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="senha_usu2" name="senha_usu2" placeholder="Nova senha">
-                            </div> 
-                        </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="senha_usu2" name="nova_senha" placeholder="Nova senha">
+                                </div> 
+                            </div>
 
-                        <div class="col-md-6"><a href="#" class="btn btn-outline-secondary">Alterar senha antiga</a></div>
-
+                            <div class="col-md-6"><button class="btn btn-outline-secondary">Alterar senha antiga</button></div>
+                        </form>
+                                
                         <div class="col-md-12 py-2">
                             <hr><h5 class= py-2">Endereço Residencial</h5>
                         </div>
