@@ -16,6 +16,7 @@ Criar banco de dados com as seguintes informações :
  - Login de usuários  (Feito)
  - Cadastro de usuários (Feito)
  - Cadastro de Produtos (Feito)
+ - Cadastro de Categorias (Feito)
  - Carrinho de compras (Feito)
  - Finalização do Pedido (Feito)
  - Listagem/Busca de Usuários (Feito)
@@ -25,3 +26,4 @@ Criar banco de dados com as seguintes informações :
  - Edição de Produto (Feito)
  - Edição de Usuário (Feito)
  - Edição de Categorias (Feito)
+ - Alterar dados do Usuario (Em andamento)
