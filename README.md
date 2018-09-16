@@ -26,4 +26,4 @@ Criar banco de dados com as seguintes informações :
  - Edição de Produto (Feito)
  - Edição de Usuário (Feito)
  - Edição de Categorias (Feito)
- - Alterar dados do Usuario (Em andamento)
+ - Alterar dados do Usuario (Feito)
