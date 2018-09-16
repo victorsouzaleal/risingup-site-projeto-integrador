@@ -7,6 +7,7 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Endereco;
 import model.Usuario;
 
 @MultipartConfig
@@ -114,6 +115,10 @@ public class User implements Logica {
                 cli.getEndereco().setCidade(request.getParameter("cidade"));
                 cli.getEndereco().setUf(request.getParameter("uf"));
 
+                if (!ctrlcli.enderecoExiste(cli.getEndereco().getCep())) {
+                    ctrlcli.cadastrar(cli.getEndereco());
+                }
+
                 cli.validar(request.getParameter("confpws"));
                 ctrlcli.editar(cli);
                 msgs.setAttribute("avisos", "Editado com sucesso");
@@ -176,7 +181,7 @@ public class User implements Logica {
                     if (!erros.equals("")) {
                         throw new Exception(erros);
                     }
-                    
+
                     dados_user.setPws(novapws);
                     ctrl.editar(dados_user);
                     msgs.setAttribute("avisos", "Sua senha foi alterada com sucesso.");
@@ -189,6 +194,30 @@ public class User implements Logica {
             }
 
             if (tipo.equals("alt_endereco")) {
+                try {
+                    Usuario cli = (Usuario) request.getSession().getAttribute("cliente");
+                    cli = ctrl.buscaCliente(dados_user.getId());
+                    CtrlCliente ctrlcli = new CtrlCliente();
+                    cli.setComplemento(request.getParameter("comp"));
+                    cli.setNumero(request.getParameter("num"));
+                    cli.getEndereco().setCep(request.getParameter("cep"));
+                    cli.getEndereco().setLogradouro(request.getParameter("rua"));
+                    cli.getEndereco().setBairro(request.getParameter("bairro"));
+                    cli.getEndereco().setCidade(request.getParameter("cidade"));
+                    cli.getEndereco().setUf(request.getParameter("uf"));
+                    cli.validarEndereco();
+
+                    if (!ctrlcli.enderecoExiste(cli.getEndereco().getCep())) {
+                        ctrlcli.cadastrar(cli.getEndereco());
+                    }
+                    ctrlcli.editar(cli);
+                    user.setAttribute("cliente", cli);
+                    msgs.setAttribute("avisos", "Seu endereço foi alterado com sucesso.");
+                    pagina = "index.jsp";
+                } catch (Exception ex) {
+                    msgs.setAttribute("erros", ex.getMessage().replace("\n", "<br>"));
+                    pagina = "index.jsp?acao=alterar";
+                }
 
             }
         }

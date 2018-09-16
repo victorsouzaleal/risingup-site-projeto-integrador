@@ -44,58 +44,62 @@
 
                             <div class="col-md-6"><button class="btn btn-outline-secondary">Alterar senha antiga</button></div>
                         </form>
-                                
+
                         <div class="col-md-12 py-2">
                             <hr><h5 class= py-2">Endereço Residencial</h5>
                         </div>
 
-                        <div class="col-md-3 pt-3">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="CEP" value="${cliente.endereco.cep}">
+                        <form class="row ml-1" action="sys">
+                            <input type="hidden" name="action" value="editar_perfil"/>
+                            <input type="hidden" name="tipo" value="alt_endereco"/>
+                            <input type="hidden" name="logica" value="User"/>
+                            <div class="col-md-3 pt-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="CEP" onblur="pesquisacep(this.value)" name="cep" id="cep" value="${cliente.endereco.cep}">
+                                </div>
                             </div>
-                        </div>
 
-
-                        <div class="col-md-2">
-                            <div class="form-group pt-3">
-                                <input type="text" class="form-control" placeholder="NÃºmero" value="${cliente.numero}">
-                            </div> 
-                        </div>
-
-
-                        <div class="col-md-3">
-                            <div class="form-group pt-3">
-                                <input type="text" class="form-control" placeholder="UF" value="${cliente.endereco.uf}">
+                            <div class="col-md-2">
+                                <div class="form-group pt-3">
+                                    <input type="text" class="form-control" placeholder="Numero" name="num"  value="${cliente.numero}">
+                                </div> 
                             </div>
-                        </div>
 
 
-                        <div class="col-md-4">
-                            <div class="form-group pt-3">
-                                <input type="text" class="form-control" placeholder="Cidade" value="${cliente.endereco.cidade}">
-                            </div> 
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Rua" value="${cliente.endereco.logradouro}">
+                            <div class="col-md-3">
+                                <div class="form-group pt-3">
+                                    <input type="text" class="form-control" placeholder="UF" name="uf" id="uf" value="${cliente.endereco.uf}" readonly="">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Bairro" value="${cliente.endereco.bairro}">
+
+                            <div class="col-md-4">
+                                <div class="form-group pt-3">
+                                    <input type="text" class="form-control" placeholder="Cidade" name="cidade" id="cidade" value="${cliente.endereco.cidade}" readonly="">
+                                </div> 
                             </div>
-                        </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Rua" name="rua" id="rua" value="${cliente.endereco.logradouro}" readonly="">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Bairro" name="bairro" id="bairro" value="${cliente.endereco.bairro}" readonly="">
+                                </div>
+                            </div>
 
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Complemento" value="${cliente.complemento}">
-                            </div> 
-                        </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Complemento" name="comp" value="${cliente.complemento}">
+                                </div> 
+                            </div>
 
-                        <div class="col-md-12 "><a href="#" class="btn btn-outline-secondary">Alterar endereço residencial</a></div>
+                            <div class="col-md-12 "><button class="btn btn-outline-secondary">Alterar endereço residencial</button></div>
+                        </form>
                     </div>
 
                 </div>
@@ -104,3 +108,4 @@
         </div>
     </div>
 </div>
+

@@ -188,12 +188,44 @@ public class Usuario implements Serializable {
 
         return erros;
     }
+    
+    private String isEndereco() {
+        String erros = "";
+
+        if (endereco.getCep().equals("")) {
+            erros += "CEP em branco.\n";
+        }
+        if (endereco.getLogradouro().equals("")) {
+            erros += "Endereço em branco.\n";
+        }
+        if (endereco.getBairro().equals("")) {
+            erros += "Bairro em branco.\n";
+        }
+        if (endereco.getCidade().equals("")) {
+            erros += "Cidade em branco.\n";
+        }
+        if (endereco.getUf().equals("")) {
+            erros += "Estado(UF) em branco.\n";
+        }
+
+        if (numero.equals("")) {
+            erros += "Numero em branco.\n";
+        }
+
+        if (complemento.equals("")) {
+            erros += "Complemento em branco.\n";
+        }
+
+        return erros;
+    }
+    
+    
 
     private String conferirSenha(String confsenha) {
         String erros = "";
 
         if (pws.equals("")) {
-            erros += "Senha em branco.";
+            erros += "Senha em branco.\n";
         } else if (pws.length() < 8) {
             erros += "Senha não pode ter menos de 8 caracteres.\n";
         }
@@ -224,6 +256,14 @@ public class Usuario implements Serializable {
     public void validarSenha(String confsenha) throws Exception {
         String erros = "";
         erros = conferirSenha(confsenha);
+        if (!(erros.equals(""))) {
+            throw new Exception(erros);
+        }
+    }
+    
+    public void validarEndereco() throws Exception {
+        String erros = "";
+        erros = isEndereco();
         if (!(erros.equals(""))) {
             throw new Exception(erros);
         }
