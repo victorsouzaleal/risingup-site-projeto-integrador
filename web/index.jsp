@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="ctrl_cat" class="controller.CtrlCategoria"/>
+<jsp:useBean id="ctrl_prod" class="controller.CtrlProduto"/>
 <!doctype html>
 <html lang="pt-br">
     <head>
@@ -129,6 +130,27 @@
                     <c:import url="paginas/erro.jsp"></c:import>    
                 </c:otherwise>
             </c:choose>
+            
+            <!-- ----------------- Linha -----------------  -->
+            <hr style="margin-top: 40px;">
+            <!-- ---------- Galeria -----------  -->
+            <div class="container-fluid pt-5 d-none d-lg-block">
+                <div class="row">
+                    <c:forEach items="${ctrl_prod.listarProdutos(1,4)}" var="prod">
+                        <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text">
+                            <img src="img/produtos/${prod.foto1}" alt="" class="d-block mx-auto" style="width : 50%; height: auto;"/>
+                            <div class="portfolio_images_overlay text-center">
+                                <h2 class="clrd-font">${prod.nome}</h2>
+                                <p class="clrd-font pt-2">${prod.descricao}</p>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+
+            <!-- ----------------- Linha -----------------  -->
+            <hr style="margin-top: 40px;">
+
             <!-- ---------- Footer -----------  -->
             <footer class="container-fluid py-5 text-white text-center" style="background-color: #000000">
                 <div class="row">

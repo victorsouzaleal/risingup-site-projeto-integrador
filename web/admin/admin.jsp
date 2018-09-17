@@ -22,7 +22,10 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+        <!-- CSS -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/alertify.min.css"/>
+        <!-- Bootstrap theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/bootstrap.min.css"/>
         <title>ADMIN</title>
     </head>
     <body>
@@ -61,8 +64,7 @@
                 </div>
             </div>
         </nav>
-        <c:import url="../paginas/alertas.jsp"></c:import>
-            <section id="conteudo">
+        <section id="conteudo">
             <c:choose>
                 <c:when test="${param.acao == 'cad_produto'}">
                     <c:import url="paginas/formCadastroProd.jsp"></c:import>
@@ -110,5 +112,8 @@
         <link rel="stylesheet" href="../js/jquery-ui.structure.min.css">
         <link rel="stylesheet" href="../js/jquery-ui.theme.min.css">
         <script src="../js/datepicker.js"></script>
+        <!-- JavaScript -->
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/alertify.min.js"></script>
+        <c:import url="../paginas/alertas.jsp"></c:import>
     </body>
 </html>
