@@ -32,12 +32,6 @@
         </div>
         <div class="carousel-item">
             <div class="view">
-                <img class="d-block w-100" src="img/carousel/carousel06.png" alt="Third slide">
-                <div class="mask rgba-black-light"></div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <div class="view">
                 <img class="d-block w-100" src="img/carousel/carousel04.png" alt="Third slide">
                 <div class="mask rgba-black-light"></div>
             </div>
@@ -133,7 +127,7 @@
                             </div> 
                             <img src="img/iconesindex/computador.png" class="img-fluid pt-5" style="width: 180px; height: auto;"><p></p>
                         </div>
-                        <span class=" mt-3"></span>
+                        <span class="mt-5"></span>
                     </div>
                 </div>
             <c:forEach items="${ctrl_prod.listarProdutos(1,3)}" var="prod">
@@ -168,7 +162,7 @@
                         </div> 
                         <img src="img/iconesindex/laptop.png" class="img-fluid pt-5" style="width: 180px; height: auto;"><p></p>
                     </div>
-                    <span class=" mt-3"></span>
+                    <span class=" mt-5"></span>
                 </div>
             </div>
             <c:forEach items="${ctrl_prod.listarProdutos(2,3)}" var="prod">
@@ -202,7 +196,7 @@
                         </div> 
                         <img src="img/iconesindex/keyboard.png" class="img-fluid pt-5" style="width: 180px; height: auto;"><p></p>
                     </div>
-                    <span class=" mt-3"></span>
+                    <span class=" mt-5"></span>
                 </div>
             </div>
             <c:forEach items="${ctrl_prod.listarProdutos(3,3)}" var="prod">
@@ -237,7 +231,7 @@
                         </div> 
                         <img src="img/iconesindex/mouse.png" class="img-fluid pt-5" style="width: 180px; height: auto;"><p></p>
                     </div>
-                    <span class=" mt-3"></span>
+                    <span class=" mt-5"></span>
                 </div>
             </div>
 

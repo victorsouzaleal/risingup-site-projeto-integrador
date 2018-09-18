@@ -142,15 +142,35 @@
             <!-- ---------- Galeria -----------  -->
             <div class="container-fluid pt-5 d-none d-lg-block">
                 <div class="row">
-                    <c:forEach items="${ctrl_prod.listarProdutos(1,4)}" var="prod">
-                        <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text">
-                            <img src="img/produtos/${prod.foto1}" alt="" class="d-block mx-auto" style="width : 50%; height: auto;"/>
-                            <div class="portfolio_images_overlay text-center">
-                                <h2 class="clrd-font">${prod.nome}</h2>
-                                <p class="clrd-font pt-2">${prod.descricao}</p>
-                            </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text">
+                        <img src="img/galeria/Battlefield-c.png" alt="" class="d-block mx-auto" style="width : 100%; height: auto;"/>
+                        <div class="portfolio_images_overlay text-center">
+                            <h2 class="clrd-font">Raptor</h2>
+                            <p class="clrd-font pt-2">Você é aficionado por games e precisa de uma máquina que te acompanhe, certo? Conheça o Raptor, um computador desenvolvido pela Rocketz para você destruir nos games atuais.
+</p>
                         </div>
-                    </c:forEach>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text">
+                        <img src="img/galeria/Fortnite-c.png" alt="" class="d-block mx-auto" style="width : 100%; height: auto;"/>
+                        <div class="portfolio_images_overlay text-center">
+                            <h2 class="clrd-font">Firestorm</h2>
+                            <p class="clrd-font pt-2">O Firestorm chega a sua 4ª edição! Agora ainda mais moderno, mais rápido e mais impressionante! No seu coração pulsa o poderoso e novíssimo Core i5 8400, um dos processadores.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text">
+                        <img src="img/galeria/PUBG-c.png" alt="" class="d-block mx-auto" style="width : 100%; height: auto;"/>
+                        <div class="portfolio_images_overlay text-center">
+                            <h2 class="clrd-font">Predator</h2>
+                            <p class="clrd-font pt-2">Aguce seus instintos, é hora da caça! Que tal conhecer de perto o poder dessa super-máquina? Equipada com Intel Core i7 e reunindo tudo o que há de melhor se tratando de hardware.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text">
+                        <img src="img/galeria/Witcher.png" alt="" class="d-block mx-auto" style="width : 100%; height: auto;"/>
+                        <div class="portfolio_images_overlay text-center">
+                            <h2 class="clrd-font">Veneno</h2>
+                            <p class="clrd-font pt-2">Experimente um novo nível de performance e vá onde nenhum outro computador pode chegar. Equipada com o Core i7 8700K, uma GeForce GTX 1070 Ti em conjunto com um SSD de 120GB.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -164,33 +184,33 @@
                         <img class="p-2" src="img/logo/logo.png">
                     </div>
                     <div class="col-6 col-md">
-                        <h5 class="clrd-font2">Features</h5>
+                        <h5 class="clrd-font2">Sobre</h5>
                         <ul class="list-unstyled text-small clrd-font">
                             <li><a class="text-muted" href="#quemsomos" data-toggle="modal" data-target="#quemsomos">Quem Somos</a></li>
-                            <li><a class="text-muted" href="#">Random feature</a></li>
+                            <li><a class="text-muted" href="#">Trabalhe Conosco</a></li>
 
                         </ul>
                     </div>
                     <div class="col-6 col-md">
-                        <h5 class="clrd-font2">Resources</h5>
+                        <h5 class="clrd-font2">Dúvidas</h5>
                         <ul class="list-unstyled text-small clrd-font">
-                            <li><a class="text-muted" href="#">Resource</a></li>
-                            <li><a class="text-muted" href="#">Resource name</a></li>
+                            <li><a class="text-muted" href="#">FAQ</a></li>
+                            <li><a class="text-muted" href="#">Central de Atendimento</a></li>
 
                         </ul>
                     </div>
                     <div class="col-6 col-md">
-                        <h5 class="clrd-font2">Resources</h5>
+                        <h5 class="clrd-font2">Informações</h5>
                         <ul class="list-unstyled text-small clrd-font">
-                            <li><a class="text-muted" href="#">Business</a></li>
-                            <li><a class="text-muted" href="#">Education</a></li>
+                            <li><a class="text-muted" href="#">Frete e envio</a></li>
+                            <li><a class="text-muted" href="#">Politica de Privacidade</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md">
-                        <h5 class="clrd-font2">About</h5>
+                        <h5 class="clrd-font2">Problemas</h5>
                         <ul class="list-unstyled text-small clrd-font">
-                            <li><a class="text-muted" href="#">Team</a></li>
-                            <li><a class="text-muted" href="#">Locations</a></li>
+                            <li><a class="text-muted" href="#">Entre em contato</a></li>
+                            <li><a class="text-muted" href="#">Trocas e devolução</a></li>
                         </ul>
                     </div>
                 </div>
