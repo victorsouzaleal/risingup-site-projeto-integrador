@@ -3,10 +3,10 @@
 <jsp:useBean id="ctrl_cat" class="controller.CtrlCategoria"/>
 <jsp:useBean id="ctrl_prod" class="controller.CtrlProduto"/>
 <!doctype html>
-<html lang="pt-br">
+<html>
     <head>
         <!-- Required meta tags -->
-        <meta charset="utf-8">
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
               integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -58,8 +58,8 @@
                                 <img src="img/icones_gerais/user.png" style="width: 30px; height: auto;">&nbsp;&nbsp;&nbsp;Login
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item clrd-font" href="#login" data-toggle="modal" data-target="#login">Entrar</a>
-                                <a class="dropdown-item clrd-font" href="#cadusuario" data-toggle="modal" data-target="#cadusuario">Cadastre-se</a>
+                                <a class="dropdown-item clrd-font" href="index.jsp?acao=login">Entrar</a>
+                                <a class="dropdown-item clrd-font" href="index.jsp?acao=cadastro">Cadastre-se</a>
                             </div>
                         </li>
                     </c:if>
@@ -106,31 +106,37 @@
             <!-- PAGINAS -->
             <c:choose>
                 <c:when test="${param.acao == 'carrinho'}">
-                    <c:import url="paginas/carrinho.jsp"></c:import>
+                    <c:import url="paginas/carrinho.jsp" charEncoding="utf-8"></c:import>
+                </c:when>
+                <c:when test="${param.acao == 'cadastro' && empty cliente}">
+                    <c:import url="paginas/cad_usu.html"  charEncoding="utf-8"></c:import>
+                </c:when>
+                <c:when test="${param.acao == 'login' && empty cliente}">
+                    <c:import url="paginas/login_usu.html" charEncoding="utf-8"></c:import>
                 </c:when>
                 <c:when test="${param.acao == 'alterar'}">
-                    <c:import url="paginas/tela_alterardados.jsp"></c:import>
+                    <c:import url="paginas/tela_alterardados.jsp" charEncoding="utf-8"></c:import>
                 </c:when>
                 <c:when test="${param.acao == 'categoria'}">
-                    <c:import url="paginas/tela_categoria.jsp"></c:import>
+                    <c:import url="paginas/tela_categoria.jsp" charEncoding="utf-8"></c:import>
                 </c:when>
                 <c:when test="${param.acao == 'finalizarPedido'}">
-                    <c:import url="paginas/finalizarPedido.jsp"></c:import>
+                    <c:import url="paginas/finalizarPedido.jsp" charEncoding="utf-8"></c:import>
                 </c:when>
                 <c:when test="${param.acao == 'meus_pedidos'}">
-                    <c:import url="paginas/listaPedidos.jsp"></c:import>
+                    <c:import url="paginas/listaPedidos.jsp" charEncoding="utf-8"></c:import>
                 </c:when>
                 <c:when test="${param.acao == 'detalhes'}">
-                    <c:import url="paginas/detalhesProdutos.jsp"></c:import>
+                    <c:import url="paginas/detalhesProdutos.jsp" charEncoding="utf-8"></c:import>
                 </c:when>
                 <c:when test="${param.acao == null}">
-                    <c:import url="paginas/inicio.jsp"></c:import>
+                    <c:import url="paginas/inicio.jsp" charEncoding="utf-8"></c:import>
                 </c:when>
                 <c:otherwise>
-                    <c:import url="paginas/erro.jsp"></c:import>    
+                    <c:import url="paginas/erro.jsp" charEncoding="utf-8"></c:import>    
                 </c:otherwise>
             </c:choose>
-            
+
             <!-- ----------------- Linha -----------------  -->
             <hr style="margin-top: 40px;">
             <!-- ---------- Galeria -----------  -->
@@ -191,99 +197,6 @@
             </footer>
 
             <!-- MODAIS -->
-            <!-- Modal Usuario -->
-            <div class="modal fade" id="cadusuario" tabindex="-1" role="dialog" aria-labelledby="cadusuario" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title clrd-font" id="cadusuario">Cadastro de Usuario</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-
-                        <div class="modal-body text-center">
-                            <form class="container mt-4" method="post" action="sys">
-                                <input type="hidden" name="logica" value="User">
-                                <input type="hidden" name="action" value="cad">
-                                <h2 class="text-center clrd-font">Cadastre-se agora!</h2>
-                                <div class="form-group mt-4">
-                                    <input type="text" class="form-control text-center" id="nome_usu" aria-describedby="emailHelp" name="nome" placeholder="Nome">
-                                </div>         
-                                <div class="form-group">
-                                    <input class="form-control text-center" type="text" name="data" id="datepicker"/>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control text-center" id="email_usu" aria-describedby="emailHelp" name="email" placeholder="Email">
-                                </div>               
-                                <div class="form-group">
-                                    <input type="password" class="form-control text-center" id="senha_usu" name="pws" placeholder="Senha">
-                                </div>            
-                                <div class="form-group">
-                                    <input type="password" class="form-control text-center" id="senha_usu2" name="confpws" placeholder="Confirmar Senha">
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-7">
-                                        <input type="text" class="form-control text-center" onblur="pesquisacep(this.value)" name="cep" id="cep" placeholder="CEP">
-                                    </div>  
-                                    <div class="col">
-                                        <input type="text" class="form-control text-center" placeholder="Numero" name="num">
-                                    </div>
-                                    <div class="col-12 pt-3">
-                                        <input type="text" class="form-control text-center" placeholder="Complemento" name="comp">
-                                    </div>
-                                    <div class="col-7 pt-3">
-                                        <input type="text" class="form-control text-center" id="cidade" placeholder="Cidade" name="cidade" readonly="">
-                                    </div>
-                                    <div class="col pt-3">
-                                        <input type="text" class="form-control text-center" id="uf" placeholder="UF" name="uf" readonly="">
-                                    </div>
-                                    <div class="col-12 pt-3">
-                                        <input type="text" class="form-control text-center" id="rua" placeholder="Rua" name="rua" readonly="">
-                                    </div>
-                                    <div class="col-12 pt-3">
-                                        <input type="text" class="form-control text-center" id="bairro" placeholder="Bairro" name="bairro" readonly="">
-                                    </div>
-                                </div><p></p>
-                                <button type="submit" name="cadastrar" class="btn btn-outline-secondary w-100">Cadastrar</button>
-                            </form>
-                            <p class="pt-2 text-center"><img src="img/logo/logotexpre.png"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Modal Login -->
-            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title clrd-font" id="login">Login de Usuario</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body text-center">
-                            <form class="container pt-5" action="sys" method="post">
-                                <input type="hidden" name="logica" value="User">
-                                <input type="hidden" name="action" value="login">                
-                                <h2 class="text-center clrd-font">Faça seu login</h2>                   
-                                <div class="form-group pt-3">
-                                    <input type="email" class="form-control text-center" id="email_usu" aria-describedby="emailHelp" name="email" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control text-center" id="senha_usu" name="pws" placeholder="Senha">
-                                </div>           
-                                <small class="text-muted bb clrd-font">Não tem conta?<a href="#cadusuario" data-toggle="modal" data-target="#cadusuario">Cadastre-se!</a></small>
-                                <div class="pt-2">
-                                    <button type="submit" class="btn btn-outline-secondary w-100">Entrar</button>
-                                </div>
-                            </form>
-                            <p class="pt-2 text-center"><img src="img/logo/logotexpre.png"></p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
             <!-- Modal Quem somos -->
             <div class="modal fade" id="quemsomos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -312,13 +225,13 @@
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-            <link rel="stylesheet" href="js/jquery-ui.theme.min.css">
-            <script src="js/datepicker.js"></script>
-            <script src="js/spinner.js"></script>
             <script src="js/ceps.js"></script>
             <!-- JavaScript -->
             <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/alertify.min.js"></script>
-
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+            <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+            <script src="js/datepicker.js"></script>
             <!-- AVISOS E MENSAGENS -->
             <c:import url="paginas/alertas.jsp"></c:import>
     </body>

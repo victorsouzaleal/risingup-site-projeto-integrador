@@ -30,7 +30,7 @@ public class Pedido_Log implements Logica {
         if (request.getParameter("action").equals("confirmar")) { // CONFIRMAÇÃO DO PEDIDO
             if (request.getSession().getAttribute("cliente") == null) { // SE NÃO HOUVER CLIENTE LOGADO
                 msgs.setAttribute("alertas", "Entre na sua conta para continuar a compra");
-                pagina = "index.jsp";
+                pagina = "index.jsp?acao=login";
             } else if (car == null || car.size() < 1) { // SE O CARRINHO NÃO EXISTIR OU ESTIVER VAZIO
                 msgs.setAttribute("erros", "Você não tem nenhum item para finalizar o pedido");
                 pagina = "index.jsp";
