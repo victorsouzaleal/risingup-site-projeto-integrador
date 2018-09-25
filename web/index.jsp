@@ -186,31 +186,31 @@
                     <div class="col-6 col-md">
                         <h5 class="clrd-font2">Sobre</h5>
                         <ul class="list-unstyled text-small clrd-font">
-                            <li><a class="text-muted" href="#quemsomos" data-toggle="modal" data-target="#quemsomos">Quem Somos</a></li>
-                            <li><a class="text-muted" href="#">Trabalhe Conosco</a></li>
+                            <li><a class="clrd-font" href="#quemsomos" data-toggle="modal" data-target="#quemsomos">Quem Somos</a></li>
+                            <li><a class="clrd-font" href="#">Trabalhe Conosco</a></li>
 
                         </ul>
                     </div>
                     <div class="col-6 col-md">
                         <h5 class="clrd-font2">Dúvidas</h5>
                         <ul class="list-unstyled text-small clrd-font">
-                            <li><a class="text-muted" href="#">FAQ</a></li>
-                            <li><a class="text-muted" href="#">Central de Atendimento</a></li>
+                            <li><a class="clrd-font" href="#">FAQ</a></li>
+                            <li><a class="clrd-font" href="#">Central de Atendimento</a></li>
 
                         </ul>
                     </div>
                     <div class="col-6 col-md">
                         <h5 class="clrd-font2">Informações</h5>
                         <ul class="list-unstyled text-small clrd-font">
-                            <li><a class="text-muted" href="#">Frete e envio</a></li>
-                            <li><a class="text-muted" href="#">Politica de Privacidade</a></li>
+                            <li><a class="clrd-font" href="#">Frete e envio</a></li>
+                            <li><a class="clrd-font" href="#">Politica de Privacidade</a></li>
                         </ul>
                     </div>
                     <div class="col-6 col-md">
                         <h5 class="clrd-font2">Problemas</h5>
                         <ul class="list-unstyled text-small clrd-font">
-                            <li><a class="text-muted" href="#">Entre em contato</a></li>
-                            <li><a class="text-muted" href="#">Trocas e devolução</a></li>
+                            <li><a class="clrd-font" href="#">Entre em contato</a></li>
+                            <li><a class="clrd-font" href="#">Trocas e devolução</a></li>
                         </ul>
                     </div>
                 </div>
