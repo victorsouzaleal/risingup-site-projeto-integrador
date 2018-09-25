@@ -43,7 +43,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.jsp?acao=carrinho"><img src="img/icones_gerais/store.png" style="width: 30px; height: auto;"/>
-                            <span class="badge badge-light" style="border-radius: 10px;">
+                            <span class="badge" style="background-color: #673AB7; color: #fff;border-radius: 10px;">
                                 <c:set value="0" var="car_num"></c:set>
                                 <c:forEach items="${carrinho}" var="car1">
                                     <c:set value="${car_num + 1}" var="car_num"></c:set>
