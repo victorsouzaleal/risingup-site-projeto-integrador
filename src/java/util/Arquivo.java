@@ -10,11 +10,11 @@ import java.util.UUID;
 
 public class Arquivo {
     String path_foto_produto = System.getProperty("user.home") + ""
-                + "/Documents/NetBeansProjects/Loja_JavaEE/web/img/produtos";//windows
-        //+ "/NetBeansProjects/lomoj/web/img/clientes/";//linux
+                + "/Documents/NetBeansProjects/RisingUP/web/img/produtos";//Windows
+        //+ "/NetBeansProjects/RisingUP/web/img/clientes/";//Linux
     String path_icone_cat = System.getProperty("user.home") + ""
-                + "/Documents/NetBeansProjects/Loja_JavaEE/web/img/icones_cat";//windows
-        //+ "/NetBeansProjects/lomoj/web/img/clientes/";//linux
+                + "/Documents/NetBeansProjects/RisingUP/web/img/icones_cat";//Windows
+        //+ "/NetBeansProjects/RisingUP/web/img/clientes/";//Linux
 
     public String getPath_foto_produto() {
         return path_foto_produto;
