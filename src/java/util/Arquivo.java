@@ -10,10 +10,10 @@ import java.util.UUID;
 
 public class Arquivo {
     String path_foto_produto = System.getProperty("user.home") + ""
-                + "/Documents/NetBeansProjects/RisingUP/web/img/produtos";//windows
+                + "/Documents/NetBeansProjects/RisingUP-Informatica/web/img/produtos";//windows
         //+ "/NetBeansProjects/RisingUP/web/img/clientes/";//linux
     String path_icone_cat = System.getProperty("user.home") + ""
-                + "/Documents/NetBeansProjects/RisingUP/web/img/icones_cat";//windows
+                + "/Documents/NetBeansProjects/RisingUP-Informatica/web/img/icones_cat";//windows
         //+ "/NetBeansProjects/RisingUP/web/img/clientes/";//linux
 
     public String getPath_foto_produto() {
