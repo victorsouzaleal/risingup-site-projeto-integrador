@@ -77,7 +77,7 @@ public class Carrinho implements Logica {
         if (acao.equals("remover")) {
             for (int i = 0; i < car.size(); i++) {
                 if (car.get(i).getProduto().getId() == Long.parseLong(request.getParameter("iditem"))) {
-                    car.remove(car.get(i));
+                    car.remove(i);
                 }
             }
 
