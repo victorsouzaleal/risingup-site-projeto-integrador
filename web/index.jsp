@@ -54,13 +54,7 @@
                     </li>  
                     <c:if test="${empty cliente.id}">
                         <li class="nav-item dropdown mr-4">
-                            <a class="nav-link dropdown-toggle clrd-font" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="img/icones_gerais/user.png" style="width: 30px; height: auto;">&nbsp;&nbsp;&nbsp;Login
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item clrd-font" href="index.jsp?acao=login">Entrar</a>
-                                <a class="dropdown-item clrd-font" href="index.jsp?acao=cadastro">Cadastre-se</a>
-                            </div>
+                            <a class="nav-link clrd-font d-inline-block" href="index.jsp?acao=login">Entrar</a>
                         </li>
                     </c:if>
                     <c:if test="${not empty cliente.id}">  
@@ -147,7 +141,7 @@
                         <div class="portfolio_images_overlay text-center">
                             <h2 class="clrd-font">Raptor</h2>
                             <p class="clrd-font pt-2">Você é aficionado por games e precisa de uma máquina que te acompanhe, certo? Conheça o Raptor, um computador desenvolvido pela Rocketz para você destruir nos games atuais.
-</p>
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-4 col-xs-12 single_portfolio_text">
