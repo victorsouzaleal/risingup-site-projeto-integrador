@@ -132,7 +132,7 @@
             </c:choose>
 
             <!-- ----------------- Linha -----------------  -->
-            <hr style="margin-top: 40px;">
+            <hr style="margin-top: 5px;">
             <!-- ---------- Galeria -----------  -->
             <div class="container-fluid pt-5 d-none d-lg-block">
                 <div class="row">
@@ -169,7 +169,7 @@
             </div>
 
             <!-- ----------------- Linha -----------------  -->
-            <hr style="margin-top: 40px;">
+            <hr style="margin-top: 5px;">
 
             <!-- ---------- Footer -----------  -->
             <footer class="container-fluid py-5 text-white text-center" style="background-color: #000000">
