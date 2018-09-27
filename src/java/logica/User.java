@@ -69,12 +69,12 @@ public class User implements Logica {
                     HttpSession user = request.getSession();
                     cli.setPws("");
                     user.setAttribute("cliente", cli);
-                    msgs.setAttribute("avisos", "Olá " + cli.getEmail() + "");
+                    msgs.setAttribute("avisos", "Seja Bem-Vindo " + cli.getEmail() + "");
                 } else {
-                    msgs.setAttribute("erros", "Usuario ou senha invalido");
+                    msgs.setAttribute("erros", "Usuario ou senha inválido");
                 }
             } catch (Exception ex) {
-                msgs.setAttribute("erros", "Usuario ou senha invalido");
+                msgs.setAttribute("erros", "Usuario ou senha inválido");
                 pagina = "index.jsp?acao=login";
             }
         }
