@@ -100,6 +100,10 @@
         <div class="card-body">
             <div class="card-text">
                 ${prod.especificacao}
+                <script type="text/javascript">
+                    var tb = document.querySelector("table");
+                    tb.setAttribute("class", "table");
+                </script>
             </div>
         </div>
     </div>
@@ -132,6 +136,7 @@
     .table {
         width: 100%!important;
         height: auto!important;
+        border: 0px;
     }
 
     * {
@@ -169,7 +174,7 @@
         user-select: none;
         -webkit-user-select: none;
     }
-    
+
     .next {
         cursor: pointer;
         position: absolute;

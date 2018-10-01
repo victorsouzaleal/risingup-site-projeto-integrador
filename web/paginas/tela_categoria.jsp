@@ -18,7 +18,7 @@
                         <div class="view overlay hm-white-slight">
                             <img src="img/produtos/${produto.foto1}" class="img-fluid pt-2" style="width: 180px; height: auto;"><p></p>
                             <p>${produto.nome}</p>
-                            <p style="color: #DF1818;">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" currencySymbol="R$">${produto.preco}</fmt:formatNumber></p>
+                            <p class="clrd-font2" style="font-size: 18px; font-weight: 600;">R$ <fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" currencySymbol="R$">${produto.preco}</fmt:formatNumber></p>
                             <a href="index.jsp?acao=detalhes&id=${produto.id}" class="btn btn-sm btn-outline-secondary px-5">Saiba Mais</a>
                         </div>
                         <span class=" mt-3"></span>
