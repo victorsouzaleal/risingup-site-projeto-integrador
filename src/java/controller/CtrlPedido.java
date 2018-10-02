@@ -22,6 +22,16 @@ public class CtrlPedido {
         dao.criarPedido(dados);
     }
     
+    public void editarPedido(Pedido dados) throws Exception {
+        dao = new PedidoDAO();
+        dao.edit(dados);
+    }
+    
+    public Pedido buscarPedido(Long id) throws Exception {
+        dao = new PedidoDAO();
+        return dao.buscarPedido(id);
+    }
+    
     public List<Pedido> buscarPedidoCliente(Usuario cli ) throws Exception{
         dao = new PedidoDAO();
         return dao.buscarPedidoCliente(cli);

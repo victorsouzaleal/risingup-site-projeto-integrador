@@ -65,7 +65,10 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item clrd-font" href="index.jsp?acao=meus_pedidos" >Meus Pedidos</a>
                                 <a class="dropdown-item clrd-font" href="index.jsp?acao=alterar">Alterar Dados</a>
-                                <a class="nav-link clrd-font" href="sys?logica=User&action=off">&nbsp;&nbsp;&nbsp;Sair</a>
+                                <c:if test="${cliente.admin}">
+                                    <a class="dropdown-item clrd-font" href="admin/admin.jsp">Painel Admin</a>
+                                </c:if>
+                                <a class="dropdown-item clrd-font" href="sys?logica=User&action=off">Sair</a>
                             </div>
                         </li>
 

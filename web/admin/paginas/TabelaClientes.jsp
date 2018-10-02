@@ -9,7 +9,7 @@
                 <input type="hidden" name="action" value="buscar_cli">
                 <div class="form-group">
                     <input name="b_nome" class="form-control d-inline-block" type="text" style="width: 200px"/>
-                    <button name="b_botao" class="btn btn-info d-inline-block mb-2 mt-1">Buscar</button>
+                    <button name="b_botao" class="btn btn-outline-dark text-white d-inline-block mb-2 mt-1">Buscar</button>
                 </div>
                 <div class="form-group">
                     <input type="radio" name="tipo" value="1" checked=""> Nome
@@ -18,7 +18,7 @@
                 </div>
             </form>
         </div>
-        <table class="table table-light">
+        <table class="table table-dark">
             <thead>
                 <tr>
                     <th scope="col">ID</th>

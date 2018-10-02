@@ -8,11 +8,11 @@
                 <input type="hidden" name="logica" value="Pedido_Log">
                 <input type="hidden" name="action" value="buscar">
                 <div class="form-group">
-                    <button name="b_botao" class="btn btn-info d-inline-block mb-2 mt-1">Buscar</button>
+                    <button name="b_botao" class="btn btn-outline-dark text-white d-inline-block mb-2 mt-1">Buscar</button>
                 </div>
             </form>
         </div>
-        <table class="table table-light">
+        <table class="table table-dark">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -36,7 +36,7 @@
                             <c:if test="${pedido.pago == true}"><h5 class="text-success">Pago</h3></c:if>
                             <c:if test="${pedido.pago != true}"><h5 class="text-warning">Em análise</h3></c:if>
                         </td>
-                        <td><a href="#">Alterar Status</a></td>
+                        <td><a href="../sys?logica=Pedido_Log&action=alt_status&id=${pedido.id}">Alterar Status</a></td>
                     </tr>
                 </c:forEach>   
             </tbody>

@@ -8,7 +8,7 @@
                 <input type="hidden" name="action" value="buscar">
                 <div class="form-group">
                     <input name="b_nome" class="form-control d-inline-block" type="text" style="width: 200px"/>
-                    <button name="b_botao" class="btn btn-info d-inline-block mb-2 mt-1">Buscar</button>
+                    <button name="b_botao" class="btn btn-outline-dark text-white d-inline-block mb-2 mt-1">Buscar</button>
                 </div>
                 <div class="form-group">
                     <input type="radio" name="tipo" value="1" checked=""> Nome
@@ -16,9 +16,9 @@
                     <input type="radio" name="tipo" value="3"> Recentes
                 </div>
             </form>
-            <button class="btn btn-success mb-2 mt-1"><a href="admin.jsp?acao=cad_produto" style="text-decoration: none; color: #fff;">Adicionar Produto</a></button>
+            <button class="btn btn-outline-dark  mb-2 mt-1"><a href="admin.jsp?acao=cad_produto" style="text-decoration: none; color: #fff;">Adicionar Produto</a></button>
         </div>
-        <table class="table table-light">
+        <table class="table table-dark">
             <thead>
                 <tr>
                     <th scope="col">ID</th>

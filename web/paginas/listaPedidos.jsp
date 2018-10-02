@@ -32,8 +32,8 @@
                             <td>R$<fmt:formatNumber minFractionDigits="2" currencySymbol="R$">${ped.frete}</fmt:formatNumber></td>
                             <td>R$<fmt:formatNumber minFractionDigits="2" currencySymbol="R$">${ped.total}</fmt:formatNumber></td>
                                 <td>
-                                <c:if test="${cli.pago == true}"><h6 class="text-success">Aprovado</h6></c:if>
-                                <c:if test="${cli.pago != true}"><h6 class="text-warning">Em análise</h6></c:if>       
+                                <c:if test="${ped.pago == true}"><h6 class="text-success">Aprovado</h6></c:if>
+                                <c:if test="${ped.pago != true}"><h6 class="text-warning">Em análise</h6></c:if>       
                                 </td>
                             </tr>
                     </c:forEach>      

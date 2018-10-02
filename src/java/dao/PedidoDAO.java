@@ -38,9 +38,49 @@ public class PedidoDAO extends ConectaJPA {
             }
         }
     }
-    
+
+    //Alterar 
+    public void edit(Pedido dados) throws Exception {
+        et = em.getTransaction();
+        try {
+            et.begin();
+            dados = em.merge(dados);
+            et.commit();
+        } catch (Exception ex) {
+            try {
+                et.rollback();
+            } catch (Exception re) {
+
+            }
+            String msg = ex.getLocalizedMessage();
+            if (msg == null || msg.length() == 0) {
+                Long id = dados.getId();
+                if (buscarPedido(id) == null) {
+
+                }
+            }
+            throw ex;
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+
+    //Listar pedido por ID
+    public Pedido buscarPedido(Long id) throws Exception {
+        try {
+            Query query = em.createQuery("select p from Pedido as p WHERE p.id = :id");
+            query.setParameter("id", id);
+            Pedido dadoss = (Pedido) query.getSingleResult();
+            return dadoss;
+        } finally {
+            em.close();
+        }
+    }
+
     //Listar pedidos de um cliente
-        public List<Pedido> buscarPedidoCliente(Usuario cli) throws Exception {
+    public List<Pedido> buscarPedidoCliente(Usuario cli) throws Exception {
         try {
             Query query = em.createQuery("select p from Pedido as p , Usuario c WHERE p.cliente.id = c.id and c.id = :dados");
             query.setParameter("dados", cli.getId());
@@ -83,6 +123,7 @@ public class PedidoDAO extends ConectaJPA {
             em.close();
         }
     }
+
     //Buscar todos por nomes
     public List<Pedido> findPedidos() {
         try {

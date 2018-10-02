@@ -75,6 +75,15 @@ public class Pedido_Log implements Logica {
             msgs.setAttribute("avisos", "Pedido realizado com sucesso no dia " + data + " no valor de " + total);
             pagina = "index.jsp";
         }
+        
+        if(request.getParameter("action").equals("alt_status")){
+            CtrlPedido ctrlPedido = new CtrlPedido();
+            Long id_ped = Long.parseLong(request.getParameter("id"));
+            Pedido ped = ctrlPedido.buscarPedido(id_ped);
+            ped.setPago((ped.isPago() != true));
+            ctrlPedido.editarPedido(ped);
+            pagina = "admin/admin.jsp?acao=lista_ped";
+        }
 
         if (request.getParameter("action").equals("buscar")) {
             CtrlPedido ctrlPedido = new CtrlPedido();

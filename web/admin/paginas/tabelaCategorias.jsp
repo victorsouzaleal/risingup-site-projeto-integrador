@@ -8,12 +8,12 @@
                 <input type="hidden" name="action" value="buscar">
                 <div class="form-group">
                     <input name="b_nome" class="form-control d-inline-block" type="text" style="width: 200px"/>
-                    <button name="b_botao" class="btn btn-info d-inline-block mb-2 mt-1">Buscar</button>
+                    <button name="b_botao" class="btn btn-outline-dark text-white d-inline-block mb-2 mt-1">Buscar</button>
                 </div>
             </form>
-            <button class="btn btn-success mb-2 mt-1"><a href="admin.jsp?acao=cad_cat" style="text-decoration: none; color: #fff;">Adicionar Categoria</a></button>
+            <button class="btn btn-outline-dark text-white mb-2 mt-1"><a href="admin.jsp?acao=cad_cat" style="text-decoration: none; color: #fff;">Adicionar Categoria</a></button>
         </div>
-        <table class="table table-light">
+        <table class="table table-dark">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -26,7 +26,7 @@
                     <tr>
                         <th scope="row">${cat.id}</th>
                         <td>${cat.nome}</td>
-                        <td><a href="admin.jsp?acao=edit_cat&id=${cat.id}">Editar</a> <a href="#">Remover</a></td>
+                        <td><a href="admin.jsp?acao=edit_cat&id=${cat.id}">Editar</a></td>
                     </tr>
                 </c:forEach>   
             </tbody>

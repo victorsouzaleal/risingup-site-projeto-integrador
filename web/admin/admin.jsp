@@ -28,10 +28,10 @@
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/bootstrap.min.css"/>
         <title>ADMIN</title>
     </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <body style="background-color: #673AB7;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="index.jsp">Painel Admin</a>
+                <a class="navbar-brand" href="index.jsp">Rising UP - ADMIN</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -47,9 +47,10 @@
                                 Gerenciar
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="admin.jsp?acao=lista_cat">Categorias</a>
                                 <a class="dropdown-item" href="admin.jsp?acao=lista_prod">Produtos</a>
                                 <a class="dropdown-item" href="admin.jsp?acao=lista_cli">Usuarios</a>
-                                <a class="dropdown-item" href="#">Pedidos</a>
+                                <a class="dropdown-item" href="admin.jsp?acao=lista_ped">Pedidos</a>
                             </div>
                         </li>
                     </ul>
@@ -92,10 +93,11 @@
                 </c:when>
                 <c:otherwise>
                     <div class="container text-center mt-5">
-                        <button class="btn btn-success"><a href="admin.jsp?acao=cad_produto" style="text-decoration: none; color: #fff;">Cadastro de Produtos</a></button>
-                        <button class="btn btn-success"><a href="admin.jsp?acao=lista_cat" style="text-decoration: none; color: #fff;">Categorias</a></button>
-                        <button class="btn btn-success"><a href="admin.jsp?acao=lista_prod" style="text-decoration: none; color: #fff;">Relatório de Produtos</a></button>
-                        <button class="btn btn-success"><a href="admin.jsp?acao=lista_cli" style="text-decoration: none; color: #fff;">Relatório de Clientes</a></button>
+                        <h3 class="text-white mb-4">Opções :</h3>
+                        <button class="btn btn-outline-dark text-white mb-2"><a href="admin.jsp?acao=lista_cat" style="text-decoration: none; color: #fff;">Gerenciar Categorias</a></button><br>
+                        <button class="btn btn-outline-dark text-white mb-2"><a href="admin.jsp?acao=lista_prod" style="text-decoration: none; color: #fff;">Gerenciar Produtos</a></button><br>
+                        <button class="btn btn-outline-dark text-white mb-2"><a href="admin.jsp?acao=lista_cli" style="text-decoration: none; color: #fff;">Gerenciar Clientes</a></button><br>
+                        <button class="btn btn-outline-dark text-white mb-2"><a href="admin.jsp?acao=lista_ped" style="text-decoration: none; color: #fff;">Gerenciar Pedidos</a></button><br>
                     </div>
                 </c:otherwise>
             </c:choose>

@@ -76,7 +76,7 @@
                                 <hr>
                         </c:forEach>
                     </div>
-                    <a class="text-muted ml-4" href="#">&larr; Escolher mais produtos</a>
+                    <a class="text-muted ml-4" href="index.jsp">&larr; Escolher mais produtos</a>
                     <span class="pt-4"></span>
                 </div>
             </div>
