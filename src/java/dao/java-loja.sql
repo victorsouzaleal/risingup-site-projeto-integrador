@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 05-Out-2018 às 02:01
--- Versão do servidor: 10.1.25-MariaDB
--- PHP Version: 7.1.7
+-- Generation Time: 05-Out-2018 às 13:53
+-- Versão do servidor: 10.1.35-MariaDB
+-- versão do PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -156,7 +156,7 @@ INSERT INTO `produto` (`ID`, `ATIVO`, `DESCRICAO`, `ESPECIFICACAO`, `FOTO1`, `FO
 (10, 1, 'Texto para galeria', '<table style=\"border-collapse: collapse; width: 100%;\" border=\"1\">\r\n<tbody>\r\n<tr>\r\n<td style=\"width: 50%;\">Marca</td>\r\n<td style=\"width: 50%;\">Razer</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">Modelo</td>\r\n<td style=\"width: 50%;\">Naga Epic Chroma</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">Sensor</td>\r\n<td style=\"width: 50%;\">Laser</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">Tipo</td>\r\n<td style=\"width: 50%;\">Mouse Sem Fio</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">Tipo de Conex&atilde;o</td>\r\n<td style=\"width: 50%;\">USB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">DPI</td>\r\n<td style=\"width: 50%;\">8.200</td>\r\n</tr>\r\n</tbody>\r\n</table>', '63de1836-2cfc-425b-a4af-9ffeaed380d0.jpg', '7f06f567-f317-4f48-be18-589c520809cd.jpg', 'd0bbccb7-27e4-4024-9afd-709fc73ad89e.jpg', 'Razer Epic Chroma', 'Em qualquer MMO, quanto mais feitiços você tiver à disposição, maior torna-se sua vantagem. Agora permitindo que você mapeie e acesse mais habilidades.', 699, 222, 4),
 (11, 1, 'Texto para galeria', '<table style=\"border-collapse: collapse; width: 100%;\" border=\"1\">\r\n<tbody>\r\n<tr>\r\n<td style=\"width: 50%;\">Marca</td>\r\n<td style=\"width: 50%;\">Razer</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">Modelo</td>\r\n<td style=\"width: 50%;\">DeathAdder Elite Overwatch</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">Sensor</td>\r\n<td style=\"width: 50%;\">&Oacute;ptico 4G</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">Tipo</td>\r\n<td style=\"width: 50%;\">Mouse com fio</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">Tipo de Conex&atilde;o</td>\r\n<td style=\"width: 50%;\">USB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">DPI</td>\r\n<td style=\"width: 50%;\">16.000</td>\r\n</tr>\r\n</tbody>\r\n</table>', '1da76932-c566-4252-81f1-c56015835561.jpg', 'd547c68a-bf8d-4914-bce2-8f7f3d3c3cb0.jpg', 'edb558c7-5666-4fbb-9b97-beedc1b71dab.jpeg', 'Overwatch Elite', 'Para comemorar o aniversário de Overwatch, o mouse de jogo preferido dos agentes Overwatch vem não só com uma nova pele, mas características melhoradas.', 349, 200, 4),
 (12, 1, 'Texto para galeria', '<table style=\"border-collapse: collapse; width: 100%;\" border=\"1\">\r\n<tbody>\r\n<tr>\r\n<td style=\"width: 50%;\">Marca</td>\r\n<td style=\"width: 50%;\">Logitech</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">Modelo</td>\r\n<td style=\"width: 50%;\">G502</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">Sensor</td>\r\n<td style=\"width: 50%;\">&Oacute;ptico</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">Tipo</td>\r\n<td style=\"width: 50%;\">Mouse com fio</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">Tipo de Conex&atilde;o</td>\r\n<td style=\"width: 50%;\">USB</td>\r\n</tr>\r\n<tr>\r\n<td style=\"width: 50%;\">DPI</td>\r\n<td style=\"width: 50%;\">12.000</td>\r\n</tr>\r\n</tbody>\r\n</table>', 'f00d7caa-7838-4467-a03b-b98149c4a427.jpg', 'ee0d8e9c-388c-424f-9135-6c0e08f54683.jpg', '3ba994e6-529f-4a5f-933b-cbe06ce1aa1f.jpg', 'Logitech Spectrum', ' CALIBRADO. AFINADO. DESTRUIDOR!** Proteus Core – a solução para qualquer desafio. FPS, MMO, RTS, seja qual for o estilo de jogo, superfície ou competição.', 199, 200, 4),
-(13, 1, 'oi', '<table class=\"table\" border=\"1\">\r\n<tbody>\r\n<tr>\r\n<td>Marca</td>\r\n<td>Logitech</td>\r\n</tr>\r\n<tr>\r\n<td>Modelo</td>\r\n<td>G503</td>\r\n</tr>\r\n<tr>\r\n<td>Sensor</td>\r\n<td>&Oacute;ptico</td>\r\n</tr>\r\n<tr>\r\n<td>Tipo</td>\r\n<td>Mouse com fio</td>\r\n</tr>\r\n<tr>\r\n<td>Tipo de Conex&atilde;o</td>\r\n<td>USB</td>\r\n</tr>\r\n<tr>\r\n<td>DPI</td>\r\n<td>12.000</td>\r\n</tr>\r\n</tbody>\r\n</table>', 'ea91867e-4925-4847-890b-ff4ead2355ef.jpg', '1c58bd2a-465c-4aa3-b7c3-e110c968e49c.jpg', '72d24636-78bd-4d5a-bdbb-e9a3faae9d18.jpg', 'LOGITECH PRODIGY', 'O novo mouse Prodigy G403 é capaz de atender o mais exigente jogador no quesito performance e desempenho.', 100, 2, 4),
+(13, 1, 'oi', '<table class=\"table\" border=\"1\">\r\n<tbody>\r\n<tr>\r\n<td>Marca</td>\r\n<td>Logitech</td>\r\n</tr>\r\n<tr>\r\n<td>Modelo</td>\r\n<td>G503</td>\r\n</tr>\r\n<tr>\r\n<td>Sensor</td>\r\n<td>&Oacute;ptico</td>\r\n</tr>\r\n<tr>\r\n<td>Tipo</td>\r\n<td>Mouse com fio</td>\r\n</tr>\r\n<tr>\r\n<td>Tipo de Conex&atilde;o</td>\r\n<td>USB</td>\r\n</tr>\r\n<tr>\r\n<td>DPI</td>\r\n<td>12.000</td>\r\n</tr>\r\n</tbody>\r\n</table>', 'ea91867e-4925-4847-890b-ff4ead2355ef.jpg', '1c58bd2a-465c-4aa3-b7c3-e110c968e49c.jpg', '72d24636-78bd-4d5a-bdbb-e9a3faae9d18.jpg', 'LOGITECH G403', 'O novo mouse Prodigy G403 é capaz de atender o mais exigente jogador no quesito performance e desempenho.', 100, 2, 4),
 (14, 1, 'oioi', '<table class=\"table\" border=\"1\">\r\n<tbody>\r\n<tr>\r\n<td>Marca</td>\r\n<td>CORSAIR</td>\r\n</tr>\r\n<tr>\r\n<td>Modelo</td>\r\n<td>K55 RGB</td>\r\n</tr>\r\n<tr>\r\n<td>Tipo de teclado</td>\r\n<td>Membrana</td>\r\n</tr>\r\n<tr>\r\n<td>Tipo de conex&atilde;o</td>\r\n<td>USB 2.0</td>\r\n</tr>\r\n<tr>\r\n<td>Velocidade do USB</td>\r\n<td>Velocidade m&aacute;xima</td>\r\n</tr>\r\n<tr>\r\n<td>Ilumina&ccedil;&atilde;o</td>\r\n<td>RGB</td>\r\n</tr>\r\n</tbody>\r\n</table>', 'a14524cc-2c20-4a98-87ad-90c54e67966e.jpg', '4a67969b-cd93-4a20-a15b-a8b1eab17261.png', 'bc8d1309-86c7-4a30-9984-7b6b601adfff.png', 'CORSAIR K55', 'O K55 RGB é o primeiro passo para melhorar o desempenho. Modos intuitivos de luz de fundo RGB, 6 teclas macro dedicadas, anti-ghosting multi-key e controles de mídia on-the-fly fornecem a personalização e controle essenciais para a vitória.', 300, 3, 3),
 (15, 1, 'oioioi', '<table class=\"table\" border=\"1\">\r\n<tbody>\r\n<tr>\r\n<td>Modelo</td>\r\n<td>TITAN PRO-202</td>\r\n</tr>\r\n<tr>\r\n<td>Marca</td>\r\n<td>MSI</td>\r\n</tr>\r\n<tr>\r\n<td>Cor</td>\r\n<td>Preto</td>\r\n</tr>\r\n<tr>\r\n<td>Sistema Operacional</td>\r\n<td>Windows 10 Home</td>\r\n</tr>\r\n<tr>\r\n<td>Polegadas da Tela</td>\r\n<td>17.3\"</td>\r\n</tr>\r\n<tr>\r\n<td>Processador</td>\r\n<td>Intel Core i7</td>\r\n</tr>\r\n</tbody>\r\n</table>', 'c585690e-7064-4ac7-afd0-fcb068312fd3.png', '4827a63b-d235-41cf-9ab4-5353651827d3.png', 'b53c03a0-cba5-495c-abea-8e0e5028baeb.png', 'MSI GT75VR TITAN', 'Intel Core i7 - RAM 16GB - NVIDIA GTX 1080 com 4GB - HD 3TB - Tela 17.3\"', 7000, 7, 2),
 (16, 1, 'oioiooioi', '<table class=\"table\" border=\"1\">\r\n<tbody>\r\n<tr>\r\n<td>Processador</td>\r\n<td>Intel Core i5-7600</td>\r\n</tr>\r\n<tr>\r\n<td>Placa de v&iacute;deo</td>\r\n<td>GeForce GTX 1070 8 GB</td>\r\n</tr>\r\n<tr>\r\n<td>Mem&oacute;ria RAM</td>\r\n<td>16GB DDR4-2400 (2x 8GB)</td>\r\n</tr>\r\n<tr>\r\n<td>SSD</td>\r\n<td>Samsung 860 EVO de 250 GB</td>\r\n</tr>\r\n<tr>\r\n<td>HD</td>\r\n<td>1 TB Seagate BarraCuda</td>\r\n</tr>\r\n<tr>\r\n<td>Fonte de alimenta&ccedil;&atilde;o</td>\r\n<td>500W</td>\r\n</tr>\r\n</tbody>\r\n</table>', 'a789aa9b-2140-437f-b2c8-1f0cd33ebcac.jpg', '0565180d-ce99-4bfd-8053-63bfd31bcc6f.jpg', '5f8016cf-9ccd-4061-b9c1-f3332f693baf.jpg', 'Millenium', 'Intel Core i5-7600 - SSD 250GB + HD 1 TB - RAM 16GB - Nvidia Geforce GTX 1070', 3200, 2, 1);
@@ -268,21 +268,25 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `categoria`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `item_pedido`
 --
 ALTER TABLE `item_pedido`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- Constraints for dumped tables
 --
